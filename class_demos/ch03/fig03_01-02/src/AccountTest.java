@@ -9,10 +9,10 @@ public class AccountTest {
         Scanner input = new Scanner(System.in);
 
         // create an Account object and assign it to myAccount
-        Account myAccount = new Account();
+         Account myAccount = new Account();
 
         // display initial value of name (null)
-        System.out.printf("Initial name is: %s%n%n", myAccount.getName());
+        System.out.printf("Initial name is: %n%s%n", myAccount.getName());
 
         // prompt for and read name
         System.out.println("Please enter the name:");
