@@ -3,7 +3,7 @@
  */
 public class Easter {
     private int year;
-    private
+
 
 
 
