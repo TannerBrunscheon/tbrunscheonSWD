@@ -15,6 +15,8 @@ public class Message {
     private int[] key;
     private int tempKey;
     private String strKey;
+    final char  alphabet [] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
+
 
     public Message() {
         System.out.printf("Please Enter Your Message: %n%n");
@@ -29,14 +31,14 @@ public class Message {
         for (int i = 0; i<messageStr.length(); i++) {
             key[i] = rando.nextInt(36);
             for (int j = 0; j<36; j++){
-                if(messageChar[i]==OTPMenu.alphabet[j]) {
-                    if(j+key[i]>35){
-                        tempKey = (j+key[i])%35;
-                        encryptedChar[i] = OTPMenu.alphabet[tempKey];
+                if(messageChar[i]==alphabet[j]) {
+                    if((j+key[i])>35){
+                        tempKey = (j+key[i])%36;
+                        encryptedChar[i] = alphabet[tempKey];
                         j=36;
                     }
                     else{
-                        encryptedChar[i] = OTPMenu.alphabet[j+key[i]];
+                        encryptedChar[i] = alphabet[j+key[i]];
                         j=36;
                     }
                 }
@@ -46,14 +48,14 @@ public class Message {
     public void decryptMessage(){
         for (int i = 0; i<messageStr.length(); i++) {
             for (int j = 0; j<36; j++){
-                if(encryptedChar[i]==OTPMenu.alphabet[j]) {
-                    if(j-key[i]<0){
-                       tempKey = (j-key[i])%35*-1;
-                       encryptedChar[i] = OTPMenu.alphabet[tempKey];
+                if(encryptedChar[i]== alphabet[j]) {
+                    if((j-key[i])<0){
+                       tempKey = ((j-key[i])+36);
+                       encryptedChar[i] = alphabet[tempKey];
                        j=36;
                     }
                     else{
-                       encryptedChar[i] = OTPMenu.alphabet[j-key[i]];
+                       encryptedChar[i] = alphabet[j-key[i]];
                        j=36;
                    }
                }
