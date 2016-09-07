@@ -31,7 +31,7 @@ public class Message {
         encryptedChar = messageChar;
 
         for (int i = 0; i<messageStr.length(); i++) {
-            key[i] = rando.nextInt(36);
+            key[i] = rando.nextInt(35);
             for (int j = 0; j<36; j++){
                 if(messageChar[i]==ALPHABET[j]) {
                     if((j+key[i])>35){
