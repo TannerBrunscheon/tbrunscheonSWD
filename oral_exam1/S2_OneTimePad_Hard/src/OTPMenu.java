@@ -16,15 +16,14 @@ public class OTPMenu {
                 case 1:{
                     System.out.printf("Please enter your key value: ");
                     userMessage.encryptMessage();
-                    System.out.printf("Input Message:  " + userMessage.getUnencryptedMessage());
-                    System.out.printf("%nEncrypted Message:  " + userMessage.getEncryptedMessage() + "%n");
-                    System.out.printf("Key:  " + userMessage.getKey() + "%n%n");
+                    System.out.printf("Input Message:  " + userMessage.getUnencryptedMessage() + "%n");
+                    System.out.printf("Encrypted Message:  " + userMessage.getEncryptedMessage() + "%n");
+                    System.out.printf("Key:  " + userMessage.getKey() + "%n");
                     break;
                 }
                 case 2:{
-                    System.out.printf("Please enter your key value: ");
-                    System.out.printf("%nEncrypted Message:  " + userMessage.getEncryptedMessage());
-                    System.out.printf("%nKey:  " + userMessage.getKey() + "%n%n");
+                    System.out.printf("Encrypted Message:  " + userMessage.getEncryptedMessage() + "%n");
+                    System.out.printf("Key:  " + userMessage.getKey() + "%n%n");
                     userMessage.decryptMessage();
                     System.out.printf("%nDecrypted Message:  " + userMessage.getDecryptedMessage()+ "%n");
                     break;
