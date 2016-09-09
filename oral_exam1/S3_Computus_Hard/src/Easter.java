@@ -20,7 +20,6 @@ public class Easter {
     public String getMonth() {
         return MONTH[dayMonth[1]];
     }
-
     public int getDay(){
         return dayMonth[0];
     }

@@ -10,10 +10,13 @@ public class OTPMenu {
 
     public void runMenu(){
         while(menuChoice>0 && menuChoice<3){
-            System.out.printf("Please Choose From the Following Options: %n1. Encrypt %n2. Decrypt %nInsert any other number to quit: ");
+            System.out.printf("Please Choose From the Following Options: %n1. Reset message %n2. Encrypt %n3. Decrypt %nInsert any other number to quit: ");
             menuChoice =input.nextByte();
             switch (menuChoice){
                 case 1:{
+                    userMessage.setMessage();
+                }
+                case 2:{
                     System.out.printf("Please enter your key value: ");
                     userMessage.encryptMessage();
                     System.out.printf("Input Message:  " + userMessage.getUnencryptedMessage() + "%n");
@@ -21,7 +24,7 @@ public class OTPMenu {
                     System.out.printf("Key:  " + userMessage.getKey() + "%n");
                     break;
                 }
-                case 2:{
+                case 3:{
                     System.out.printf("Encrypted Message:  " + userMessage.getEncryptedMessage() + "%n");
                     System.out.printf("Key:  " + userMessage.getKey() + "%n%n");
                     userMessage.decryptMessage();

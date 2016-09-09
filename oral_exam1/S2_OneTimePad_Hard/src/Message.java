@@ -26,6 +26,7 @@ public class Message {
         key = new int[messageStr.length()];
     }
 
+
     public void encryptMessage(){
         messageChar = messageStr.toCharArray();
         encryptedChar = messageChar;
@@ -66,6 +67,11 @@ public class Message {
        }
     }
 
+    public void setMessage() {
+        System.out.printf("Please Enter Your Message: ");
+        messageStr = input.nextLine();
+        messageStr = messageStr.toUpperCase();
+    }
     public String getUnencryptedMessage() {
         return messageStr;
     }
