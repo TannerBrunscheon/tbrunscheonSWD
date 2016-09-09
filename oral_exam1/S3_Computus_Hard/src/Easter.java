@@ -6,7 +6,7 @@ import java.time.Month;
 public class Easter {
     private int year;
     private int[] dayMonth;
-    final static String MONTH[] = {"January","February","March","April","May","June","July","August","September","October","November","December"};
+    private static final String[] MONTH = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
 
 
     public Easter(int year) {

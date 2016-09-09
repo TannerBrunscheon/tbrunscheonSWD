@@ -16,21 +16,20 @@ public class Message {
     private int[] key;
     private int tempKey;
     private String strKey;
-    final char  ALPHABET [] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
+    private static final char  ALPHABET [] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
 
 
     public Message() {
         System.out.printf("Please Enter Your Message: ");
         messageStr = input.nextLine();
         messageStr = messageStr.toUpperCase();
-        key = new int[messageStr.length()];
     }
 
 
     public void encryptMessage(){
         messageChar = messageStr.toCharArray();
-        encryptedChar = messageChar;
-
+        encryptedChar = new char[messageStr.length()];
+        key = new int[messageStr.length()];
         for (int i = 0; i<messageStr.length(); i++) {
             key[i] = rando.nextInt(35);
             for (int j = 0; j<36; j++){
@@ -49,7 +48,7 @@ public class Message {
         }
     }
     public void decryptMessage(){
-        decryptedChar = encryptedChar;
+        decryptedChar = new char[messageStr.length()];
         for (int i = 0; i<messageStr.length(); i++) {
             for (int j = 0; j<36; j++){
                 if(encryptedChar[i]== ALPHABET[j]) {
