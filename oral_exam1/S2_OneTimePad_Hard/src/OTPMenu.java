@@ -4,9 +4,9 @@
 import java.util.Scanner;
 public class OTPMenu {
     private byte menuChoice = 1;
-    Scanner input = new Scanner(System.in);
-    private Message userMessage = new Message();
 
+    private Message userMessage = new Message();
+    Scanner input = new Scanner(System.in);
     public void runMenu(){
         while(menuChoice>0 && menuChoice<4){
             System.out.printf("Please Choose From the Following Options: %n1. Reset message %n2. Encrypt %n3. Decrypt %nInsert any other number to quit: ");

@@ -27,7 +27,6 @@ public class Message {
 
 
     public void encryptMessage(){
-        messageChar = messageStr.toCharArray();
         encryptedChar = new char[messageStr.length()];
         key = new int[messageStr.length()];
         for (int i = 0; i<messageStr.length(); i++) {
