@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Message {
     Scanner input = new Scanner(System.in);
     private String messageStr;
-    private char[] messageChar;
+
     private char[] encryptedChar;
     private char[] decryptedChar;
     private Random rando = new Random();
@@ -32,7 +32,7 @@ public class Message {
         for (int i = 0; i<messageStr.length(); i++) {
             key[i] = rando.nextInt(35);
             for (int j = 0; j<36; j++){
-                if(messageChar[i]==ALPHABET[j]) {
+                if(messageStr.charAt(i)==ALPHABET[j]) {
                     if((j+key[i])>35){
                         tempKey = (j+key[i])%36;
                         encryptedChar[i] = ALPHABET[tempKey];

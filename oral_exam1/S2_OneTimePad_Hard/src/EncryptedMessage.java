@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  * Created by tbrunscheon on 9/9/16.
@@ -9,6 +10,7 @@ public class EncryptedMessage {
     private char[] encryptedChar;
     private Random rando = new Random();
     private int[] key;
+    private String outKey
     private int tempKey;
 
 
@@ -57,7 +59,8 @@ public class EncryptedMessage {
         return encrypted;
     }
 
-    public int[] getKey() {
-        return key;
+    public String getKey() {
+        key =
+        return key.toString();
     }
 }
