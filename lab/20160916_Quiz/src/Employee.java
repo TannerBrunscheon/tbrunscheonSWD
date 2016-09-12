@@ -12,8 +12,8 @@ public class Employee {
                     Date hireDate) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.birthDate = new Date(birthDate.getMonth(),birthDate.getDay(),birthDate.getYear());
-        this.hireDate = new Date(hireDate.getMonth(),hireDate.getDay(),birthDate.getYear());
+        this.birthDate = new Date(birthDate);
+        this.hireDate = new Date(hireDate);
     }
 
     // convert Employee to String format
