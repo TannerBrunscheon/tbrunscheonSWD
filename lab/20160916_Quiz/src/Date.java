@@ -58,6 +58,10 @@ public class Date {
     public void setYear(int year) {
         this.year = year;
     }
+    public Date(Date rhs)
+    {
+        this(rhs.getMonth(),rhs.getDay(),rhs.getYear());
+    }
 
     // return a String of the form month/day/year
     public String toString() {

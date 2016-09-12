@@ -12,14 +12,17 @@ public class Employee {
                     Date hireDate) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.birthDate = birthDate;
-        this.hireDate = hireDate;
+        this.birthDate = new Date(birthDate.getMonth(),birthDate.getDay(),birthDate.getYear());
+        this.hireDate = new Date(hireDate.getMonth(),hireDate.getDay(),birthDate.getYear());
     }
 
     // convert Employee to String format
     public String toString() {
         return String.format("%s, %s  Hired: %s  Birthday: %s",
                 lastName, firstName, hireDate, birthDate);
+    }
+    public void changeBirthDate(int year){
+        birthDate.setYear(year);
     }
 } // end class Employee
 

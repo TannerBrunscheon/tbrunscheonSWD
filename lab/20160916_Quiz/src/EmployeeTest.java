@@ -9,10 +9,11 @@ public class EmployeeTest {
         Employee employee2= new Employee("Tanner", "Brunscheon", new Date(1,21,1997), new Date(8,8,2012));
         birth = new Date(8,8,1988);
         hire = new Date(9,11,2001);
-        Employee employee3= new Employee("Cassie", "Red", birth, hire);
         System.out.println(employee2);
         System.out.println(employee1);
-        System.out.println(employee3);
+        employee1.changeBirthDate(2016);
+        System.out.println(employee1);
+
     }
 } // end class EmployeeTest
 
