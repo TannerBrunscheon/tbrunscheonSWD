@@ -35,11 +35,36 @@ public class Date {
                 "Date object constructor for date %s%n", this);
     }
 
+    public int getMonth() {
+        return month;
+    }
+
+    public void setMonth(int month) {
+        this.month = month;
+    }
+
+    public int getDay() {
+        return day;
+    }
+
+    public void setDay(int day) {
+        this.day = day;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
     // return a String of the form month/day/year
     public String toString() {
         return String.format("%d/%d/%d", month, day, year);
     }
 } // end class Date
+
 
 
 /**************************************************************************

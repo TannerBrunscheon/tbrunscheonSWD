@@ -5,11 +5,14 @@ public class EmployeeTest {
     public static void main(String[] args) {
         Date birth = new Date(7, 24, 1949);
         Date hire = new Date(3, 12, 1988);
-        Employee employee = new Employee("Bob", "Blue", birth, hire);
-
+        Employee employee1 = new Employee("Bob", "Blue", birth, hire);
         Employee employee2= new Employee("Tanner", "Brunscheon", new Date(1,21,1997), new Date(8,8,2012));
+        birth = new Date(8,8,1988);
+        hire = new Date(9,11,2001);
+        Employee employee3= new Employee("Cassie", "Red", birth, hire);
         System.out.println(employee2);
-        System.out.println(employee);
+        System.out.println(employee1);
+        System.out.println(employee3);
     }
 } // end class EmployeeTest
 
