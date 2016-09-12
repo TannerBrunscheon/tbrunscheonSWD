@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -10,7 +11,7 @@ public class EncryptedMessage {
     private char[] encryptedChar;
     private Random rando = new Random();
     private int[] key;
-    private String outKey
+    private String outKey;
     private int tempKey;
 
 
@@ -59,8 +60,7 @@ public class EncryptedMessage {
         return encrypted;
     }
 
-    public String getKey() {
-        key =
-        return key.toString();
+    public int[] getKey() {
+        return key;
     }
 }

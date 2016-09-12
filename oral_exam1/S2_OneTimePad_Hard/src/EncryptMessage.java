@@ -9,7 +9,7 @@ public class EncryptMessage {
         String messageStr;
         Scanner input = new Scanner(System.in);
         String encrypted;
-        String key;
+        int[] key;
 
 
         System.out.printf("Please Enter Your Message: ");
@@ -20,7 +20,9 @@ public class EncryptMessage {
         encrypted = message.getEncrypted();
         key = message.getKey();
         System.out.println(encrypted);
-        System.out.println(key);
+        for (int i=0; i<key.length;i++) {
+            System.out.printf(key[i]+ " ");
+        }
 
     }
 
