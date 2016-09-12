@@ -1,3 +1,6 @@
+import sun.plugin.javascript.navig.Array;
+
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -20,7 +23,7 @@ public class DecryptMessage {
         key= new int[messageStr.length()];
         keyArray = keyTemp.split(" ");
 
-        for (int i=0;i<keyTemp.length();i++)
+        for (int i = 0; i< keyArray.length; i++)
         {
             key[i] = Integer.parseInt(keyArray[i]);
         }
