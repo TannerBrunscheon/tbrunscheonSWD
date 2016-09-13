@@ -26,38 +26,33 @@ public class EncryptedMessage {
 
     private void encryptMessage() {
         encryptedChar = new char[messageStr.length()];
-
         key = new int[messageStr.length()];
-
         for (int i = 0; i<messageStr.length(); i++) {
             if (messageStr.charAt(i) != ' '){
-                key[i] = rando.nextInt(35);
                 for (int j = 0; j < 36; j++) {
                     if (messageStr.charAt(i) == ALPHABET[j]) {
-                        if ((j + key[i]) > 35) {
+                        key[i] = rando.nextInt(34)+1;
+                        if ((j + key[i]) > 35){
                             tempKey = (j + key[i]) % 36;
                             encryptedChar[i] = ALPHABET[tempKey];
                             j = 36;
                         }
-                        else if (messageStr.charAt(i) == ' '){
-
-                            j = 36;
-                        }
-                        else
-                        {
+                        else{
                             encryptedChar[i] = ALPHABET[j + key[i]];
                             j = 36;
                         }
                     }
                 }
             }
+            else {
+                encryptedChar[i] = ' ';
+            }
         }
     }
 
-    public String getEncrypted() {
+    public char[] getEncrypted() {
         this.encryptMessage();
-        String encrypted = new String(encryptedChar);
-        return encrypted;
+        return encryptedChar;
     }
 
     public int[] getKey() {

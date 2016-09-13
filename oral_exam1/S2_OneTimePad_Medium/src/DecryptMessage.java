@@ -20,8 +20,9 @@ public class DecryptMessage {
         messageStr = input.nextLine();
         System.out.printf("Please Enter Your Key: ");
         keyTemp = input.nextLine();
-        key= new int[messageStr.length()];
+
         keyArray = keyTemp.split(" ");
+        key= new int[keyArray.length];
 
         for (int i = 0; i< keyArray.length; i++)
         {

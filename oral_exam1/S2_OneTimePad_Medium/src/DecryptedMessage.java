@@ -19,16 +19,21 @@ public class DecryptedMessage {
         decryptedChar = new char[messageStr.length()];
         for (int i = 0; i<messageStr.length(); i++) {
             for (int j = 0; j<36; j++){
-                if(messageStr.charAt(i) == ALPHABET[j]) {
-                    if((j-key[i])<0){
-                        tempKey = ((j-key[i])+36);
-                        decryptedChar[i] = ALPHABET[tempKey];
-                        j=36;
-                    }
-                        else{
-                        decryptedChar[i] = ALPHABET[j-key[i]];
-                        j=36;
+                if (messageStr.charAt(i) == ' '){
+                    j = 36;
+                    decryptedChar[i] = ' ';
+                }
+                else {
+                    if (messageStr.charAt(i) == ALPHABET[j]) {
+                        if ((j - key[i]) < 0) {
+                            tempKey = ((j - key[i]) + 36);
+                            decryptedChar[i] = ALPHABET[tempKey];
+                            j = 36;
+                        } else {
+                            decryptedChar[i] = ALPHABET[j - key[i]];
+                            j = 36;
                         }
+                    }
                 }
             }
         }

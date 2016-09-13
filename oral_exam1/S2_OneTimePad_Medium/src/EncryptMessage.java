@@ -8,7 +8,7 @@ public class EncryptMessage {
     public static void main(String[] args) {
         String messageStr;
         Scanner input = new Scanner(System.in);
-        String encrypted;
+        char[] encrypted;
         int[] key;
 
 
@@ -19,7 +19,12 @@ public class EncryptMessage {
 
         encrypted = message.getEncrypted();
         key = message.getKey();
-        System.out.println(encrypted);
+
+        for (int i=0; i<encrypted.length;i++) {
+                System.out.print(encrypted[i]);
+        }
+        System.out.printf("%n");
+
         for (int i=0; i<key.length;i++) {
             System.out.printf(key[i]+ " ");
         }
