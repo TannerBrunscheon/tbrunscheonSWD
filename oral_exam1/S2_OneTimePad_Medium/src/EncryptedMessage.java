@@ -24,7 +24,7 @@ public class EncryptedMessage {
         this.messageStr = messageStr;
     }
 
-    private void encryptMessage() {
+    private void encryptMessage() {// TODO Error check the message
         encryptedChar = new char[messageStr.length()];
         key = new int[messageStr.length()];
         for (int i = 0; i<messageStr.length(); i++) {

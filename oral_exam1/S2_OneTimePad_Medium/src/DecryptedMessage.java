@@ -15,7 +15,7 @@ public class DecryptedMessage {
         this.key = key;
     }
 
-    private void decryptMessage(){
+    private void decryptMessage(){// TODO Error check both the key and the message probably do try catch
         decryptedChar = new char[messageStr.length()];
         for (int i = 0; i<messageStr.length(); i++) {
             for (int j = 0; j<36; j++){
