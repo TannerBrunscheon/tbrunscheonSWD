@@ -29,10 +29,6 @@ public class Easter {
         int m = (a + 11 * h + 22 * l) / 451;
         month = ((h + l - 7 * m + 114) / 31)-1;
         day = ((h + l - 7 * m + 114) % 31)+1;
-
-        //TODO actually do this
-
-
     }
 
     public int getMonth() {
