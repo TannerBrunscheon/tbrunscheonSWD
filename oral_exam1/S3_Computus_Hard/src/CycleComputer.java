@@ -5,17 +5,26 @@ public class CycleComputer {
     public static void main(String[] args) {
         int march[] = new int[10];
         int april[] = new int[25];
+        int month,day;
         Easter e = new Easter();
 
         for(int i=0; i<5700000; i++){
             e.setYear(i);
-            if(e.getMonth() == 2){
-                march[e.getDay()-22] = march[e.getDay()-22]++;
+            month = e.getMonth();
+            day = e.getDay();
+            if(month == 2){
+                march[day-22]++;
             }
-            else if(e.getMonth() == 3){
-                april[e.getDay()] = april[e.getDay()-22]++;
+            else if(month == 3){
+                april[day-1]++;
             }
         }
-        //TODO add printing to this
+
+        for (int i = 0; i<10; i++) {
+            System.out.printf("March " + (i+22) + "  " + march[i] + "%n");
+        }
+        for (int i = 0; i<25; i++) {
+            System.out.printf("April " + (i+1) + "  " + april[i] + "%n");
+        }
     }
 }
