@@ -1,4 +1,3 @@
-import com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane;
 
 import java.util.Scanner;
 
