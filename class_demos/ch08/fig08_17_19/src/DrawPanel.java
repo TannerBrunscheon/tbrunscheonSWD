@@ -14,7 +14,7 @@ public class DrawPanel extends JPanel {
     public DrawPanel() {
         setBackground(Color.WHITE);
 
-        lines = new MyLine[5 + randomNumbers.nextInt(5)];
+        lines = new MyLine[50 + randomNumbers.nextInt(50)];
 
         // create lines
         for (int count = 0; count < lines.length; count++) {
