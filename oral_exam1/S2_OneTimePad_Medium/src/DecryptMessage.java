@@ -10,7 +10,6 @@ public class DecryptMessage {
     public static void main(String[] args) {
         String messageStr;
         Scanner input = new Scanner(System.in);
-        String decrypted;
         String keyTemp;
         String[] keyArray;
         int[] key;
@@ -23,15 +22,23 @@ public class DecryptMessage {
 
         keyArray = keyTemp.split(" ");
         key= new int[keyArray.length];
-
-        for (int i = 0; i< keyArray.length; i++)
-        {
-            key[i] = Integer.parseInt(keyArray[i]);
+        try {
+            if (keyArray.length<messageStr.length()){
+                throw new IllegalArgumentException("Key too long");
+            }
+            else {
+                for (int i = 0; i < keyArray.length; i++) {
+                    key[i] = Integer.parseInt(keyArray[i]);
+                }
+            }
         }
-
-        DecryptedMessage message = new DecryptedMessage(messageStr,key);
-
-        decrypted = message.getDecrypted();
+        catch (NumberFormatException e){
+            throw new IllegalArgumentException("Key not string of numbers");
+        }
+        catch (ArrayIndexOutOfBoundsException e ){
+            throw new IllegalArgumentException("Key too short");
+        }
+        DecryptedMessage message = new DecryptedMessage(messageStr.toUpperCase(),key);
         System.out.println(message);
 
     }

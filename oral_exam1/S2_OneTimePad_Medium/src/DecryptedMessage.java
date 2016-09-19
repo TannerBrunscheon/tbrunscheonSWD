@@ -39,16 +39,10 @@ public class DecryptedMessage {
         }
     }
 
-    public String getDecrypted() {
+    @Override
+    public String toString() {
         this.decryptMessage();
         String decrypted = new String(decryptedChar);
         return decrypted;
-    }
-
-    @Override
-    public String toString() {
-        return "DecryptedMessage{" +
-                "decryptedChar=" + Arrays.toString(decryptedChar) +
-                '}';
     }
 }
