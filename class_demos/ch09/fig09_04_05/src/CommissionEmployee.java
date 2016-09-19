@@ -88,6 +88,7 @@ public class CommissionEmployee extends Object {
                 "gross sales", grossSales,
                 "commission rate", commissionRate);
     }
+
 } // end class CommissionEmployee
 
 

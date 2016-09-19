@@ -1,4 +1,4 @@
-import java.util.Random;
+import java.util.Arrays;
 
 /**
  * Created by Tanner on 9/11/2016.
@@ -43,5 +43,12 @@ public class DecryptedMessage {
         this.decryptMessage();
         String decrypted = new String(decryptedChar);
         return decrypted;
+    }
+
+    @Override
+    public String toString() {
+        return "DecryptedMessage{" +
+                "decryptedChar=" + Arrays.toString(decryptedChar) +
+                '}';
     }
 }

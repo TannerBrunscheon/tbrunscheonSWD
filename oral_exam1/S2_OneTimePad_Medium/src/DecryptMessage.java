@@ -32,7 +32,7 @@ public class DecryptMessage {
         DecryptedMessage message = new DecryptedMessage(messageStr,key);
 
         decrypted = message.getDecrypted();
-        System.out.println(decrypted);
+        System.out.println(message);
 
     }
 }
