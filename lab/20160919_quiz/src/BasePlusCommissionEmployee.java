@@ -30,9 +30,10 @@ public class BasePlusCommissionEmployee extends Employee {
 
     } // end constructor
 
+    @Override
     // calculate earnings
     public double earnings() {
-        return super.earnings();
+        return super.earnings()+basePay;
     }
 
     @Override
