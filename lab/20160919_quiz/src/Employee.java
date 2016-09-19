@@ -2,11 +2,11 @@
  * Created by tbrunscheon on 9/19/16.
  */
 public class Employee {
-    protected final String firstName;
-    protected final String lastName;
-    protected final String socialSecurityNumber;
-    protected double grossSales; // gross weekly sales
-    protected double commissionRate; // commission percentage
+    private final String firstName;
+    private final String lastName;
+    private final String socialSecurityNumber;
+    private double grossSales; // gross weekly sales
+    private double commissionRate; // commission percentage
 
     public Employee(double commissionRate, double grossSales, String socialSecurityNumber, String lastName, String firstName) {
         this.commissionRate = commissionRate;
