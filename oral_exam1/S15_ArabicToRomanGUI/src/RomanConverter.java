@@ -4,9 +4,7 @@ import sun.plugin2.message.Conversation;
  * Created by Tanner on 9/19/2016.
  */
 public class RomanConverter {
-    enum Numerals{
-
-    }
+    private final char[] NUMBERS ={'I','V','X','L','C','D','M'};
     private String number;
 
     public RomanConverter(String number) {
