@@ -11,7 +11,6 @@ public class EncryptedMessage {
     private char[] encryptedChar;
     private Random rando = new Random();
     private int[] key;
-    private String outKey;
     private int tempKey;
 
 
