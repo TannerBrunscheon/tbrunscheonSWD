@@ -16,5 +16,4 @@ public class UserComputer {
         Easter e = new Easter(year);
         System.out.printf(MONTH[e.getMonth()] + " " + e.getDay()+ " " + year);
     }
-    //TODO add testing software
 }
