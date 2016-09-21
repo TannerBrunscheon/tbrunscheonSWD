@@ -41,7 +41,7 @@ public class DecryptedMessage {
 
     @Override
     public String toString() {
-        this.decryptMessage();
+        decryptMessage();
         String decrypted = new String(decryptedChar);
         return decrypted;
     }
