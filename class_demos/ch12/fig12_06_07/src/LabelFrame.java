@@ -8,7 +8,7 @@ public class LabelFrame extends JFrame {
     private final JLabel label1; // JLabel with just text
     private final JLabel label2; // JLabel constructed with text and icon
     private final JLabel label3; // JLabel with added text and icon
-
+    private final JLabel label4;
     // LabelFrame constructor adds JLabels to JFrame
     public LabelFrame() {
         super("Testing JLabel");
@@ -33,6 +33,12 @@ public class LabelFrame extends JFrame {
         label3.setVerticalTextPosition(SwingConstants.BOTTOM);
         label3.setToolTipText("This is label3");
         add(label3); // add label3 to JFrame
+
+        label4 = new JLabel();
+        label4.setText("Test");
+        label4.setVerticalTextPosition(SwingConstants.BOTTOM);
+        label4.setHorizontalTextPosition(SwingConstants.CENTER);
+        add(label4);
     }
 } // end class LabelFrame
 
