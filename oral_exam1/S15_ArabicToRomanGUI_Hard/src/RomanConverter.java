@@ -32,12 +32,16 @@ public class RomanConverter {
                 case 'V':
                     if (checkNumber(i))
                     {
-                        if (number.charAt(i+1) == 'I'|| number.charAt(i+1) == 'V')
-                        {
-                            finalNumber = finalNumber+5;
-                        }
+                        if (number.charAt(i+1)=='V'){ throw new IllegalArgumentException("Invalid Roman Numeral");}
                         else
-                            finalNumber = finalNumber-5;
+                        {
+                            if (number.charAt(i + 1) == 'I') {
+                                finalNumber = finalNumber + 5;
+                            } else {
+                                finalNumber = finalNumber - 5;
+                            }
+                        }
+
                     }
                     else
                     {
@@ -61,20 +65,18 @@ public class RomanConverter {
                     break;
 
                 case 'L':
-                    if (checkNumber(i))
-                    {
-                        if (number.charAt(i+1) == 'I'|| number.charAt(i+1) == 'V'|| number.charAt(i+1) == 'X'|| number.charAt(i+1) == 'L')
-                        {
-                            finalNumber = finalNumber+50;
+                    if (number.charAt(i-1)=='L'){throw new IllegalArgumentException("Invalid Roman Numeral");}
+                    else {
+                        if (checkNumber(i)) {
+                            if (number.charAt(i + 1) == 'I' || number.charAt(i + 1) == 'V' || number.charAt(i + 1) == 'X' || number.charAt(i + 1) == 'L') {
+                                finalNumber = finalNumber + 50;
+                            } else
+                                finalNumber = finalNumber - 50;
+                        } else {
+                            finalNumber = finalNumber + 50;
                         }
-                        else
-                            finalNumber = finalNumber-50;
+                        break;
                     }
-                    else
-                    {
-                        finalNumber = finalNumber+50;
-                    }
-                    break;
                 case 'C':
                     if (checkNumber(i))
                     {
@@ -91,18 +93,16 @@ public class RomanConverter {
                     }
                     break;
                 case 'D':
-                    if (checkNumber(i))
-                    {
-                        if (number.charAt(i+1) == 'I'|| number.charAt(i+1) == 'V'|| number.charAt(i+1) == 'X'|| number.charAt(i+1) == 'L'|| number.charAt(i+1) == 'C'|| number.charAt(i+1) == 'D')
-                        {
-                            finalNumber = finalNumber+500;
+                    if (number.charAt(i-1)=='D'){ throw new IllegalArgumentException("Invalid Roman Numeral");}
+                    else {
+                        if (checkNumber(i)) {
+                            if (number.charAt(i + 1) == 'I' || number.charAt(i + 1) == 'V' || number.charAt(i + 1) == 'X' || number.charAt(i + 1) == 'L' || number.charAt(i + 1) == 'C' || number.charAt(i + 1) == 'D') {
+                                finalNumber = finalNumber + 500;
+                            } else
+                                finalNumber = finalNumber - 500;
+                        } else {
+                            finalNumber = finalNumber + 500;
                         }
-                        else
-                            finalNumber = finalNumber-500;
-                    }
-                    else
-                    {
-                        finalNumber = finalNumber+500;
                     }
                     break;
                 case 'M':
