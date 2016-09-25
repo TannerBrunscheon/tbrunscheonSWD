@@ -63,6 +63,10 @@ public class ArabicConverter {
     @Override
     public String toString() {
         Conversion();
+        if (roman.isEmpty())
+        {return
+                "Final Number = 0";
+        }
         return  "Final Number = " + roman;
     }
 }

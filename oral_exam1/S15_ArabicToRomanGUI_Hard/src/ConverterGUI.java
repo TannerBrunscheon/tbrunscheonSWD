@@ -10,18 +10,22 @@ import java.awt.event.ActionListener;
 public class ConverterGUI{
     public static void main(String[] args) {
         JFrame frame = new JFrame("Roman Converter");
-        frame.setLayout(new GridLayout(2,2));
+        frame.setLayout(new GridLayout(2,1));
+
         final JTextField arabicSide = new JTextField();
-        arabicSide.addActionListener(new ActionListener() {
+        arabicSide.addActionListener(new ActionListener()
+        {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent enter) {
                 String userInput = arabicSide.getText();
                 try {
                     int num = Integer.parseInt(userInput);
                     ArabicConverter arabicConverter = new ArabicConverter(num);
                     String outString = arabicConverter.toString();
                     JOptionPane.showMessageDialog(frame , outString);
-                } catch (NumberFormatException f) {
+                }
+                catch (NumberFormatException f)
+                {
                     RomanConverter romanConverter = new RomanConverter(userInput);
                     String outString = romanConverter.toString();
                     JOptionPane.showMessageDialog(frame , outString);
@@ -32,7 +36,7 @@ public class ConverterGUI{
         frame.add(arabicSide);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
+        frame.setSize(300,100);
         frame.setVisible(true);
 
     }
