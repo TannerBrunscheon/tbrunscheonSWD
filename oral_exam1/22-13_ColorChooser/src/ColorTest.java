@@ -7,9 +7,8 @@ public class ColorTest {
     public static void main(String[] args) {
         MyColorChooser myColorChooser = new MyColorChooser();
         myColorChooser.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        myColorChooser.setSize(300,300);
+        myColorChooser.setSize(450,200);
         myColorChooser.setVisible(true);
-
     }
 }
 
