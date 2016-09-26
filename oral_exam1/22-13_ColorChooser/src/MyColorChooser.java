@@ -49,6 +49,8 @@ public class MyColorChooser extends JFrame{
         bSlider.setMajorTickSpacing(8);
         bSlider.setPaintTicks(true);
 
+
+        //TODO Implement Actual Listners from class
         rSlider.addChangeListener(
                 new ChangeListener()
                 {
@@ -120,11 +122,15 @@ public class MyColorChooser extends JFrame{
 
 
     }
+
+    //Compied from
     private void addComponent(Component component, int row, int column, int width, int height){
         constraints.gridx=column;
         constraints.gridy=row;
         constraints.gridwidth=width;
         constraints.gridheight=height;
+        constraints.weightx=.5;
+        constraints.weighty=.5;
         layout.setConstraints(component,constraints);
         add(component);
     }
@@ -133,6 +139,8 @@ public class MyColorChooser extends JFrame{
         constraints.gridy=row;
         constraints.gridwidth=width;
         constraints.gridheight=height;
+        constraints.weightx=.5;
+        constraints.weighty=.5;
         layout.setConstraints(panel,constraints);
         add(panel);
     }
