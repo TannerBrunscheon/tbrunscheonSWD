@@ -7,30 +7,34 @@ import java.awt.event.ActionListener;
  * Created by Tanner on 9/26/2016.
  */
 public class ConverterFrame extends JFrame {
+    private final JTextField text = new JTextField();
+    private final TextHandler textHandler = new TextHandler();
+
     public ConverterFrame() {
 
         super("Roman Converter");
         setLayout(new GridLayout(2, 1));
 
-        final JTextField arabicSide = new JTextField();
-        arabicSide.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent enter) {
-                String userInput = arabicSide.getText();
-                try {
-                    int num = Integer.parseInt(userInput);
-                    ArabicConverter arabicConverter = new ArabicConverter(num);
-                    String outString = arabicConverter.toString();
-                    JOptionPane.showMessageDialog(null, outString);
-                } catch (NumberFormatException f) {
-                    RomanConverter romanConverter = new RomanConverter(userInput);
-                    String outString = romanConverter.toString();
-                    JOptionPane.showMessageDialog(null, outString);
-                }
-            }
-        });
+        text.addActionListener(textHandler);
         add(new JLabel("Enter Number (Roman or Arabic): "));
-        add(arabicSide);
+        add(text);
 
+    }
+
+    private class TextHandler implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String userInput = text.getText();
+            try {
+                int num = Integer.parseInt(userInput);
+                ArabicConverter arabicConverter = new ArabicConverter(num);
+                String outString = arabicConverter.toString();
+                JOptionPane.showMessageDialog(null, outString);
+            } catch (NumberFormatException f) {
+                RomanConverter romanConverter = new RomanConverter(userInput);
+                String outString = romanConverter.toString();
+                JOptionPane.showMessageDialog(null, outString);
+            }
+        }
     }
 }
