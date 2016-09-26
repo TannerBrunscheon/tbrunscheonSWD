@@ -36,94 +36,42 @@ public class MyColorChooser extends JFrame{
         rTextField.setText("0");
         gTextField.setText("0");
         bTextField.setText("0");
-
-        rSlider = new JSlider(SwingConstants.HORIZONTAL,0,255,0);
+        rSlider = new JSlider(SwingConstants.HORIZONTAL, 0, 255, 0);
         rSlider.setMajorTickSpacing(8);
         rSlider.setPaintTicks(true);
-
-        gSlider = new JSlider(SwingConstants.HORIZONTAL,0,255,0);
+        gSlider = new JSlider(SwingConstants.HORIZONTAL, 0, 255, 0);
         gSlider.setMajorTickSpacing(8);
         gSlider.setPaintTicks(true);
-
-        bSlider = new JSlider(SwingConstants.HORIZONTAL,0,255,0);
+        bSlider = new JSlider(SwingConstants.HORIZONTAL, 0, 255, 0);
         bSlider.setMajorTickSpacing(8);
         bSlider.setPaintTicks(true);
 
+        SliderHandler sliderHandler = new SliderHandler();
+        TextHandler textHandler = new TextHandler();
 
-        //TODO Implement Actual Listners from class
-        rSlider.addChangeListener(
-                new ChangeListener()
-                {
-                    @Override
-                    public void stateChanged(ChangeEvent e) {
-                        red = rSlider.getValue();
-                        myPanel.setColor(red,green,blue);
-                        rTextField.setText(Integer.toString(red));
-                    }
-                }
-        );
-        gSlider.addChangeListener(
-                new ChangeListener()
-                {
-                    @Override
-                    public void stateChanged(ChangeEvent e) {
-                        green = gSlider.getValue();
-                        myPanel.setColor(red,green,blue);
-                        gTextField.setText(Integer.toString(green));
-                    }
-                }
-        );
-        bSlider.addChangeListener(
-                new ChangeListener()
-                {
-                    @Override
-                    public void stateChanged(ChangeEvent e) {
-                        blue = bSlider.getValue();
-                        myPanel.setColor(red,green,blue);
-                        bTextField.setText(Integer.toString(blue));
-                    }
-                }
-        );
-        rTextField.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                red = Integer.parseInt(rTextField.getText());
-                rSlider.setValue(red);
-            }
-        });
-        gTextField.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                green = Integer.parseInt(gTextField.getText());
-                gSlider.setValue(green);
-            }
-        });
-        bTextField.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                blue = Integer.parseInt(bTextField.getText());
-                bSlider.setValue(blue);
-            }
-        });
+
+        rSlider.addChangeListener(sliderHandler);
+        gSlider.addChangeListener(sliderHandler);
+        bSlider.addChangeListener(sliderHandler);
+        rTextField.addActionListener(textHandler);
+        gTextField.addActionListener(textHandler);
+        bTextField.addActionListener(textHandler);
 
 
         constraints.fill = GridBagConstraints.BOTH;
 
-        this.addComponent(rSlider,2,0,2,1);
-        this.addComponent(rTextField,1,1,2,1);
-        this.addComponent(rLabel,0,0,2,1);
-        this.addComponent(gSlider,2,2,2,1);
-        this.addComponent(gTextField,1,2,2,1);
-        this.addComponent(gLabel,0,2,2,1);
-        this.addComponent(bSlider,5,0,2,1);
-        this.addComponent(bTextField,4,0,2,1);
-        this.addComponent(bLabel,3,0,2,1);
-        this.addComponent(myPanel,4,2,3,2);
-
+        this.addComponent(rSlider, 2, 0, 2, 1);
+        this.addComponent(rTextField, 1, 1, 2, 1);
+        this.addComponent(rLabel, 0, 0, 2, 1);
+        this.addComponent(gSlider, 2, 2, 2, 1);
+        this.addComponent(gTextField, 1, 2, 2, 1);
+        this.addComponent(gLabel, 0, 2, 2, 1);
+        this.addComponent(bSlider, 5, 0, 2, 1);
+        this.addComponent(bTextField, 4, 0, 2, 1);
+        this.addComponent(bLabel, 3, 0, 2, 1);
+        this.addComponent(myPanel, 4, 2, 3, 2);
 
     }
-
-    //Compied from
     private void addComponent(JSlider slider, int row, int column, int width, int height){
         constraints.gridx=column;
         constraints.gridy=row;
@@ -164,4 +112,44 @@ public class MyColorChooser extends JFrame{
         layout.setConstraints(label,constraints);
         add(label);
     }
+    private class SliderHandler implements ChangeListener {
+        @Override
+        public void stateChanged(ChangeEvent e) {
+            if (e.getSource()== rSlider) {
+                red = rSlider.getValue();
+                myPanel.setColor(red, green, blue);
+                rTextField.setText(Integer.toString(red));
+            }
+            else if (e.getSource()== gSlider) {
+                green = gSlider.getValue();
+                myPanel.setColor(red, green, blue);
+                gTextField.setText(Integer.toString(green));
+            }
+            else if (e.getSource()== bSlider) {
+                blue = bSlider.getValue();
+                myPanel.setColor(red, green, blue);
+                bTextField.setText(Integer.toString(blue));
+            }
+        }
+    }
+    private class TextHandler implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (e.getSource()== rTextField) {
+                red = Integer.parseInt(rTextField.getText());
+                rSlider.setValue(red);
+            }
+            else if(e.getSource()==gTextField){
+                green = Integer.parseInt(gTextField.getText());
+                gSlider.setValue(green);
+            }
+            else if(e.getSource()==bTextField){
+                blue = Integer.parseInt(bTextField.getText());
+                bSlider.setValue(blue);
+            }
+        }
+
+
+    }
+
 }

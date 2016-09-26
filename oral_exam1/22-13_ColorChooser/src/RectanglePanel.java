@@ -6,7 +6,6 @@ import java.awt.*;
  * Created by Tanner on 9/25/2016.
  */
 public class RectanglePanel extends JPanel {
-    private int side = 100;
     private Color color = new Color(0,0,0);
 
     @Override
