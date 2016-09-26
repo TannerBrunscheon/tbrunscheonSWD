@@ -1,20 +1,19 @@
-
-/**
- * Created by Tanner on 9/20/2016.
- */
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ConverterGUI{
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("Roman Converter");
-        frame.setLayout(new GridLayout(2,1));
+/**
+ * Created by Tanner on 9/26/2016.
+ */
+public class ConverterFrame extends JFrame {
+    public ConverterFrame() {
+
+        super("Roman Converter");
+        setLayout(new GridLayout(2, 1));
 
         final JTextField arabicSide = new JTextField();
-        arabicSide.addActionListener(new ActionListener()
-        {
+        arabicSide.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent enter) {
                 String userInput = arabicSide.getText();
@@ -22,22 +21,16 @@ public class ConverterGUI{
                     int num = Integer.parseInt(userInput);
                     ArabicConverter arabicConverter = new ArabicConverter(num);
                     String outString = arabicConverter.toString();
-                    JOptionPane.showMessageDialog(frame , outString);
-                }
-                catch (NumberFormatException f)
-                {
+                    JOptionPane.showMessageDialog(null, outString);
+                } catch (NumberFormatException f) {
                     RomanConverter romanConverter = new RomanConverter(userInput);
                     String outString = romanConverter.toString();
-                    JOptionPane.showMessageDialog(frame , outString);
+                    JOptionPane.showMessageDialog(null, outString);
                 }
             }
         });
-        frame.add(new JLabel("Enter Number (Roman or Arabic): "));
-        frame.add(arabicSide);
-
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(300,100);
-        frame.setVisible(true);
+        add(new JLabel("Enter Number (Roman or Arabic): "));
+        add(arabicSide);
 
     }
 }

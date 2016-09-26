@@ -124,17 +124,17 @@ public class MyColorChooser extends JFrame{
     }
 
     //Compied from
-    private void addComponent(Component component, int row, int column, int width, int height){
+    private void addComponent(JSlider slider, int row, int column, int width, int height){
         constraints.gridx=column;
         constraints.gridy=row;
         constraints.gridwidth=width;
         constraints.gridheight=height;
         constraints.weightx=.5;
         constraints.weighty=.5;
-        layout.setConstraints(component,constraints);
-        add(component);
+        layout.setConstraints(slider,constraints);
+        add(slider);
     }
-    private void addComponent(JPanel panel, int row, int column, int width, int height){
+    private void addComponent(RectanglePanel panel, int row, int column, int width, int height){
         constraints.gridx=column;
         constraints.gridy=row;
         constraints.gridwidth=width;
@@ -143,5 +143,25 @@ public class MyColorChooser extends JFrame{
         constraints.weighty=.5;
         layout.setConstraints(panel,constraints);
         add(panel);
+    }
+    private void addComponent(JTextField textField, int row, int column, int width, int height){
+        constraints.gridx=column;
+        constraints.gridy=row;
+        constraints.gridwidth=width;
+        constraints.gridheight=height;
+        constraints.weightx=.5;
+        constraints.weighty=.5;
+        layout.setConstraints(textField,constraints);
+        add(textField);
+    }
+    private void addComponent(JLabel label, int row, int column, int width, int height){
+        constraints.gridx=column;
+        constraints.gridy=row;
+        constraints.gridwidth=width;
+        constraints.gridheight=height;
+        constraints.weightx=.5;
+        constraints.weighty=.5;
+        layout.setConstraints(label,constraints);
+        add(label);
     }
 }

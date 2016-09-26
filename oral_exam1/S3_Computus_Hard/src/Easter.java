@@ -9,11 +9,11 @@ public class Easter {
     private int year,month,day;
 
 
-
     public Easter(int year) {
         this.year = year;
     }
     public Easter(){}
+
     private void computeEaster(){
         int a = year % 19;
         int b = year / 100;

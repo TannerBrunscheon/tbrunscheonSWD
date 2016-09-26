@@ -1,15 +1,24 @@
 import java.util.Arrays;
 
 /**
- * Created by Tanner on 9/11/2016.
+ * lksdafhlhefds
  */
 public class DecryptedMessage {
     private static final char  ALPHABET [] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
+    /**
+     * stufdsjlkf weh ldssdfh
+     */
     private String messageStr;
     private int[] key;
     private int tempKey;
     private char[] decryptedChar;
 
+    /**
+     *
+     *
+     * @param messageStr
+     * @param key
+     */
     public DecryptedMessage(String messageStr, int[] key) {
         this.messageStr = messageStr;
         this.key = key;
