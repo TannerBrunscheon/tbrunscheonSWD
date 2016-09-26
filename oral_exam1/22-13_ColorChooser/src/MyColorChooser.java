@@ -1,6 +1,7 @@
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -81,6 +82,27 @@ public class MyColorChooser extends JFrame{
                     }
                 }
         );
+        rTextField.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                red = Integer.parseInt(rTextField.getText());
+                rSlider.setValue(red);
+            }
+        });
+        gTextField.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                green = Integer.parseInt(gTextField.getText());
+                gSlider.setValue(green);
+            }
+        });
+        bTextField.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                blue = Integer.parseInt(bTextField.getText());
+                bSlider.setValue(blue);
+            }
+        });
 
 
         constraints.fill = GridBagConstraints.BOTH;
