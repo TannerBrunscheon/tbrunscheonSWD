@@ -7,18 +7,25 @@ import java.awt.*;
  */
 public class RectanglePanel extends JPanel {
     private Color color = new Color(0,0,0);
+    private int width = 200;
+    private int height = 200;
 
     @Override
     public void paintComponent(Graphics g)
     {
         g.setColor(color);
         super.paintComponent(g);
-        g.fillRect(0,0,20000,100);
+        g.fillRect(0,0,width,height);
     }
 
     public void setColor(int red,int green,int blue)
     {
         color = new Color(red,green,blue);
+        repaint();
+    }
+    public void setWidthHeight(int width,int height){
+        this.width=width;
+        this.height=height;
         repaint();
     }
 

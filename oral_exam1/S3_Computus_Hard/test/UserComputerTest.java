@@ -11,7 +11,7 @@ public class UserComputerTest {
     public void testEaster() throws Exception {
         Easter easter;
         int dayArray[] = {27,16,8,23,12,4,24,8,31,20,5,27,16,1,21,12,4,17,9,31,20};
-        int monthArray[] = {2,3,3,2,3,3,3,3,2,3,3,2,3,3,3,3,3,3,3,2,3};
+        int monthArray[] = {3,4,4,3,4,4,4,4,3,4,4,3,4,4,4,4,4,4,4,3,4};
         // Source https://en.wikipedia.org/wiki/Easter
         int day;
         int month;

@@ -60,19 +60,19 @@ public class MyColorChooser extends JFrame{
 
         constraints.fill = GridBagConstraints.BOTH;
 
-        this.addComponent(rSlider, 2, 0, 2, 1);
-        this.addComponent(rTextField, 1, 1, 2, 1);
-        this.addComponent(rLabel, 0, 0, 2, 1);
-        this.addComponent(gSlider, 2, 2, 2, 1);
-        this.addComponent(gTextField, 1, 2, 2, 1);
-        this.addComponent(gLabel, 0, 2, 2, 1);
-        this.addComponent(bSlider, 5, 0, 2, 1);
-        this.addComponent(bTextField, 4, 0, 2, 1);
-        this.addComponent(bLabel, 3, 0, 2, 1);
-        this.addComponent(myPanel, 4, 2, 3, 2);
+        this.add(rSlider, 2, 0, 2, 1);
+        this.add(rTextField, 1, 1, 2, 1);
+        this.add(rLabel, 0, 0, 2, 1);
+        this.add(gSlider, 2, 2, 2, 1);
+        this.add(gTextField, 1, 2, 2, 1);
+        this.add(gLabel, 0, 2, 2, 1);
+        this.add(bSlider, 5, 0, 2, 1);
+        this.add(bTextField, 4, 0, 2, 1);
+        this.add(bLabel, 3, 0, 2, 1);
+        this.add(myPanel, 4, 2, 3, 2);
 
     }
-    private void addComponent(JSlider slider, int row, int column, int width, int height){
+    private void add(JSlider slider, int row, int column, int width, int height){
         constraints.gridx=column;
         constraints.gridy=row;
         constraints.gridwidth=width;
@@ -82,7 +82,7 @@ public class MyColorChooser extends JFrame{
         layout.setConstraints(slider,constraints);
         add(slider);
     }
-    private void addComponent(RectanglePanel panel, int row, int column, int width, int height){
+    private void add(RectanglePanel panel, int row, int column, int width, int height){
         constraints.gridx=column;
         constraints.gridy=row;
         constraints.gridwidth=width;
@@ -92,7 +92,7 @@ public class MyColorChooser extends JFrame{
         layout.setConstraints(panel,constraints);
         add(panel);
     }
-    private void addComponent(JTextField textField, int row, int column, int width, int height){
+    private void add(JTextField textField, int row, int column, int width, int height){
         constraints.gridx=column;
         constraints.gridy=row;
         constraints.gridwidth=width;
@@ -102,7 +102,7 @@ public class MyColorChooser extends JFrame{
         layout.setConstraints(textField,constraints);
         add(textField);
     }
-    private void addComponent(JLabel label, int row, int column, int width, int height){
+    private void add(JLabel label, int row, int column, int width, int height){
         constraints.gridx=column;
         constraints.gridy=row;
         constraints.gridwidth=width;

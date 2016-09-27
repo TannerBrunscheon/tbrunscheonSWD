@@ -6,7 +6,7 @@ import javax.swing.*;
 public class ColorTest {
     public static void main(String[] args) {
         MyColorChooser myColorChooser = new MyColorChooser();
-        myColorChooser.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        myColorChooser.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         myColorChooser.pack();
         myColorChooser.setVisible(true);
     }

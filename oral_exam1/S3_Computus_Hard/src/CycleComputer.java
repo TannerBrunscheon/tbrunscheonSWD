@@ -12,10 +12,10 @@ public class CycleComputer {
             e.setYear(i);
             month = e.getMonth();
             day = e.getDay();
-            if(month == 2){
+            if(month == 3){
                 march[day-22]++;
             }
-            else if(month == 3){
+            else if(month == 4){
                 april[day-1]++;
             }
         }
