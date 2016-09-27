@@ -2,6 +2,7 @@
  * Created by Tanner on 9/27/2016.
  */
 public class IowaStudent extends Student {
+    private String placeOfResidence = "Iowa";
     public IowaStudent(String firstName, String lastName, String studentID, int numberOfRegisteredHours, StudentStatus studentStatus, CollegeEnrolled collegeEnrolled) {
         super(firstName, lastName, studentID, numberOfRegisteredHours, studentStatus, collegeEnrolled);
     }
@@ -13,21 +14,15 @@ public class IowaStudent extends Student {
     @Override
     public double GenerateTuition()
     {
-        placeOfResidence ="IOWA";
-        if(numberOfRegisteredHours<= studentStatus.getFullLoad())
-        {
-            totalTuition = (.65*numberOfRegisteredHours*baseClassHourTuitionRate);
-            if (numberOfRegisteredHours >= collegeEnrolled.getHours()) {
-                totalTuition = totalTuition+collegeEnrolled.getFees();
-            }
-        }
-        else
-        {
-            totalTuition = ((.65*(studentStatus.getFullLoad()*baseClassHourTuitionRate))+
-                    (.9*((numberOfRegisteredHours-studentStatus.getFullLoad())*baseClassHourTuitionRate)));
-            totalTuition =totalTuition+collegeEnrolled.getFees();
-        }
-        return totalTuition;
+        super.setDiscountUnillFull(.65);
+        super.setDiscountAfter(.9);
+        return super.GenerateTuition();
     }
 
+    @Override
+    public String toString() {
+        double tuition = GenerateTuition();
+        return super.toString()+", Place of Residence: " + placeOfResidence
+                                +", Total Tuition: " + tuition;
+    }
 }

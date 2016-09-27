@@ -2,15 +2,16 @@
  * Created by Tanner on 9/26/2016.
  */
 public class Student {
-    protected String firstName = "Default";
-    protected String lastName = "Default";
-    protected String studentID = "Default";
-    protected double numberOfRegisteredHours = 0;
-    protected StudentStatus studentStatus = StudentStatus.DEFAULT;
-    protected CollegeEnrolled collegeEnrolled = CollegeEnrolled.DEFAULT;
-    protected String placeOfResidence = "Default";
-    protected double totalTuition = 0;
-    protected double baseClassHourTuitionRate = 350;
+    private String firstName = "Default";
+    private String lastName = "Default";
+    private String studentID = "Default";
+    private double numberOfRegisteredHours = 0;
+    private StudentStatus studentStatus = StudentStatus.DEFAULT;
+    private CollegeEnrolled collegeEnrolled = CollegeEnrolled.DEFAULT;
+    private double baseClassHourTuitionRate = 350;
+    private double discountUnillFull = 1;
+    private double discountAfter = 1;
+    private double totalTuition;
 
     public Student(String firstName, String lastName, String studentID, int numberOfRegisteredHours, StudentStatus studentStatus, CollegeEnrolled collegeEnrolled) {
         this.firstName = firstName;
@@ -56,9 +57,18 @@ public class Student {
     }
 
     public double GenerateTuition(){
-        totalTuition = (baseClassHourTuitionRate*numberOfRegisteredHours);
-        if (numberOfRegisteredHours >= collegeEnrolled.getHours()) {
-            totalTuition = totalTuition+collegeEnrolled.getFees();
+        if(numberOfRegisteredHours<= studentStatus.getFullLoad())
+        {
+            totalTuition = (discountUnillFull*numberOfRegisteredHours*baseClassHourTuitionRate);
+            if (numberOfRegisteredHours >= collegeEnrolled.getHours()) {
+                totalTuition = totalTuition+collegeEnrolled.getFees();
+            }
+        }
+        else
+        {
+            totalTuition = ((discountUnillFull*(studentStatus.getFullLoad()*baseClassHourTuitionRate))+
+                    (discountAfter*((numberOfRegisteredHours-studentStatus.getFullLoad())*baseClassHourTuitionRate)));
+            totalTuition =totalTuition+collegeEnrolled.getFees();
         }
         return totalTuition;
     }
@@ -87,12 +97,49 @@ public class Student {
         this.collegeEnrolled = collegeEnrolled;
     }
 
-    public void setPlaceOfResidence(String placeOfResidence) {
-        this.placeOfResidence = placeOfResidence;
-    }
-
     public void setBaseClassHourTuitionRate(int baseClassHourTuitionRate) {
         this.baseClassHourTuitionRate = baseClassHourTuitionRate;
     }
 
+    public void setDiscountUnillFull(double discountUnillFull) {
+        this.discountUnillFull = discountUnillFull;
+    }
+
+    public void setDiscountAfter(double discountAfter) {
+        this.discountAfter = discountAfter;
+    }
+
+    @Override
+    public String toString() {
+        String out= "Student " +
+                        "Name: '" + firstName + ' ' + lastName +
+                        ", Student ID: " + studentID +
+                        ", Number Of Registered Hours= " + numberOfRegisteredHours;
+        switch (studentStatus) {
+            case UNDERGRADUATE:
+                out = out + ", Student Status: Undergraduate";
+                break;
+            case GRADUATE:
+                out = out + ", Student Status: Graduate";
+                break;
+            case OPENENROLLED:
+                out = out + ", Student Status: Open Enrolled";
+                break;
+            default:
+                out = out + ", Student Status: Default";
+                break;
+        }
+        switch (collegeEnrolled) {
+            case ENGINEERING:
+                out = out + ", College Enrolled: Engineering";
+                break;
+            case LIBERALARTS:
+                out = out + ", College Enrolled: Liberal Arts";
+                break;
+            default:
+                out = out + ", College Enrolled: Default";
+                break;
+        }
+        return out;
+    }
 }
