@@ -29,11 +29,11 @@ public class ConverterFrame extends JFrame {
                 int num = Integer.parseInt(userInput);
                 ArabicConverter arabicConverter = new ArabicConverter(num);
                 String outString = arabicConverter.toString();
-                JOptionPane.showMessageDialog(null, outString);
+                JOptionPane.showMessageDialog(text, outString);
             } catch (NumberFormatException f) {
                 RomanConverter romanConverter = new RomanConverter(userInput);
                 String outString = romanConverter.toString();
-                JOptionPane.showMessageDialog(null, outString);
+                JOptionPane.showMessageDialog(text, outString);
             }
         }
     }

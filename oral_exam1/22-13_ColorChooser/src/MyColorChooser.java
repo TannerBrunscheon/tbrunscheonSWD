@@ -13,7 +13,7 @@ public class MyColorChooser extends JFrame{
     private final JTextField rTextField = new JTextField();
     private final JTextField gTextField = new JTextField();
     private final JTextField bTextField = new JTextField();
-    private final GridBagLayout layout = new GridBagLayout();
+    private final GridBagLayout gridBagLayout = new GridBagLayout();
     private final GridBagConstraints constraints = new GridBagConstraints();
     private final RectanglePanel myPanel;
     private final JSlider rSlider;
@@ -22,14 +22,12 @@ public class MyColorChooser extends JFrame{
     private int red=0;
     private int green=0;
     private int blue=0;
-    private final JLabel rLabel = new JLabel("RED");
-    private final JLabel gLabel = new JLabel("GREEN");
-    private final JLabel bLabel = new JLabel("BLUE");
 
 
     public MyColorChooser() {
         super("Color Chooser");
-        super.setLayout(layout);
+
+        super.setLayout(gridBagLayout);
 
         myPanel = new RectanglePanel();
 
@@ -53,10 +51,14 @@ public class MyColorChooser extends JFrame{
         rSlider.addChangeListener(sliderHandler);
         gSlider.addChangeListener(sliderHandler);
         bSlider.addChangeListener(sliderHandler);
+
         rTextField.addActionListener(textHandler);
         gTextField.addActionListener(textHandler);
         bTextField.addActionListener(textHandler);
 
+        final JLabel rLabel = new JLabel("RED");
+        final JLabel gLabel = new JLabel("GREEN");
+        final JLabel bLabel = new JLabel("BLUE");
 
         constraints.fill = GridBagConstraints.BOTH;
 
@@ -79,7 +81,7 @@ public class MyColorChooser extends JFrame{
         constraints.gridheight=height;
         constraints.weightx=.5;
         constraints.weighty=.5;
-        layout.setConstraints(slider,constraints);
+        gridBagLayout.setConstraints(slider,constraints);
         add(slider);
     }
     private void add(RectanglePanel panel, int row, int column, int width, int height){
@@ -89,7 +91,7 @@ public class MyColorChooser extends JFrame{
         constraints.gridheight=height;
         constraints.weightx=.5;
         constraints.weighty=.5;
-        layout.setConstraints(panel,constraints);
+        gridBagLayout.setConstraints(panel,constraints);
         add(panel);
     }
     private void add(JTextField textField, int row, int column, int width, int height){
@@ -99,7 +101,7 @@ public class MyColorChooser extends JFrame{
         constraints.gridheight=height;
         constraints.weightx=.5;
         constraints.weighty=.5;
-        layout.setConstraints(textField,constraints);
+        gridBagLayout.setConstraints(textField,constraints);
         add(textField);
     }
     private void add(JLabel label, int row, int column, int width, int height){
@@ -109,7 +111,7 @@ public class MyColorChooser extends JFrame{
         constraints.gridheight=height;
         constraints.weightx=.5;
         constraints.weighty=.5;
-        layout.setConstraints(label,constraints);
+        gridBagLayout.setConstraints(label,constraints);
         add(label);
     }
     private class SliderHandler implements ChangeListener {
@@ -136,16 +138,13 @@ public class MyColorChooser extends JFrame{
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource()== rTextField) {
-                red = Integer.parseInt(rTextField.getText());
-                rSlider.setValue(red);
+                rSlider.setValue(Integer.parseInt(rTextField.getText()));
             }
             else if(e.getSource()==gTextField){
-                green = Integer.parseInt(gTextField.getText());
-                gSlider.setValue(green);
+                gSlider.setValue(Integer.parseInt(gTextField.getText()));
             }
             else if(e.getSource()==bTextField){
-                blue = Integer.parseInt(bTextField.getText());
-                bSlider.setValue(blue);
+                bSlider.setValue(Integer.parseInt(bTextField.getText()));
             }
         }
 
