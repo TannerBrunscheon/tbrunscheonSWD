@@ -22,6 +22,12 @@ public class DecryptedMessage {
     public DecryptedMessage(String messageStr, int[] key) {
         this.messageStr = messageStr;
         this.key = key;
+        if (key.length<messageStr.toCharArray().length){
+            throw new IllegalArgumentException("Key too short");
+        }
+        else if (key.length>messageStr.toCharArray().length){
+            throw new IllegalArgumentException("Key too long");
+        }
     }
 
     private void decryptMessage(){// TODO Error check both the key and the message probably do try catch
