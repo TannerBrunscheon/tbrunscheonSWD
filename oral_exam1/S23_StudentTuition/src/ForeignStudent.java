@@ -22,7 +22,7 @@ public class ForeignStudent extends Student {
     public String toString() {
         double tuition = GenerateTuition();
         return super.toString()+", Place of Residence: " + placeOfResidence
-                +", Total Tuition: " + tuition;
+                +", Total Tuition: " + tuition + "0";
     }
 
 }

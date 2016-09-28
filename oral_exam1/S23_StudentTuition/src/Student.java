@@ -34,7 +34,7 @@ public class Student {
             case ("Graduate"):
                 this.studentStatus = StudentStatus.GRADUATE;
                 break;
-            case ("Open enrolled"):
+            case ("Open Enrolled"):
                 this.studentStatus = StudentStatus.OPENENROLLED;
                 break;
             default:
@@ -57,7 +57,7 @@ public class Student {
     }
 
     public double GenerateTuition(){
-        if(numberOfRegisteredHours<= studentStatus.getFullLoad())
+        if(numberOfRegisteredHours < studentStatus.getFullLoad())
         {
             totalTuition = (discountUnillFull*numberOfRegisteredHours*baseClassHourTuitionRate);
             if (numberOfRegisteredHours >= collegeEnrolled.getHours()) {
@@ -142,4 +142,5 @@ public class Student {
         }
         return out;
     }
+    public double getTuition(){return this.GenerateTuition();}
 }

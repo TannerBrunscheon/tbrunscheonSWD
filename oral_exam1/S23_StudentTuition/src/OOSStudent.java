@@ -11,6 +11,7 @@ public class OOSStudent extends Student {
         super(firstName, lastName, studentID, numberOfRegisteredHours, studentStatus, collegeEnrolled);
     }
 
+
     @Override
     public double GenerateTuition()
     {
@@ -22,6 +23,6 @@ public class OOSStudent extends Student {
     public String toString() {
         double tuition = GenerateTuition();
         return super.toString()+", Place of Residence: " + placeOfResidence
-                +", Total Tuition: " + tuition;
+                +", Total Tuition: " + tuition+ "0";
     }
 }
