@@ -23,10 +23,4 @@ public class RectanglePanel extends JPanel {
         color = new Color(red,green,blue);
         repaint();
     }
-    public void setWidthHeight(int width,int height){
-        this.width=width;
-        this.height=height;
-        repaint();
-    }
-
 }
