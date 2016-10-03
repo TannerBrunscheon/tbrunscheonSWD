@@ -1,11 +1,14 @@
 
 import java.util.Scanner;
 /**
- * Created by Tanner on 8/31/2016.
+ * This class is the driver to the EncryptedMessage class. It takes in user input for the encrypted message and calls the correct
+ * methods in EncryptedMessage. It then outputs the results to the screen.
+ * @author Tanner Brunscheon
  */
 public class EncryptMessage {
 
     public static void main(String[] args) {
+
         String messageStr;
         Scanner input = new Scanner(System.in);
         char[] encrypted;

@@ -9,7 +9,7 @@ import java.util.Random;
 public class EncryptedMessage {
     /**
      * This is the string of characters used in the encryption and decryption software. All words must only have
-     * characters in this array or spaces.
+     * characters in this array or spaces. This is the "Index"
      */
     private final char  ALPHABET [] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
     /**
@@ -35,11 +35,12 @@ public class EncryptedMessage {
 
 
     /**
-     * This constructor takes in message string and encrypts the message.
+     * This constructor takes in message string and encrypts the message. The message is made uppercase because thats
+     * how the characters are indexed
      * @param messageStr Message to be encrypted
      */
     public EncryptedMessage(String messageStr) {
-        this.messageStr = messageStr;
+        this.messageStr = messageStr.toUpperCase();
         this.encryptMessage();
     }
 
@@ -53,17 +54,20 @@ public class EncryptedMessage {
         key = new int[messageStr.length()];
         for (int i = 0; i<messageStr.length(); i++) {
             if (messageStr.charAt(i) != ' '){
-                for (int j = 0; j < 36; j++) {
+                for (int j = 0; j <= 36; j++) {
+                    if (j==36){
+                        throw new IllegalArgumentException("Character Not In Array!");
+                    }
                     if (messageStr.charAt(i) == ALPHABET[j]) {
                         key[i] = rando.nextInt(34)%35 +1;
                         if ((j + key[i]) > 35){
                             tempKey = (j + key[i])%36;
                             encryptedChar[i] = ALPHABET[tempKey];
-                            j = 36;
+                            j = 37;
                         }
                         else{
                             encryptedChar[i] = ALPHABET[j + key[i]];
-                            j = 36;
+                            j = 37;
                         }
                     }
                 }

@@ -8,7 +8,7 @@
 public class DecryptedMessage {
     /**
      * This is the string of characters used in the encryption and decryption software. All words must only have
-     * characters in this array or spaces.
+     * characters in this array or spaces. This is the "Index".
      */
     private final char  ALPHABET [] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
     /**
