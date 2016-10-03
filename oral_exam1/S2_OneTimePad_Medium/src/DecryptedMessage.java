@@ -1,23 +1,38 @@
-import java.util.Arrays;
 
 /**
- * lksdafhlhefds
+ * This class is the main decryption class for this api. Its constructor takes in 2 arguments into the class.
+ * It has two methods decryptMessage and toString. The toString method is the only publicly available method
+ * and it does the decryption and returns the decrypted message as a string.
+ * @author Tanner Brunscheon
  */
 public class DecryptedMessage {
-    private static final char  ALPHABET [] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
     /**
-     * stufdsjlkf weh ldssdfh
+     * This is the string of characters used in the encryption and decryption software. All words must only have
+     * characters in this array or spaces.
+     */
+    private final char  ALPHABET [] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
+    /**
+     * The message as a string to be decrypted.
      */
     private String messageStr;
+    /**
+     * The key that decrypts the message.
+     */
     private int[] key;
+    /**
+     * A variable to store an altered value of the current key number.
+     */
     private int tempKey;
+    /**
+     * The decrypted array of characters.
+     */
     private char[] decryptedChar;
 
     /**
-     *
-     *
-     * @param messageStr
-     * @param key
+     * This constructor takes in message string and an array of ints as the decryption key. It also error checks the
+     * key to make sure the key matches the length of the message.
+     * @param messageStr Message to decrypt
+     * @param key Decryption key
      */
     public DecryptedMessage(String messageStr, int[] key) {
         this.messageStr = messageStr;
@@ -30,7 +45,11 @@ public class DecryptedMessage {
         }
     }
 
-    private void decryptMessage(){// TODO Error check both the key and the message probably do try catch
+    /**
+     * This is the primary class of the decrypt
+     *
+     */
+    private void decryptMessage(){
         decryptedChar = new char[messageStr.length()];
         for (int i = 0; i<messageStr.length(); i++) {
             for (int j = 0; j<36; j++){
@@ -54,6 +73,10 @@ public class DecryptedMessage {
         }
     }
 
+    /**
+     * 
+     * @return
+     */
     @Override
     public String toString() {
         decryptMessage();
