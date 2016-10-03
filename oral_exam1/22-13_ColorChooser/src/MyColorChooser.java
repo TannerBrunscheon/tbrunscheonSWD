@@ -10,14 +10,41 @@ import java.awt.event.ActionListener;
  * Created by Tanner on 9/25/2016.
  */
 public class MyColorChooser extends JFrame{
+    /**
+     * The text field that gives the red value of RGB. Can input on it.
+     */
     private final JTextField rTextField = new JTextField();
+    /**
+     * The text field that gives the green value of RGB. Can input on it.
+     */
     private final JTextField gTextField = new JTextField();
+    /**
+     * The text field that gives the blue value of RGB. Can input on it.
+     */
     private final JTextField bTextField = new JTextField();
+    /**
+     * A new layout of type grid bag. It sets up how the Jframe will look and how components look on it.
+     */
     private final GridBagLayout gridBagLayout = new GridBagLayout();
+    /**
+     * A set of constants that the layout understands. Will be used to format the layout.
+     */
     private final GridBagConstraints constraints = new GridBagConstraints();
+    /**
+     * New custom panel to display colors.
+     */
     private final RectanglePanel myPanel;
+    /**
+     * The slider that gives the red value of RGB.
+     */
     private final JSlider rSlider;
+    /**
+     * The text field that gives the green value of RGB. Can input on it.
+     */
     private final JSlider gSlider;
+    /**
+     * The text field that gives the bed value of RGB. Can input on it.
+     */
     private final JSlider bSlider;
     private int red=0;
     private int green=0;
@@ -74,45 +101,15 @@ public class MyColorChooser extends JFrame{
         this.add(myPanel, 4, 2, 3, 2);
 
     }
-    private void add(JSlider slider, int row, int column, int width, int height){
+    private void add(Component component, int row, int column, int width, int height){
         constraints.gridx=column;
         constraints.gridy=row;
         constraints.gridwidth=width;
         constraints.gridheight=height;
         constraints.weightx=.5;
         constraints.weighty=.5;
-        gridBagLayout.setConstraints(slider,constraints);
-        add(slider);
-    }
-    private void add(RectanglePanel panel, int row, int column, int width, int height){
-        constraints.gridx=column;
-        constraints.gridy=row;
-        constraints.gridwidth=width;
-        constraints.gridheight=height;
-        constraints.weightx=.5;
-        constraints.weighty=.5;
-        gridBagLayout.setConstraints(panel,constraints);
-        add(panel);
-    }
-    private void add(JTextField textField, int row, int column, int width, int height){
-        constraints.gridx=column;
-        constraints.gridy=row;
-        constraints.gridwidth=width;
-        constraints.gridheight=height;
-        constraints.weightx=.5;
-        constraints.weighty=.5;
-        gridBagLayout.setConstraints(textField,constraints);
-        add(textField);
-    }
-    private void add(JLabel label, int row, int column, int width, int height){
-        constraints.gridx=column;
-        constraints.gridy=row;
-        constraints.gridwidth=width;
-        constraints.gridheight=height;
-        constraints.weightx=.5;
-        constraints.weighty=.5;
-        gridBagLayout.setConstraints(label,constraints);
-        add(label);
+        gridBagLayout.setConstraints(component,constraints);
+        add(component);
     }
     private class SliderHandler implements ChangeListener {
         @Override
