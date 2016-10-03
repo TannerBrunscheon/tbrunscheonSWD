@@ -2,16 +2,34 @@
 import java.util.Scanner;
 
 /**
- * Created by Tanner on 9/11/2016.
+ * This class is the driver to the DecryptedMessage class. It takes in user input for the encrypted message and key,does
+ * its own error checking in addition to the DecryptedMessage class's own error checking and calls the correct methods in
+ * the DecryptedMessage class as an example.
+ * @author Tanner Brunscheon
  */
 public class DecryptMessage {
     public static void main(String[] args) {
-        String messageStr;
-        Scanner input = new Scanner(System.in);
-        String keyTemp;
-        String[] keyArray;
-        int[] key;
 
+        /**
+         * Message to be decrypted.
+         */
+        String messageStr;
+        /**
+         * Input scanner for user input
+         */
+        Scanner input = new Scanner(System.in);
+        /**
+         * Key as a string before conversion to array of ints. Which is required by DecryptedMessage.
+         */
+        String keyTemp;
+        /**
+         * Key as an array of strings after splitting.
+         */
+        String[] keyArray;
+        /**
+         * Key as an array of ints after conversion
+         */
+        int[] key;
 
         System.out.printf("Please Enter Your Encrypted Message: ");
         messageStr = input.nextLine();
