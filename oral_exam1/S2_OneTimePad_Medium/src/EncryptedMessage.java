@@ -95,6 +95,7 @@ public class EncryptedMessage {
     /**
      * Return method of the key.
      * @return The key used for decryption.
+     *
      */
     public int[] getKey() {
         return key;
