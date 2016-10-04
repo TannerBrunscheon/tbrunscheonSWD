@@ -20,10 +20,6 @@ public class DecryptedMessage {
      */
     private int[] key;
     /**
-     * A variable to store an altered value of the current key number.
-     */
-    private int tempKey;
-    /**
      * The decrypted array of characters.
      */
     private char[] decryptedChar;
@@ -62,8 +58,7 @@ public class DecryptedMessage {
                 else {
                     if (messageStr.charAt(i) == ALPHABET[j]) {
                         if ((j - key[i]) < 0) {
-                            tempKey = ((j - (key[i])) + 36);
-                            decryptedChar[i] = ALPHABET[tempKey];
+                            decryptedChar[i] = ALPHABET[((j - (key[i])) + 36)];
                             j = 36;
                         } else {
                             decryptedChar[i] = ALPHABET[j - key[i]];

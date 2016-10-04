@@ -28,10 +28,6 @@ public class EncryptedMessage {
      * Array of ints representing the key.
      */
     private int[] key;
-    /**
-     * Temperary key used in the encryption process.
-     */
-    private int tempKey;
 
 
     /**
@@ -61,8 +57,7 @@ public class EncryptedMessage {
                     if (messageStr.charAt(i) == ALPHABET[j]) {
                         key[i] = rando.nextInt(34)%35 +1;
                         if ((j + key[i]) > 35){
-                            tempKey = (j + key[i])%36;
-                            encryptedChar[i] = ALPHABET[tempKey];
+                            encryptedChar[i] = ALPHABET[(j + key[i])%36];
                             j = 37;
                         }
                         else{

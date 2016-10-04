@@ -1,4 +1,3 @@
-
 /**
  * Main class that does the Easter Computus calculation. It has a main method computeEaster that is only internally called
  * once. It is called during the constructor. The other methods in the class are getters and a toString method.
