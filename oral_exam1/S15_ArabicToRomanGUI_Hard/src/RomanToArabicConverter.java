@@ -7,6 +7,7 @@ public class RomanToArabicConverter {
     /**
      * This is converting Roman to arabic. To do this it first looks at the character at the front of the
      *
+     *
      * @param number The Roman numeral to be converted
      * @return The arabic number returned
      */
