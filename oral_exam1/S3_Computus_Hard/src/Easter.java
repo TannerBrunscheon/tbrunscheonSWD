@@ -1,18 +1,34 @@
-import com.sun.xml.internal.bind.v2.TODO;
-
-import java.time.Month;
 
 /**
- * Created by Tanner on 8/31/2016.
+ * Main class that does the Easter Computus calculation. It has a main method computeEaster that is only internally called
+ * once. It is called during the constructor. The other methods in the class are getters and a toString method.
  */
 public class Easter {
-    private int year,month,day;
+    /**
+     *Year to be computed
+     */
+    private int year;
+    /**
+     * Final month computed
+     */
+    private int month;
+    /**
+     * Final day computed
+     */
+    private int day;
 
+    /**
+     * Sets value of year to be the value specified. Also computes easter using computerEaster method.
+     * @param year Year that easter is to be computed for.
+     */
     public Easter(int year) {
         this.year = year;
+        computeEaster();
     }
-    public Easter(){}
 
+    /**
+     * Uses the algorithm on Wikipedia to compute the month and day of Easter based on the year.
+     */
     private void computeEaster(){
         int a = year % 19;
         int b = year / 100;
@@ -30,17 +46,27 @@ public class Easter {
         day = ((h + l - 7 * m + 114) % 31)+1;
     }
 
+    /**
+     * Returns the month computed.
+     * @return month computed
+     */
+
     public int getMonth() {
-        computeEaster();
         return month;
     }
+    /**
+     * Returns the day computed.
+     * @return day computed
+     */
     public int getDay(){
         computeEaster();
         return day;
     }
-    public void setYear(int year) {
-        this.year = year;
-    }
+
+    /**
+     * Sets the month day and year in a MM/DD/YYYY format as a string for easy readability
+     * @return String of MM/DD/YYYY
+     */
     @Override
     public String toString() {
         computeEaster();
