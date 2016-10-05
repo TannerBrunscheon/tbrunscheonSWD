@@ -10,8 +10,8 @@ import java.util.Scanner;
 public class UserComputer {
     public static void main(String[] args) {
         /**
-         * String of months with a NULL in front. THis only needs to go untill April but since this is a driver class
-         * I wanted to show the program returns the number of the Month and thus I needed to make March 3 and April 4.
+         * String of months with a NULL in front. This only needs to go until April but since this is a driver class
+         * I wanted to show the program returns the number of the month and thus I needed to make March 3 and April 4.
          */
         final String[] MONTH = {"NULL", "January", "February", "March", "April"};
         /**

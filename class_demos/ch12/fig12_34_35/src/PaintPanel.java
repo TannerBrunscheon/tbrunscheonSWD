@@ -32,6 +32,7 @@ public class PaintPanel extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g); // clears drawing area
 
+
         // draw all
         for (Point point : points)
             g.fillOval(point.x, point.y, 4, 4);
