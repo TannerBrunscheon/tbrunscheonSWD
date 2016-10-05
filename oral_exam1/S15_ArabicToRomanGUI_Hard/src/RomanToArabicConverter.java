@@ -5,9 +5,12 @@
 public class RomanToArabicConverter {
 
     /**
-     * This is converting Roman to arabic. To do this it first looks at the character at the front of the
-     *
-     *
+     * This is converting Roman to arabic. To do this it goes one at a time through the numerals. It checks if there
+     * is a next numeral.If their is it looks at that next numeral. If it is "higher" than the first numeral, it subtracts
+     * its value from the number. If it is the same or lower or doesn't exist, it adds the roman numerals value to the number
+     * To check for errors,it looks at the numerals around the one selected.If there are 3 in a row, it throws an error,
+     * if there are 2 in a row then another number higher (double subtraction) it throws an error. Finally if the numeral doesn't
+     * exist, it throws an error.
      * @param number The Roman numeral to be converted
      * @return The arabic number returned
      */
@@ -152,7 +155,11 @@ public class RomanToArabicConverter {
     }
 
     /**
-     *
+     * This program is for converting an arablic number into roman numerals. It starts by "mapping" roman numerals
+     * to their corresponding amounts. It does the numerals that can be 3 in a row and them minus the numerals that
+     * can be only 1 in a row. For instance there is an M and a C. It then works from highest numeral to lowest
+     * numeral using a while loop to subtract the value from the number and add the corresponding numeral.
+     * It returns the string when the number equals 0.
      * @param number Arabic number to be converted
      * @return Roman numeral computed
      */

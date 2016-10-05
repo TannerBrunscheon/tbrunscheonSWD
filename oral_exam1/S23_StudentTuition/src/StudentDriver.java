@@ -1,5 +1,6 @@
 /**
- * Created by Tanner on 9/27/2016.
+ * Main driver class for this assignment. All it does is create a new student of all 18 types, print their info to the
+ * screen, change the tuition rate, and reprint them to the screen
  */
 public class StudentDriver {
     public static void main(String[] args) {

@@ -13,8 +13,8 @@ public class ConverterFrame extends JFrame {
     private final JTextField text = new JTextField();
 
     /**
-     * This constructor sets the title sets the layout and adds an action listener to the text field. It then checks if what was entered was an int or a string and
-     * calls the appropriate ArabicConversion and RomanConversion which ever appropriate.
+     * This constructor sets the title sets the layout and adds an action listener to the text field. The user then
+     * enters an input.It then checks if what was entered was an int or a string and calls the appropriate ArabicConversion and RomanConversion which ever appropriate.
      */
     public ConverterFrame() {
         super("Roman Converter");
@@ -26,8 +26,14 @@ public class ConverterFrame extends JFrame {
                 String userInput = text.getText();
                 try {
                     int num = Integer.parseInt(userInput);
-                    String outString = RomanToArabicConverter.ArabicConversion(num);
-                    JOptionPane.showMessageDialog(text, outString);
+                    if (num < 0 || num > 3999)
+                    {
+                        JOptionPane.showMessageDialog(text, "Number not supported. 0-3999 supported");
+                    }
+                    else {
+                        String outString = RomanToArabicConverter.ArabicConversion(num);
+                        JOptionPane.showMessageDialog(text, outString);
+                    }
                 } catch (NumberFormatException f) {
                     try{
                         int out = RomanToArabicConverter.RomanConversion(userInput);
