@@ -68,7 +68,7 @@ public class EncryptedMessage {
                 }
             }
             else {
-                encryptedChar[i] = ' ';
+                encryptedChar[i] = ' ';//
             }
         }
     }
