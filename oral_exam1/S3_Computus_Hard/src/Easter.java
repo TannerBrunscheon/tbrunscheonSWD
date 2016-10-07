@@ -58,7 +58,6 @@ public class Easter {
      * @return day computed
      */
     public int getDay(){
-        computeEaster();
         return day;
     }
 

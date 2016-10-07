@@ -52,7 +52,7 @@ public class EncryptedMessage {
             if (messageStr.charAt(i) != ' '){
                 for (int j = 0; j <= 36; j++) {
                     if (j==36){
-                        throw new IllegalArgumentException("Character Not In Array!");
+                        throw new IllegalArgumentException("Character Not In Array!(A-Z,0-9 only!)");
                     }
                     if (messageStr.charAt(i) == ALPHABET[j]) {
                         key[i] = rando.nextInt(34)%35 +1;
