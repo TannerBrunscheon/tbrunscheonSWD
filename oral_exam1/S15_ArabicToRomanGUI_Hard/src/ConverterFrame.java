@@ -23,7 +23,7 @@ public class ConverterFrame extends JFrame {
         text.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String userInput = text.getText();
+                String userInput = text.getText();//
                 try {
                     int num = Integer.parseInt(userInput);
                     if (num < 0 || num > 3999)
