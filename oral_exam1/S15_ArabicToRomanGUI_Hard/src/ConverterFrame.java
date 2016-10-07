@@ -23,7 +23,7 @@ public class ConverterFrame extends JFrame {
 
         arabic.addKeyListener(new KeyAdapter() {
             @Override
-            public void keyTyped(KeyEvent e) {
+            public void keyReleased(KeyEvent e) {
                 String userInput = arabic.getText();//
                 try {
                     int num = Integer.parseInt(userInput);
@@ -44,14 +44,18 @@ public class ConverterFrame extends JFrame {
         });
         roman.addKeyListener(new KeyAdapter() {
             @Override
-            public void keyTyped(KeyEvent e) {
+            public void keyReleased(KeyEvent e) {
                 String userInput = roman.getText();//
                 try {
                     int num = Integer.parseInt(userInput);
-                    JOptionPane.showMessageDialog(roman, "Please enter a roman numeral");
+                    JOptionPane.showMessageDialog(roman, "Please enter a valid roman numeral");
                 } catch (NumberFormatException f) {
-                    int out = RomanToArabicConverter.RomanConversion(userInput);
-                    arabic.setText(Integer.toString(out));
+                    try {
+                        int out = RomanToArabicConverter.RomanConversion(userInput);
+                        arabic.setText(Integer.toString(out));
+                    }catch (IllegalArgumentException g){
+                        JOptionPane.showMessageDialog(roman, "Please enter a valid roman numeral");
+                    }
 
                 }
             }
