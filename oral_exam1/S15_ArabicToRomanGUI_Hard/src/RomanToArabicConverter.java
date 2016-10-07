@@ -166,7 +166,7 @@ public class RomanToArabicConverter {
     public static String ArabicConversion(int number) {
         String roman = "";
         String[] romanChars = {"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
-        int[] romanVals = {1000,900,500,400,100,90,40,10,9,5,4,1};
+        int[] romanVals = {1000,900,500,400,100,90,50,40,10,9,5,4,1};
         int i=0;
         while (number > 0) {
             while(number >= romanVals[i]){
