@@ -19,6 +19,9 @@ public enum StudentStatus {
      */
     DEFAULT(0);
 
+    /**]
+     * The instance variable for mapping to Enums.
+     */
     private final int fullLoad;
 
     /**

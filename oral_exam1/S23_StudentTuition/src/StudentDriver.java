@@ -4,24 +4,24 @@
  */
 public class StudentDriver {
     public static void main(String[] args) {
-        Student student1 = new IowaStudent("John","Doe","111111111",10,"Graduate","Engineering");
-        Student student2 = new IowaStudent("Jane","Yane","222222222",13,"Graduate","Liberal Arts");
-        Student student3 = new IowaStudent("Debrah","Redya","3333333",16,"Undergraduate","Engineering");
-        Student student4 = new IowaStudent("Jonny","Fonzy","44444444",15,StudentStatus.UNDERGRADUATE,CollegeEnrolled.LIBERALARTS);
-        Student student5 = new IowaStudent("Lane","Frame","5555555",5,"Open Enrolled","Engineering");
-        Student student6 = new IowaStudent("Ryan","Spyin","6666666",15,StudentStatus.OPENENROLLED,CollegeEnrolled.LIBERALARTS);
-        Student student7 = new OOSStudent("Ron","Con","777777777",8,"Graduate","Engineering");
-        Student student8 = new OOSStudent("Dean","Bean","888888",4,"Graduate","Liberal Arts");
-        Student student9 = new OOSStudent("AJ","ShmayWay","11221133",11,"Undergraduate","Engineering");
-        Student student10 = new OOSStudent("Alex","Shamlex","11221144",19,StudentStatus.UNDERGRADUATE,CollegeEnrolled.LIBERALARTS);
-        Student student11 = new OOSStudent("Seth","Rest","11221133",6,"Open Enrolled","Engineering");
-        Student student12 = new OOSStudent("Olivia","Sholivia","11221144",1,StudentStatus.OPENENROLLED,CollegeEnrolled.LIBERALARTS);
-        Student student13 = new ForeignStudent("Ann","Ran","11221144",12,"Graduate","Liberal Arts");
-        Student student14 = new ForeignStudent("Reed","Lead","11221133",14,"Undergraduate","Engineering");
-        Student student15 = new ForeignStudent("Paul","Small","11221144",15,StudentStatus.UNDERGRADUATE,CollegeEnrolled.LIBERALARTS);
-        Student student16 = new ForeignStudent("Kyser","Shmizer","11221133",3,"Open Enrolled","Engineering");
-        Student student17 = new ForeignStudent("Blessed","Messed","11221144",8,StudentStatus.OPENENROLLED,CollegeEnrolled.LIBERALARTS);
-        Student student18 = new ForeignStudent("Xi","Doe","11221133",11,"Graduate","Engineering");
+        Student student1 = new EngineeringIowa("John","Doe","111111111",10,"Graduate");
+        Student student2 = new LiberalArtsIowa("Jane","Yane","222222222",13,"Graduate");
+        Student student3 = new EngineeringIowa("Debrah","Redya","3333333",16,"Undergraduate");
+        Student student4 = new LiberalArtsIowa("Jonny","Fonzy","44444444",15,StudentStatus.UNDERGRADUATE);
+        Student student5 = new EngineeringIowa("Lane","Frame","5555555",5,"Open Enrolled");
+        Student student6 = new LiberalArtsIowa("Ryan","Spyin","6666666",15,StudentStatus.OPENENROLLED);
+        Student student7 = new EngineeringOOS("Ron","Con","777777777",8,"Graduate");
+        Student student8 = new LiberalArtsOOS("Dean","Bean","888888",4,"Graduate");
+        Student student9 = new EngineeringOOS("AJ","ShmayWay","11221133",11,"Undergraduate");
+        Student student10 = new LiberalArtsOOS("Alex","Shamlex","11221144",19,StudentStatus.UNDERGRADUATE);
+        Student student11 = new EngineeringOOS("Seth","Rest","11221133",6,"Open Enrolled");
+        Student student12 = new LiberalArtsOOS("Olivia","Sholivia","11221144",1,StudentStatus.OPENENROLLED);
+        Student student13 = new LiberalArtsForeign("Ann","Ran","11221144",12,"Graduate");
+        Student student14 = new EngineeringForeign("Reed","Lead","11221133",14,"Undergraduate");
+        Student student15 = new LiberalArtsForeign("Paul","Small","11221144",15,StudentStatus.UNDERGRADUATE);
+        Student student16 = new EngineeringForeign("Kyser","Shmizer","11221133",3,"Open Enrolled");
+        Student student17 = new LiberalArtsForeign("Blessed","Messed","11221144",8,StudentStatus.OPENENROLLED);
+        Student student18 = new EngineeringForeign("Xi","Doe","11221133",11,"Graduate");
 
         System.out.println(student1.toString());
         System.out.println(student2.toString());
