@@ -30,6 +30,8 @@ public class ConverterFrame extends JFrame {
                     if (num < 0 || num > 3999)
                     {
                         JOptionPane.showMessageDialog(arabic, "Number not supported. 0-3999 supported");
+                        //found at https://stackoverflow.com/questions/17634401/jtextfield-removing-end-characters
+                        arabic.setText(arabic.getText().substring(0, arabic.getText ().length() - 1));
                     }
                     else {
                         String outString = RomanToArabicConverter.ArabicConversion(num);
@@ -38,6 +40,8 @@ public class ConverterFrame extends JFrame {
                 } catch (NumberFormatException f) {
 
                     JOptionPane.showMessageDialog(arabic, "Number not supported. 0-3999 supported");
+                    //found at https://stackoverflow.com/questions/17634401/jtextfield-removing-end-characters
+                    arabic.setText(arabic.getText().substring(0, arabic.getText ().length() - 1));
 
                 }
             }
@@ -49,12 +53,16 @@ public class ConverterFrame extends JFrame {
                 try {
                     int num = Integer.parseInt(userInput);
                     JOptionPane.showMessageDialog(roman, "Please enter a valid roman numeral");
+                    //found at https://stackoverflow.com/questions/17634401/jtextfield-removing-end-characters
+                    roman.setText(roman.getText().substring(0, roman.getText ().length() - 1));
                 } catch (NumberFormatException f) {
                     try {
                         int out = RomanToArabicConverter.RomanConversion(userInput);
                         arabic.setText(Integer.toString(out));
                     }catch (IllegalArgumentException g){
                         JOptionPane.showMessageDialog(roman, "Please enter a valid roman numeral");
+                        //found at https://stackoverflow.com/questions/17634401/jtextfield-removing-end-characters
+                        roman.setText(roman.getText().substring(0, roman.getText ().length() - 1));
                     }
 
                 }

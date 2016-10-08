@@ -33,7 +33,7 @@ public class UserComputer {
         }
         catch (InputMismatchException e)
         {
-            System.out.println("Please enter a year between -2147483647 and  2147483647");
+            throw new InputMismatchException("Please enter a year between -2147483647 and  2147483647");
         }
 
 
