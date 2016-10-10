@@ -34,6 +34,7 @@ public class EngineeringForeign extends ForeignStudent {
     @Override
     public double generateTuition()
     {
+        //Set feels and hours and go one up the tuition.
         super.setFees(200);
         super.setHours(6);
         return super.generateTuition();

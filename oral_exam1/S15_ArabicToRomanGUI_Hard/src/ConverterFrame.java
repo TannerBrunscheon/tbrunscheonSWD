@@ -18,18 +18,26 @@ public class ConverterFrame extends JFrame {
      * enters an input.It then checks if what was entered was an int or a string and calls the appropriate ArabicConversion and RomanConversion which ever appropriate.
      */
     public ConverterFrame() {
+        //Set header of frame
         super("Roman Converter");
+        //Set layout
         setLayout(new GridLayout(2, 2));
 
+        //Add key adapter tp the arabic text field. When the key is release it needs to update the other text box
         arabic.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
+                //Get text
                 String userInput = arabic.getText();//
+                // Try converting string. If it fails error out.
                 try {
+                    //String to int
                     int num = Integer.parseInt(userInput);
                     if (num < 0 || num > 3999)
                     {
+                        //Prompt user of outside of bounds
                         JOptionPane.showMessageDialog(arabic, "Number not supported. 0-3999 supported");
+                        //Delete next text
                         //found at https://stackoverflow.com/questions/17634401/jtextfield-removing-end-characters
                         arabic.setText(arabic.getText().substring(0, arabic.getText ().length() - 1));
                     }
@@ -40,6 +48,7 @@ public class ConverterFrame extends JFrame {
                 } catch (NumberFormatException f) {
 
                     JOptionPane.showMessageDialog(arabic, "Number not supported. 0-3999 supported");
+                    //Delete next text
                     //found at https://stackoverflow.com/questions/17634401/jtextfield-removing-end-characters
                     arabic.setText(arabic.getText().substring(0, arabic.getText ().length() - 1));
 
@@ -49,26 +58,21 @@ public class ConverterFrame extends JFrame {
         roman.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
-                String userInput = roman.getText();//
+                //Get user numeral
+                String userInput = roman.getText();
+                //Check if its an integer
                 try {
-                    int num = Integer.parseInt(userInput);
+                    int out = RomanToArabicConverter.RomanConversion(userInput);
+                    arabic.setText(Integer.toString(out));
+                }catch (IllegalArgumentException g){
                     JOptionPane.showMessageDialog(roman, "Please enter a valid roman numeral");
+                    //Delete next text
                     //found at https://stackoverflow.com/questions/17634401/jtextfield-removing-end-characters
                     roman.setText(roman.getText().substring(0, roman.getText ().length() - 1));
-                } catch (NumberFormatException f) {
-                    try {
-                        int out = RomanToArabicConverter.RomanConversion(userInput);
-                        arabic.setText(Integer.toString(out));
-                    }catch (IllegalArgumentException g){
-                        JOptionPane.showMessageDialog(roman, "Please enter a valid roman numeral");
-                        //found at https://stackoverflow.com/questions/17634401/jtextfield-removing-end-characters
-                        roman.setText(roman.getText().substring(0, roman.getText ().length() - 1));
-                    }
-
                 }
             }
         });
-
+        //Add componenets
         add(new JLabel("Enter Number (Arabic): "));
         add(new JLabel("Enter Numeral (Roman): "));
         add(arabic);

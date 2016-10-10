@@ -34,6 +34,7 @@ public class ForeignStudent extends Student {
     @Override
     public double generateTuition()
     {
+        //Change the discounts and generate tuition.
         super.setDiscountUnillFull(1.03);
         super.setDiscountAfter(1);
         return super.generateTuition();

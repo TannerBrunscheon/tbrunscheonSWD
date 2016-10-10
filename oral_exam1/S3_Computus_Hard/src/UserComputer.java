@@ -23,7 +23,8 @@ public class UserComputer {
          */
         Scanner input = new Scanner(System.in);
 
-
+        //Get user input and print the day and month both ways avalable. It there is an error prompt the user
+        //that they made a mistake
         System.out.printf("Please Enter the Year: ");
         try {
             year = input.nextInt();

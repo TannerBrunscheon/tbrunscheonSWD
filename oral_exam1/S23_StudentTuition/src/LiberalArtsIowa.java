@@ -34,6 +34,7 @@ public class LiberalArtsIowa extends IowaStudent {
     @Override
     public double generateTuition()
     {
+        //Set feels and hours and go one up the tuition.
         super.setFees(400);
         super.setHours(3);
         return super.generateTuition();

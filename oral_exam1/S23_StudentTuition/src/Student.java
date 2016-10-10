@@ -73,6 +73,7 @@ public class Student {
         this.lastName = lastName;
         this.studentID = studentID;
         this.numberOfRegisteredHours = numberOfRegisteredHours;
+        //String to enum
         switch (studentStatus) {
             case ("Undergraduate"):
                 this.studentStatus = StudentStatus.UNDERGRADUATE;
@@ -97,15 +98,18 @@ public class Student {
      */
     public double generateTuition(){
         double totalTuition;
+        //If this is less than the full load then just do the caluclation straight forwards hours*tuition.
         if(numberOfRegisteredHours < studentStatus.getFullLoad())
         {
             totalTuition = (discountUnillFull*numberOfRegisteredHours*baseClassHourTuitionRate);
+            //Add fees if you need to
             if (numberOfRegisteredHours >= hours) {
                 totalTuition = totalTuition+fees;
             }
         }
         else
         {
+            //Do the harder calculation which is full time hours * tuition+extra hours * tutuion +fees.
             totalTuition = ((discountUnillFull*(studentStatus.getFullLoad()*baseClassHourTuitionRate))+
                     (discountAfter*((numberOfRegisteredHours-studentStatus.getFullLoad())*baseClassHourTuitionRate)));
             totalTuition =totalTuition+fees;

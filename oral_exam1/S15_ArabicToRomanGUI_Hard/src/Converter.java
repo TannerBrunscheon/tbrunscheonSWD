@@ -6,6 +6,7 @@ import javax.swing.*;
  */
 public class Converter {
     public static void main(String[] args) {
+        //Create new converter frame and set it up
         ConverterFrame converterFrame = new ConverterFrame();
         converterFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         converterFrame.setSize(300, 100);

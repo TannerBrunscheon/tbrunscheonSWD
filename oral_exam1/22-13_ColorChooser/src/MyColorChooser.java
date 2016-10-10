@@ -69,14 +69,15 @@ public class MyColorChooser extends JFrame{
          */
         final JSlider bSlider;
 
-
-
+        //Set layout to gridBag
         super.setLayout(gridBagLayout);
 
+        //Default the fields
         rTextField.setText("0");
         gTextField.setText("0");
         bTextField.setText("0");
 
+        //Configure the sliders to 0-255 and to have ticks
         rSlider = new JSlider(SwingConstants.HORIZONTAL, 0, 255, 0);
         rSlider.setMajorTickSpacing(8);
         rSlider.setPaintTicks(true);
@@ -89,11 +90,12 @@ public class MyColorChooser extends JFrame{
         bSlider.setMajorTickSpacing(8);
         bSlider.setPaintTicks(true);
 
+        //New labels
         final JLabel rLabel = new JLabel("RED");
         final JLabel gLabel = new JLabel("GREEN");
         final JLabel bLabel = new JLabel("BLUE");
 
-
+        //Put change listenters to the sliders to update the color of the panel
         rSlider.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
@@ -119,6 +121,7 @@ public class MyColorChooser extends JFrame{
             }
         });
 
+        //Put action listenters so you can change the sliders by the text box
         rTextField.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -138,9 +141,10 @@ public class MyColorChooser extends JFrame{
             }
         });
 
-
+        //Allow things to expand when the box is expanded
         constraints.fill = GridBagConstraints.BOTH;
 
+        //Add everything.
         this.add(rSlider, 2, 0, 2, 1);
         this.add(rTextField, 1, 1, 2, 1);
         this.add(rLabel, 0, 0, 2, 1);
@@ -163,13 +167,18 @@ public class MyColorChooser extends JFrame{
      * @param height Height of the component
      */
     private void add(Component component, int row, int column, int width, int height){
+        //Set the value of the x and y coords for where the component should be
         constraints.gridx=column;
         constraints.gridy=row;
+        //Set the value of the width and height for where the component should be
         constraints.gridwidth=width;
         constraints.gridheight=height;
+        //Allows things to expand
         constraints.weightx=.5;
         constraints.weighty=.5;
+        //Sets the components constraints on the layout
         gridBagLayout.setConstraints(component,constraints);
+        // Add the component
         add(component);
     }
 }

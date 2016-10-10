@@ -33,6 +33,7 @@ public class OOSStudent extends Student {
     @Override
     public double generateTuition()
     {
+        //Change the discounts and generate tuition.
         super.setDiscountUnillFull(1);
         super.setDiscountAfter(1);
         return super.generateTuition();

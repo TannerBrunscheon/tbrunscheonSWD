@@ -46,16 +46,25 @@ public class EncryptedMessage {
      * the randomly generated number into the key. If it sees the next character as a space it adds a 0 to the array.
      */
     private void encryptMessage() {
+        //Create new message array for the encryption process
         encryptedChar = new char[messageStr.length()];
+        // Create new key array for encryption process
         key = new int[messageStr.length()];
+        //Loop through the in message
         for (int i = 0; i<messageStr.length(); i++) {
+            //Check for an empty char
             if (messageStr.charAt(i) != ' '){
+                //Loop through the character array plus 1. Checks for matches.
                 for (int j = 0; j <= 36; j++) {
+                    //Throw an error if no matches
                     if (j==36){
                         throw new IllegalArgumentException("Character Not In Array!(A-Z,0-9 only!)");
                     }
+                    //Makes sure character is in array Grab index
                     if (messageStr.charAt(i) == ALPHABET[j]) {
-                        key[i] = rando.nextInt(34)%35 +1;
+                        // Genarate random number 1-35 so there are no double loops
+                        key[i] = rando.nextInt(34)+1;
+                        //Check if there needs to be a loop. If so add the key and the index together and remainder 36. If not just add them together.
                         if ((j + key[i]) > 35){
                             encryptedChar[i] = ALPHABET[(j + key[i])%36];
                             j = 37;
@@ -68,6 +77,7 @@ public class EncryptedMessage {
                 }
             }
             else {
+                //Add a space in the char array.
                 encryptedChar[i] = ' ';//
             }
         }

@@ -22,10 +22,14 @@ public class CycleComputer {
          */
         Easter e;
 
-        for(int i=0; i<5700000; i++){
+        // For loop for the cycle
+        for(int i=0; i<5700000; i++) {
+            //Create new easter
             e = new Easter(i);
+            //Get month and day
             month = e.getMonth();
             day = e.getDay();
+            // Add to appropriate array subtrating the amount of days untill the first day possible.
             if(month == 3){
                 march[day-22]++;
             }
@@ -34,6 +38,7 @@ public class CycleComputer {
             }
         }
 
+        // Print full arrays
         for (int i = 0; i<10; i++) {
             System.out.printf("March " + (i+22) + "  " + march[i] + "%n");
         }

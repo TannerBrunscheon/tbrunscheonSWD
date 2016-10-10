@@ -48,27 +48,38 @@ public class DecryptedMessage {
      * the looping. 36 being the size of the index. It also ignores decryption if it sees the next character being a space.
      */
     private void decryptMessage(){
+        //New character array for decryption process
         decryptedChar = new char[messageStr.length()];
+        // For loop through the message
         for (int i = 0; i<messageStr.length(); i++) {
-            for (int j = 0; j<36; j++){
+            //Loop through the character array plus 1. Checks for matches.
+            for (int j = 0; j<=36; j++){
+                //Throw an error if no matches
+                if (j==36){
+                    throw new IllegalArgumentException("Character Not In Array!(A-Z,0-9 only!)");
+                }
+                //Ignore space
                 if (messageStr.charAt(i) == ' '){
-                    j = 36;
+                    j = 37;
                     decryptedChar[i] = ' ';
                 }
+                //Makes sure charictar is in array. Grab index
                 else {
                     if (messageStr.charAt(i) == ALPHABET[j]) {
+                        //Check if there needs to be a loop. If so subtract the key and the index and add 36. If not just subtract them.
                         if ((j - key[i]) < 0) {
                             decryptedChar[i] = ALPHABET[((j - (key[i])) + 36)];
-                            j = 36;
+                            j = 37;
                         } else {
                             decryptedChar[i] = ALPHABET[j - key[i]];
-                            j = 36;
+                            j = 37;
                         }
                     }
                 }
             }
         }
     }
+
 
     /**
      * ToString is the return method in the DecryptedMessage class. It calls decrypt message and formats the decrypted

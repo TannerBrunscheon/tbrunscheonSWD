@@ -18,7 +18,9 @@ public class RectanglePanel extends JPanel {
     @Override
     public void paintComponent(Graphics g)
     {
+        //Required
         super.paintComponent(g);
+        //Change background color
         setBackground(color);
     }
 
@@ -30,6 +32,7 @@ public class RectanglePanel extends JPanel {
      */
     public void setColor(int red,int green,int blue)
     {
+        //Give new values for the color of the panel
         color = new Color(red,green,blue);
         repaint();
     }

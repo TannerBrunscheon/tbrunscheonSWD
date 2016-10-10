@@ -27,6 +27,7 @@ public class UserComputerTest {
          * Secondary counter for the 2 arrays.
          */
         int j =0;
+        //For loop to look at the output of the Easter class. Make sure its right.
         for (int i =2005;i<2026;i++) {
             easter = new Easter(i);
             assertEquals(dayArray[j], easter.getDay());

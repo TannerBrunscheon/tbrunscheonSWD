@@ -31,18 +31,24 @@ public class DecryptMessage {
          */
         int[] key;
 
+        // Get inputs from user
         System.out.printf("Please Enter Your Encrypted Message: ");
         messageStr = input.nextLine();
         System.out.printf("Please Enter Your Key: ");
         keyTemp = input.nextLine();
 
+        // Split the key into an array of strings. On the spaces
         keyArray = keyTemp.split(" ");
+
         key= new int[keyArray.length];
+        //First it checks if the key is to short and if its is a number by trying to convert it
         try {
-            if (keyArray.length<messageStr.length()){
+            //Checks if key is too long
+            if (keyArray.length>messageStr.length()){
                 throw new IllegalArgumentException("Key too long");
             }
             else {
+                //Switches everything to integers
                 for (int i = 0; i < keyArray.length; i++) {
                     key[i] = Integer.parseInt(keyArray[i]);
                 }
@@ -54,6 +60,7 @@ public class DecryptMessage {
         catch (ArrayIndexOutOfBoundsException e ){
             throw new IllegalArgumentException("Key too short");
         }
+        // Creates a new decrypt message class with key and message
         DecryptedMessage message = new DecryptedMessage(messageStr.toUpperCase(),key);
         System.out.println(message);
 

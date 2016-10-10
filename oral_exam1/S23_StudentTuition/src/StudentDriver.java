@@ -4,6 +4,7 @@
  */
 public class StudentDriver {
     public static void main(String[] args) {
+        //Instantiate all the students
         Student student1 = new EngineeringIowa("John","Doe","111111111",10,"Graduate");
         Student student2 = new LiberalArtsIowa("Jane","Yane","222222222",13,"Graduate");
         Student student3 = new EngineeringIowa("Debrah","Redya","3333333",16,"Undergraduate");
@@ -23,6 +24,7 @@ public class StudentDriver {
         Student student17 = new LiberalArtsForeign("Blessed","Messed","11221144",8,StudentStatus.OPENENROLLED);
         Student student18 = new EngineeringForeign("Xi","Doe","11221133",11,"Graduate");
 
+        //Print students
         System.out.println(student1.toString());
         System.out.println(student2.toString());
         System.out.println(student3.toString());
@@ -42,6 +44,7 @@ public class StudentDriver {
         System.out.println(student17.toString());
         System.out.println(student18.toString()+"\n\n");
 
+        //Change all tuition rates
         student1.setBaseClassHourTuitionRate(200);
         student2.setBaseClassHourTuitionRate(200);
         student3.setBaseClassHourTuitionRate(200);
@@ -61,6 +64,7 @@ public class StudentDriver {
         student17.setBaseClassHourTuitionRate(200);
         student18.setBaseClassHourTuitionRate(200);
 
+        //Print students
         System.out.println(student1.toString());
         System.out.println(student2.toString());
         System.out.println(student3.toString());

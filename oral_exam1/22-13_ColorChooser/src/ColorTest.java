@@ -6,6 +6,7 @@ import javax.swing.*;
  */
 public class ColorTest {
     public static void main(String[] args) {
+        //Create new MyColor chooser and set it up
         MyColorChooser myColorChooser = new MyColorChooser();
         myColorChooser.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         myColorChooser.pack();
