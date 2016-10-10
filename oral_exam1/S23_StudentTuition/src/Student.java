@@ -162,7 +162,7 @@ public class Student {
     @Override
     public String toString() {
         String out= "Student " +
-                        "Name: '" + firstName + ' ' + lastName +
+                        "Name: " + firstName + ' ' + lastName +
                         ", Student ID: " + studentID +
                         ", Number Of Registered Hours= " + numberOfRegisteredHours;
         switch (studentStatus) {

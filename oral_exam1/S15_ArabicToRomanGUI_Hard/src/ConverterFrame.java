@@ -28,11 +28,18 @@ public class ConverterFrame extends JFrame {
             @Override
             public void keyReleased(KeyEvent e) {
                 //Get text
-                String userInput = arabic.getText();//
+                String userInput = arabic.getText();
+                //If one is empty set them both to 0
+                if (userInput.isEmpty()){
+                    roman.setText("0");
+                    arabic.setText("0");
+                    return;
+                }
                 // Try converting string. If it fails error out.
                 try {
                     //String to int
                     int num = Integer.parseInt(userInput);
+
                     if (num < 0 || num > 3999)
                     {
                         //Prompt user of outside of bounds
@@ -60,6 +67,13 @@ public class ConverterFrame extends JFrame {
             public void keyReleased(KeyEvent e) {
                 //Get user numeral
                 String userInput = roman.getText();
+                //If one is empty set them both to 0
+                if (userInput.isEmpty()){
+                    roman.setText("0");
+                    arabic.setText("0");
+                    return;
+                }
+
                 //Check if its an integer
                 try {
                     int out = RomanToArabicConverter.RomanConversion(userInput);
