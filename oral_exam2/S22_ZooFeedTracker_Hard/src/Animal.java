@@ -50,17 +50,21 @@ public class Animal {
     }
 
     public void addFeeding(FoodTypes foodTypes,int number){
-
-        for (int j = 0; j<feedingTypes.size();j++) {
-            if(feedingTypes.get(j) == foodTypes)
-            {
-                j= feedingTypes.size();
-                feedingAmounts.set(j,feedingAmounts.get(j)+number);
-            }
-            else if (j+1 == feedingTypes.size())
+        for (int j = 0; j<=feedingTypes.size();j++) {
+            if (feedingTypes.size()==0)
             {
                 feedingTypes.add(foodTypes);
                 feedingAmounts.add(number);
+                j=100000;
+            }
+            else {
+                if (feedingTypes.get(j) == foodTypes) {
+                    feedingAmounts.set(j, feedingAmounts.get(j) + number);
+                    j = feedingTypes.size();
+                } else if (j + 1 == feedingTypes.size()) {
+                    feedingTypes.add(foodTypes);
+                    feedingAmounts.add(number);
+                }
             }
         }
 

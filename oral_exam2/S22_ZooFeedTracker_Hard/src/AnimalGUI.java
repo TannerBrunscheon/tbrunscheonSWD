@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Created by Tanner on 10/22/2016.
@@ -162,8 +160,11 @@ public class AnimalGUI {
         }
         animalChoice = input.nextInt()-1;
         foodTypesIntegerHashMap = animals.get(animalChoice).getFeedingTotals();
-
-
+        Object[] key = foodTypesIntegerHashMap.keySet().toArray();
+        for(int i = 0; i< key.length;i++){
+            System.out.print(key[i]+":  ");
+            System.out.println(foodTypesIntegerHashMap.get(key[i]));
+        }
 
     }
 }
