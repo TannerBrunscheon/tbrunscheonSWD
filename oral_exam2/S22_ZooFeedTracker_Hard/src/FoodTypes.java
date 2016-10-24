@@ -17,7 +17,7 @@ public enum FoodTypes {
     HAY("lbs")  {
         @Override
         public String toString() {
-            return "Zebra Meat";
+            return "Hay";
         }
     },
     PEANUTS("lbs"){

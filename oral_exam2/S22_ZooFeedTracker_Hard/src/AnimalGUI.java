@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -22,6 +23,14 @@ public class AnimalGUI {
                 case 1:
                     this.addAnimal();
                     break;
+                case 2:
+                    this.addFeeding();
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    this.indiGrocery();
+
             }
         }while (userChoice != 0);
     }
@@ -95,8 +104,66 @@ public class AnimalGUI {
                 }
             }
         }
+    }
+    private void addFeeding(){
+        int animalChoice;
+        int foodChoice;
+        int amount;
+
+        System.out.println("Choose your animal: ");
+        for (int i =0; i<animals.size();i++)
+        {
+            System.out.println((i+1)+". "+animals.get(i).toString());
+        }
+        animalChoice = input.nextInt()-1;
+
+        System.out.println("Choose your food: ");
+        ArrayList<String> foodTypes = animals.get(animalChoice).getFoodTypes();
+        for (int i =0; i<foodTypes.size();i++){
+            System.out.println((i+1)+". "+foodTypes.get(i));
+        }
+        foodChoice = input.nextInt()-1;
+
+        switch (foodTypes.get(foodChoice)){
+            case "Bass":
+                System.out.println("Enter amount in " + FoodTypes.BASS.getUnits());
+                amount = input.nextInt();
+                animals.get(animalChoice).addFeeding(FoodTypes.BASS,amount);
+                break;
+            case "Zebra Meat":
+                System.out.println("Enter amount in " + FoodTypes.ZEBRAMEAT.getUnits());
+                amount = input.nextInt();
+                animals.get(animalChoice).addFeeding(FoodTypes.ZEBRAMEAT,amount);
+                break;
+            case "Hay":
+                System.out.println("Enter amount in " + FoodTypes.HAY.getUnits());
+                amount = input.nextInt();
+                animals.get(animalChoice).addFeeding(FoodTypes.HAY,amount);
+                break;
+            case "Peanuts":
+                System.out.println("Enter amount in " + FoodTypes.PEANUTS.getUnits());
+                amount = input.nextInt();
+                animals.get(animalChoice).addFeeding(FoodTypes.PEANUTS,amount);
+                break;
+            case "Shrimp":
+                System.out.println("Enter amount in " + FoodTypes.SHRIMP.getUnits());
+                amount = input.nextInt();
+                animals.get(animalChoice).addFeeding(FoodTypes.SHRIMP,amount);
+                break;
+        }
+    }
+    private void indiGrocery(){
+        int animalChoice;
+        HashMap<FoodTypes,Integer> foodTypesIntegerHashMap = new HashMap<>();
+        System.out.println("Choose your animal: ");
+        for (int i =0; i<animals.size();i++)
+        {
+            System.out.println((i+1)+". "+animals.get(i).toString());
+        }
+        animalChoice = input.nextInt()-1;
+        foodTypesIntegerHashMap = animals.get(animalChoice).getFeedingTotals();
+
 
 
     }
-
 }

@@ -8,8 +8,8 @@ public class Animal {
     private String animalType = "Default";
     private String animalName = "Default";
     private String animalLocation = "Default";
-    private ArrayList<FoodTypes> feedingTypes;
-    private ArrayList<Integer> feedingAmounts;
+    private final ArrayList<FoodTypes> feedingTypes = new ArrayList<>();
+    private final ArrayList<Integer> feedingAmounts = new ArrayList<>();
 
     public Animal(String animalType, String animalName, String animalLocation) {
         this.animalType = animalType;
@@ -41,12 +41,12 @@ public class Animal {
         this.animalLocation = animalLocation;
     }
 
-    public HashMap<String, String> getFoodTypes() {
-        HashMap<String, String> hashMap = new HashMap<String, String>();
+    public ArrayList<String> getFoodTypes() {
+        ArrayList<String> arrayList = new ArrayList<>();
         for (FoodTypes f : FoodTypes.values()) {
-            hashMap.put(f.toString(), f.getUnits());
+            arrayList.add(f.toString());
         }
-        return hashMap;
+        return arrayList;
     }
 
     public void addFeeding(FoodTypes foodTypes,int number){
@@ -72,5 +72,9 @@ public class Animal {
             hashMap.put(feedingTypes.get(i),feedingAmounts.get(i));
         }
         return hashMap;
+    }
+    @Override
+    public String toString() {
+        return "Name: "+ getAnimalName() + "   Type: " +  getAnimalType() + "   Location: " +getAnimalLocation();
     }
 }
