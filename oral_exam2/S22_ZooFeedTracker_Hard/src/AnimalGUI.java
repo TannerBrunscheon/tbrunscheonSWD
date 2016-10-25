@@ -28,6 +28,10 @@ public class AnimalGUI {
                     break;
                 case 4:
                     this.indiGrocery();
+                    break;
+                case 5:
+                    this.fullGrocery();
+                    break;
 
             }
         }while (userChoice != 0);
@@ -152,19 +156,40 @@ public class AnimalGUI {
     }
     private void indiGrocery(){
         int animalChoice;
-        HashMap<FoodTypes,Integer> foodTypesIntegerHashMap = new HashMap<>();
         System.out.println("Choose your animal: ");
         for (int i =0; i<animals.size();i++)
         {
             System.out.println((i+1)+". "+animals.get(i).toString());
         }
         animalChoice = input.nextInt()-1;
-        foodTypesIntegerHashMap = animals.get(animalChoice).getFeedingTotals();
+        HashMap<FoodTypes,Integer> foodTypesIntegerHashMap = animals.get(animalChoice).getFeedingTotals();
         Object[] key = foodTypesIntegerHashMap.keySet().toArray();
         for(int i = 0; i< key.length;i++){
             System.out.print(key[i]+":  ");
             System.out.println(foodTypesIntegerHashMap.get(key[i]));
         }
-
     }
+    private void fullGrocery(){
+        int[] amounts = new int[5];
+
+        Object[] foods = {FoodTypes.BASS,FoodTypes.ZEBRAMEAT,FoodTypes.HAY,FoodTypes.PEANUTS,FoodTypes.SHRIMP};
+        for (int i =0; i<animals.size();i++)
+        {
+            HashMap<FoodTypes,Integer> foodTypesIntegerHashMap = animals.get(i).getFeedingTotals();
+            Object[] key = foodTypesIntegerHashMap.keySet().toArray();
+            for (int k =0;k<key.length;k++){
+                Object keything = key[k];
+                for(int l =0; l<foods.length;l++) {
+                    if (keything == foods[l]) {
+                        amounts[l] = amounts[l] + foodTypesIntegerHashMap.get(key[l]);
+                    }
+                }
+            }
+            for(int j = 0; j< foods.length;j++){
+                System.out.printf(foods[j]+": "+amounts[j] + "%n");
+            }
+        }
+    }
+
 }
+
