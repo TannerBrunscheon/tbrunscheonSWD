@@ -32,10 +32,6 @@ public class HangedMan extends JPanel {
                 break;
         }
    }
-   protected void resetCount(){
-       count = 0;
-       repaint();
-   }
    protected void addPart(){
        count++;
        repaint();

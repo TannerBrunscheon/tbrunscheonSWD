@@ -1,23 +1,41 @@
 import javax.swing.*;
-import java.math;
-import java.math.MathContext;
+import java.util.List;
 
 /**
  * Created by tbrunscheon on 10/26/16.
  */
 public class Planet extends SwingWorker<Integer,Double[]> {
+    private final StarPanel fulLPanel;
+    private int timearound = 0;
+    public Planet(StarPanel fulLPanel) {
+        this.fulLPanel = fulLPanel;
+
+    }
 
     @Override
-    public Integer doInBackground(){
-        Double[] coords = new Double[2];
-        coords[0] = 50+(100* Math.cos(time));
-        coords[1] = 50+(100*Math.sin(time));
-        publish(coords);
-        return 1;
+    public Integer doInBackground() {
+        while (true) {
+            for (double time = 0; time <= 2 * Math.PI; time = time + .01) {
+                Double[] coords = new Double[2];
+                coords[0] = 100 + (100 * Math.cos(time));
+                coords[1] = 100 + (100 * Math.sin(time));
+                try {
+                    Thread.sleep(25);
+
+                } catch (InterruptedException exception) {
+                    Thread.currentThread().interrupt();
+                }
+                publish(coords);
+            }
+        }
     }
 
-    protected void process(Double[] publishedCoords){
-
-
+    @Override
+    protected void process(List<Double[]> publishedCoords){
+        fulLPanel.setPlanetX(publishedCoords.get(0)[0].intValue());
+        fulLPanel.setPlanetY(publishedCoords.get(0)[1].intValue());
+        timearound++;
+        fulLPanel.repaint();
     }
+
 }
