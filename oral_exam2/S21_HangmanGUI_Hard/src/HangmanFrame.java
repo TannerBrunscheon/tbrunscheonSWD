@@ -18,6 +18,7 @@ public class HangmanFrame extends JFrame{
     private final JLabel guessLabel = new JLabel("Please enter your guess:");
     private final JLabel wordKnown = new JLabel("Word known up until now.");
     private String message;
+    private String guessStr;
     private char[] wrongChar = new char[6];
     private char[] messageChar,guessChar;
     private int guessesCount =0;
@@ -31,9 +32,20 @@ public class HangmanFrame extends JFrame{
         messageChar = message.toUpperCase().toCharArray();
         guessChar = new char[messageChar.length];
         for(int i =0;i<messageChar.length;i++){
-            guessChar[i] = '_';
+            if(messageChar[i]==' ')
+            {
+                guessChar[i] = ' ';
+            }
+            else {
+                guessChar[i] = '_';
+            }
         }
-        messageBox.setText(Arrays.toString(guessChar));
+        guessStr = "";
+        for (int j =0;j<guessChar.length;j++)
+        {
+            guessStr = guessStr+guessChar[j]+' ';
+        }
+        messageBox.setText(guessStr);
         messageBox.setEditable(false);
         wrong.setText(Arrays.toString(wrongChar));
         wrong.setEditable(false);
@@ -46,7 +58,12 @@ public class HangmanFrame extends JFrame{
                 for (int i =0;i < messageChar.length;i++){
                     if (inString == messageChar[i]){
                         guessChar[i] = inString;
-                        messageBox.setText(Arrays.toString(guessChar));
+                        guessStr = "";
+                        for (int j =0;j<guessChar.length;j++)
+                        {
+                            guessStr = guessStr+guessChar[j]+' ';
+                        }
+                        messageBox.setText(guessStr);
                         inMessage = true;
                     }
                 }

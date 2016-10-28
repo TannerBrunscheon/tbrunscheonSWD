@@ -17,10 +17,10 @@ public class Planet extends SwingWorker<Integer,Double[]> {
         while (true) {
             for (double time = 0; time <= 2 * Math.PI; time = time + .01) {
                 Double[] coords = new Double[2];
-                coords[0] = 100 + (100 * Math.cos(time));
-                coords[1] = 100 + (100 * Math.sin(time));
+                coords[0] = 112.5 + (100 * Math.cos(time));
+                coords[1] = 112.5 + (100 * Math.sin(time));
                 try {
-                    Thread.sleep(25);
+                    Thread.sleep(15);
 
                 } catch (InterruptedException exception) {
                     Thread.currentThread().interrupt();
