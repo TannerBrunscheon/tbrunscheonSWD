@@ -68,6 +68,7 @@ public class HangmanFrame extends JFrame{
                 }
                 if(guessesCount == 6){
                     JOptionPane.showMessageDialog(null,"Guessers lose!");
+                    messageBox.setText(Arrays.toString(messageChar));
                     input.setEditable(false);
                     return;
                 }
