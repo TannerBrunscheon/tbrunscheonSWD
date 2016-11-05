@@ -50,7 +50,7 @@ public class Server extends JFrame {
     public void runServer() {
         try // set up server to receive connections; process connections
         {
-            server = new ServerSocket(12345, 100); // create ServerSocket
+            server = new ServerSocket(23555, 100); // create ServerSocket
 
             while (true) {
                 try {

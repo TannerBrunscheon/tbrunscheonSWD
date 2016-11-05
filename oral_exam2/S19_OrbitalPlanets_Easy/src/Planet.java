@@ -5,10 +5,10 @@ import java.util.List;
  * Created by tbrunscheon on 10/26/16.
  */
 public class Planet extends SwingWorker<Integer,Double[]> {
-    private final StarPanel fulLPanel;
+    private final StarPanel fullPanel;
     private int timearound = 0;
-    public Planet(StarPanel fulLPanel) {
-        this.fulLPanel = fulLPanel;
+    public Planet(StarPanel fullPanel) {
+        this.fullPanel = fullPanel;
 
     }
 
@@ -32,10 +32,10 @@ public class Planet extends SwingWorker<Integer,Double[]> {
 
     @Override
     protected void process(List<Double[]> publishedCoords){
-        fulLPanel.setPlanetX(publishedCoords.get(0)[0].intValue());
-        fulLPanel.setPlanetY(publishedCoords.get(0)[1].intValue());
+        fullPanel.setPlanetX(publishedCoords.get(0)[0].intValue());
+        fullPanel.setPlanetY(publishedCoords.get(0)[1].intValue());
         timearound++;
-        fulLPanel.repaint();
+        fullPanel.repaint();
     }
 
 }

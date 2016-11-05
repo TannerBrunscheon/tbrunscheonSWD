@@ -6,6 +6,7 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.net.ConnectException;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.util.logging.SocketHandler;
@@ -14,11 +15,11 @@ import java.util.logging.SocketHandler;
  * Created by Tanner on 11/3/2016.
  */
 public class FileRetrieverClient extends JFrame {
-    private JTextField userIn; // enters information from user
-    private JTextArea displayArea; // display information to user
+    private final JTextField userIn; // enters information from user
+    private final JTextArea displayArea; // display information to user
     private ObjectInputStream input;
     private ObjectOutputStream output;
-    private String server;
+    private final String server;
     private String messageFrom;
     private Socket socket;
 
@@ -60,6 +61,7 @@ public class FileRetrieverClient extends JFrame {
             write("Connection Sucessful");
             do // process messages sent from server
             {
+                setTextFieldEditable(true);
                 try // read message and display it
                 {
                     messageFrom = (String) input.readObject(); // read new message
@@ -75,6 +77,8 @@ public class FileRetrieverClient extends JFrame {
         } // end catch
         catch (IOException ioException) {
             ioException.printStackTrace();
+            write("\nConnection not found. Quitting.....");
+            System.exit(-1);
         } // end catch
         finally {
             try {
@@ -107,7 +111,16 @@ public class FileRetrieverClient extends JFrame {
         }
     }
 
-
+    private void setTextFieldEditable(final boolean editable) {
+        SwingUtilities.invokeLater(
+                new Runnable() {
+                    public void run() // sets enterField's editability
+                    {
+                        userIn.setEditable(editable);
+                    }
+                }
+        );
+    }
 
 
 }
