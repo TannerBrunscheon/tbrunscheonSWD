@@ -88,7 +88,7 @@ public class FileRetrieverServer extends JFrame{
     private void findFile(String fileToFind){
         StringBuilder contents = new StringBuilder("");
        try{
-           in = new Scanner(Paths.get(fileToFind));
+           in = new Scanner(Paths.get("oral_exam2/28-13_FilerRetrieve_Easy/"+fileToFind));
            while(in.hasNext()){
                contents.append(in.next());
            }
