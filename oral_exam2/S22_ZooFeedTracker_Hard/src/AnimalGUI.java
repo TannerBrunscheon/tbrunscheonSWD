@@ -25,6 +25,7 @@ public class AnimalGUI {
                     this.addFeeding();
                     break;
                 case 3:
+                    this.checkFeeding();
                     break;
                 case 4:
                     this.indiGrocery();
@@ -190,6 +191,18 @@ public class AnimalGUI {
             }
         }
     }
-
+    private void checkFeeding(){
+        int animalChoice;
+        System.out.println("Choose your animal: ");
+        for (int i =0; i<animals.size();i++)
+        {
+            System.out.println((i+1)+". "+animals.get(i).toString());
+        }
+        animalChoice = input.nextInt()-1;
+        ArrayList<String> foodTypes = animals.get(animalChoice).getFoodTypes();
+        for (int i =0; i<foodTypes.size();i++){
+            System.out.println((i+1)+". "+foodTypes.get(i));
+        }
+    }
 }
 
