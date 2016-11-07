@@ -1,6 +1,8 @@
 // Fig. 28.9: Client.java
 // Client side of connectionless client/server computing with datagrams.
 
+import com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -32,10 +34,9 @@ public class Client extends JFrame {
                                     message + "\n");
 
                             byte[] data = message.getBytes(); // convert to bytes
-
                             // create sendPacket
                             DatagramPacket sendPacket = new DatagramPacket(data,
-                                    data.length, InetAddress.getLocalHost(), 5000);
+                                    data.length, InetAddress.getLocalHost(), 23555);
 
                             socket.send(sendPacket); // send packet
                             displayArea.append("Packet sent\n");
