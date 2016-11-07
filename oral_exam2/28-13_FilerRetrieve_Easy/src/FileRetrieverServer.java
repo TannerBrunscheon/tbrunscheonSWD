@@ -36,20 +36,23 @@ public class FileRetrieverServer extends JFrame{
             socket = new ServerSocket(23555, 100); // create ServerSocket
             while (true) {
                 try {
-                    connection = socket.accept();
-                    output = new ObjectOutputStream(connection.getOutputStream());
-                    output.flush();
-                    input = new ObjectInputStream(connection.getInputStream());
-                    write("Connection Sucessful");
-                    send("Connection Sucessful");
-                    try // read message and display it
-                    {
-                        fileToFind = (String) input.readObject(); // read new message
-                        write("\nFile to find recieved:  " + fileToFind); // display message
-                        findFile(fileToFind);
-                    } catch (ClassNotFoundException classNotFoundException) {
-                        write("\nNot a string");
-                    }
+                    do {
+
+                        connection = socket.accept();
+                        output = new ObjectOutputStream(connection.getOutputStream());
+                        output.flush();
+                        input = new ObjectInputStream(connection.getInputStream());
+                        write("Connection Sucessful");
+                        send("Connection Sucessful");
+                        try // read message and display it
+                        {
+                            fileToFind = (String) input.readObject(); // read new message
+                            write("\nFile to find recieved:  " + fileToFind); // display message
+                            findFile(fileToFind);
+                        } catch (ClassNotFoundException classNotFoundException) {
+                            write("\nNot a string");
+                        }
+                    }while (fileToFind != "Terminate");
                 } catch (EOFException eofException) {
                 } finally {
                     try {
@@ -69,7 +72,7 @@ public class FileRetrieverServer extends JFrame{
     private void send(String str){
         try // send object to client
         {
-            output.writeObject("SERVER>>> " + str);
+            output.writeObject(str);
             output.flush(); // flush output to client
         } catch (IOException ioException) {
             displayArea.append("\nError writing object");
@@ -90,9 +93,9 @@ public class FileRetrieverServer extends JFrame{
        try{
            in = new Scanner(Paths.get("oral_exam2/28-13_FilerRetrieve_Easy/"+fileToFind));
            while(in.hasNext()){
-               contents.append(in.next());
+               contents.append(in.next()).append(" ");
            }
-           write("Sucessfully wrote file");
+           write("\nSucessfully wrote file");
            send(contents.toString());
        }
        catch (IOException i)

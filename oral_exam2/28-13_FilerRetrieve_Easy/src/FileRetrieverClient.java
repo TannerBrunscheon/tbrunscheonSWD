@@ -65,7 +65,8 @@ public class FileRetrieverClient extends JFrame {
                 try // read message and display it
                 {
                     messageFrom = (String) input.readObject(); // read new message
-                    write("\n" + server); // display message
+                    write("\n " +  messageFrom);
+//                    write("\n" + server); // display message
                 } // end try
                 catch (ClassNotFoundException classNotFoundException) {
                     write("\nUnknown object received");
@@ -73,7 +74,7 @@ public class FileRetrieverClient extends JFrame {
             }while (!messageFrom.equals("SERVER>>> TERMINATE"));
         } // end try
         catch (EOFException eofException) {
-            write("\nClient terminated connection");
+            System.exit('0');
         } // end catch
         catch (IOException ioException) {
             ioException.printStackTrace();
