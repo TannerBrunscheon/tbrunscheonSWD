@@ -1,5 +1,5 @@
 /**
- * Created by tbrunscheon on 11/7/16.
+ * Created by tbrunscheon on 11/9/16.
  */
 
 import javafx.application.Application;
@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class AnyName extends Application {
+public class TipApp extends Application {
 
     public static void main(String[] args) {
         launch(args);
@@ -19,7 +19,7 @@ public class AnyName extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("AnyName.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("TipCalc.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setTitle("My Application");
             primaryStage.setScene(scene);
@@ -27,6 +27,5 @@ public class AnyName extends Application {
         }catch (IOException e){
             System.out.println(e.getMessage());
         }
-
     }
 }

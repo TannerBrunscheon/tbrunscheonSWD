@@ -8,9 +8,9 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="429.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
+      <Button mnemonicParsing="false" text="Test" />
       <Label alignment="CENTER" prefHeight="44.0" prefWidth="583.0" text="Software Design is my favorite class" textFill="#0ad135">
          <font>
             <Font name="Good Times" size="21.0" />
