@@ -36,14 +36,13 @@ public class FileRetrieverServer extends JFrame{
             socket = new ServerSocket(23555, 100); // create ServerSocket
             while (true) {
                 try {
+                    connection = socket.accept();
+                    output = new ObjectOutputStream(connection.getOutputStream());
+                    output.flush();
+                    input = new ObjectInputStream(connection.getInputStream());
+                    write("Connection Sucessful");
+                    send("Connection Sucessful");
                     do {
-
-                        connection = socket.accept();
-                        output = new ObjectOutputStream(connection.getOutputStream());
-                        output.flush();
-                        input = new ObjectInputStream(connection.getInputStream());
-                        write("Connection Sucessful");
-                        send("Connection Sucessful");
                         try // read message and display it
                         {
                             fileToFind = (String) input.readObject(); // read new message
@@ -56,6 +55,7 @@ public class FileRetrieverServer extends JFrame{
                 } catch (EOFException eofException) {
                 } finally {
                     try {
+                        send("TERMINATE");
                         output.close(); // close output stream
                         input.close(); // close input stream
                         socket.close(); // close socket
