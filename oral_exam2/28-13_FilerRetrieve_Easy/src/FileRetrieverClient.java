@@ -71,7 +71,7 @@ public class FileRetrieverClient extends JFrame {
                 catch (ClassNotFoundException classNotFoundException) {
                     write("\nUnknown object received");
                 } // end catch
-            }while (!messageFrom.equals("SERVER>>> TERMINATE"));
+            }while (true);
         } // end try
         catch (EOFException eofException) {
             System.exit('0');
@@ -83,6 +83,7 @@ public class FileRetrieverClient extends JFrame {
         } // end catch
         finally {
             try {
+                write("Connection closedTe");
                 output.close(); // close output stream
                 input.close(); // close input stream
                 socket.close(); // close socket
