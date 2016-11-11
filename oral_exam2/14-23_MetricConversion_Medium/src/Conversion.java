@@ -31,10 +31,10 @@ public class Conversion{
         double fullAmount;
         double prefixAmount = 1;
         if (type.endsWith("es")){
-            type = type - "es";
+            type =type.substring(0,type.length()-2);
         }
         else if (type.endsWith("s")) {
-
+            type =type.substring(0,type.length()-1);
         }
         for (int i=0;i<6;i++){
             if(type.contains(prefixes.keySet().toArray()[i].toString())){
