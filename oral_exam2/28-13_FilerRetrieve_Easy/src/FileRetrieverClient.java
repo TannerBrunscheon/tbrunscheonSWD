@@ -58,20 +58,19 @@ public class FileRetrieverClient extends JFrame {
             output = new ObjectOutputStream(socket.getOutputStream());
             output.flush();
             input = new ObjectInputStream(socket.getInputStream());
-            write("Connection Sucessful");
             do // process messages sent from server
             {
                 setTextFieldEditable(true);
                 try // read message and display it
                 {
                     messageFrom = (String) input.readObject(); // read new message
-                    write("\n " +  messageFrom);
+                    write("\n SERVER>>" +  messageFrom);
 //                    write("\n" + server); // display message
                 } // end try
                 catch (ClassNotFoundException classNotFoundException) {
                     write("\nUnknown object received");
                 } // end catch
-            }while (true);
+            }while (!messageFrom.equals("TERMINATE"));
         } // end try
         catch (EOFException eofException) {
             System.exit('0');
@@ -83,7 +82,6 @@ public class FileRetrieverClient extends JFrame {
         } // end catch
         finally {
             try {
-                write("Connection closedTe");
                 output.close(); // close output stream
                 input.close(); // close input stream
                 socket.close(); // close socket
@@ -106,10 +104,11 @@ public class FileRetrieverClient extends JFrame {
     private void send(String string){
         try // send object to server
         {
+            write("\nCLIENT>>"+string);
             output.writeObject(string);
             output.flush(); // flush data to output
         } catch (IOException ioException) {
-            displayArea.append("\nError writing object");
+            write("\nError writing object");
         }
     }
 
