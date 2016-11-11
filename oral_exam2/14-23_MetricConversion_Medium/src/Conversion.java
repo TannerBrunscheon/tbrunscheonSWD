@@ -4,8 +4,8 @@ import java.util.HashMap;
  * Created by tbrunscheon on 11/11/16.
  */
 public class Conversion{
-    private static HashMap<String,Double> types = new HashMap<String,Double>();
-    {
+    public static HashMap<String,Double> types = new HashMap<String,Double>();
+    static {
         types.put("liter",1.05669);
         types.put("quart",0.946353);
         types.put("foot",0.3048);
@@ -17,8 +17,8 @@ public class Conversion{
         types.put("gram",0.00220462);
 
     }
-    private static HashMap<String,Double> prefixes = new HashMap<String,Double>();
-    {
+    public static HashMap<String,Double> prefixes = new HashMap<String,Double>();
+    static {
         prefixes.put("milli",1000.0);
         prefixes.put("centi",100.0);
         prefixes.put("deci",10.0);
