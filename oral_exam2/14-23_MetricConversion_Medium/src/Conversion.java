@@ -19,12 +19,12 @@ public class Conversion{
     }
     public static HashMap<String,Double> prefixes = new HashMap<String,Double>();
     static {
-        prefixes.put("milli",1000.0);
-        prefixes.put("centi",100.0);
-        prefixes.put("deci",10.0);
-        prefixes.put("deka",.1);
-        prefixes.put("hecto",.01);
-        prefixes.put("kilo",.001);
+        prefixes.put("milli",.001);
+        prefixes.put("centi",.01);
+        prefixes.put("deci",.1);
+        prefixes.put("deka",10.);
+        prefixes.put("hecto",100.);
+        prefixes.put("kilo",1000.);
     }
 
     public static double Convert(String type, double amount) {
@@ -39,6 +39,11 @@ public class Conversion{
         for (int i=0;i<6;i++){
             if(type.contains(prefixes.keySet().toArray()[i].toString())){
                 prefixAmount = prefixes.get(prefixes.keySet().toArray()[i]);
+            }
+        }
+        for (int i=0;i<6;i++){
+            if(type.contains(Conversion.types.keySet().toArray()[i].toString())){
+                type = Conversion.types.keySet().toArray()[i].toString();
             }
         }
         fullAmount = types.get(type) * prefixAmount * amount;

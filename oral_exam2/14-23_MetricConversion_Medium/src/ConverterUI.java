@@ -14,14 +14,20 @@ public class ConverterUI {
         System.out.println("Please enter your inquiry:");
         String message = scanner.nextLine();
         String type = "";
+        String prefix = "";
 
+        for (int i=0;i<6;i++){
+            if(message.contains(Conversion.prefixes.keySet().toArray()[i].toString())){
+                prefix = Conversion.prefixes.keySet().toArray()[i].toString();
+            }
+        }
         for (int i=0;i<6;i++){
             if(message.contains(Conversion.types.keySet().toArray()[i].toString())){
                 type = Conversion.types.keySet().toArray()[i].toString();
             }
         }
         String amount = message.replaceAll("[^0-9]+", " ");
-        Double finalAmount = Conversion.Convert(type,Double.parseDouble(amount));
+        Double finalAmount = Conversion.Convert(prefix+type,Double.parseDouble(amount));
         System.out.println(finalAmount);
 
     }
