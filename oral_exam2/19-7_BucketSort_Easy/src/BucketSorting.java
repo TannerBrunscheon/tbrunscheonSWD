@@ -6,41 +6,57 @@ import java.util.LinkedList;
  */
 public class BucketSorting {
 
-    public static int[] sort(int[] array, int maxValue){
-        int bucketNum;
-        ArrayList<LinkedList<Integer>> bucketlist = new ArrayList<>(array.length);
-        LinkedList<Integer> finalList = new LinkedList<>();
+    public static int[] sort(int[] array) {
+        int[][] bucket = new int[10][array.length - 1];
+        int[][] bucket2 = new int[10][array.length - 1];
+        int[][] bucket3 = new int[10][array.length - 1];
+        int k = 0;
 
-        for(int i = 0;i < array.length;i++){
-            bucketNum = (array[i]*array.length)/(maxValue+1);
-            if(bucketlist.get(bucketNum).size() == 0){
-                bucketlist.get(bucketNum).add(array[i]);
-            }
-            else{
-                for(int j = 0;j<bucketlist.get(bucketNum).size();i++){
-                    if (j-1==bucketlist.get(bucketNum).size()){
-                        bucketlist.get(bucketNum).add(array[i]);
-                    }
-                    else if (array[i]<bucketlist.get(bucketNum).get(j));
-                    {
-                        bucketlist.get(bucketNum).add(j,array[i]);
-                    }
 
+        int[] amountPer = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        for (int i = 0; i < array.length; i++) {
+            bucket[array[i] % 10][amountPer[array[i] % 10]] = array[i];
+            amountPer[array[i] % 10]++;
+        }
+
+        for (int i = 0; i < 10; i++) {
+
+            for (int j = 0; j < array.length - 1; j++) {
+                if (bucket[i][j] !=0){
+                    array[k] = (bucket[i][j]);
+                    k++;
                 }
             }
-
         }
-        for (int i =0;i<bucketlist.size();i++) {
-            finalList.addAll(bucketlist.get(i));
+        amountPer = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        for (int i = 0; i < array.length; i++) {
+            bucket2[array[i]/10 % 10][amountPer[array[i]/10 % 10]] = array[i];
+            amountPer[array[i]/10 % 10]++;
         }
-        int[] finalArray= new int[finalList.size()];
-        for (int i =0;i< finalList.size();i++){
 
-            finalArray[i] = finalList.removeFirst();
+        k=0;
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < array.length - 1; j++) {
+                if (bucket2[i][j] !=0){
+                    array[k] = (bucket2[i][j]);
+                    k++;
+                }
+            }
         }
-        return finalArray;
-
-
-
+        amountPer = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        for (int i = 0; i < array.length; i++) {
+            bucket3[array[i]/100][amountPer[array[i]/100]] = array[i];
+            amountPer[array[i]/100]++;
+        }
+        k=0;
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < array.length - 1; j++) {
+                if (bucket3[i][j] !=0){
+                    array[k] = (bucket3[i][j]);
+                    k++;
+                }
+            }
+        }
+        return array;
     }
 }
