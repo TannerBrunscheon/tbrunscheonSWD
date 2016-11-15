@@ -13,8 +13,9 @@ public class ConverterUI {
     public void runUI(){
         System.out.println("Please enter your inquiry:");
         String message = scanner.nextLine();
-        String type = "";
+        String[] type = new String[2];
         String prefix = "";
+        int k= 0;
 
         for (int i=0;i<6;i++){
             if(message.contains(Conversion.prefixes.keySet().toArray()[i].toString())){
@@ -23,11 +24,13 @@ public class ConverterUI {
         }
         for (int i=0;i<6;i++){
             if(message.contains(Conversion.types.keySet().toArray()[i].toString())){
-                type = Conversion.types.keySet().toArray()[i].toString();
+
+                type[k] = Conversion.types.keySet().toArray()[i].toString();
+                k++;
             }
         }
         String amount = message.replaceAll("[^0-9]+", " ");
-        Double finalAmount = Conversion.Convert(prefix+type,Double.parseDouble(amount));
+        Double finalAmount = Conversion.Convert(prefix+type[1],type[0], Double.parseDouble(amount));
         System.out.println(finalAmount);
 
     }
