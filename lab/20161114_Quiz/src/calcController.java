@@ -6,7 +6,7 @@ import javafx.scene.control.TextField;
 import java.math.BigDecimal;
 
 /**
- * Created by tbrunscheon on 11/14/16.
+ * To get this controller to work you need to set it as the controller in scenebuilder. We could not get scenebulder to open.
  */
 public class calcController {
     @FXML
