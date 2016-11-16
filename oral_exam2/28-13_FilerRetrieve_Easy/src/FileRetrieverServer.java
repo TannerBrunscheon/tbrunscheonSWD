@@ -51,7 +51,7 @@ public class FileRetrieverServer extends JFrame{
                         } catch (ClassNotFoundException classNotFoundException) {
                             write("\nNot a string");
                         }
-                    }while (fileToFind != "Terminate");
+                    }while (fileToFind != "TERMINATE");
                 } catch (EOFException eofException) {
                 } finally {
                     try {
@@ -72,7 +72,7 @@ public class FileRetrieverServer extends JFrame{
     private void send(String str){
         try // send object to client
         {
-            output.writeObject(str);
+            output.writeObject("\n SERVER>>" + str);
             output.flush(); // flush output to client
         } catch (IOException ioException) {
             displayArea.append("\nError writing object");

@@ -64,13 +64,13 @@ public class FileRetrieverClient extends JFrame {
                 try // read message and display it
                 {
                     messageFrom = (String) input.readObject(); // read new message
-                    write("\n SERVER>>" +  messageFrom);
+                    write(messageFrom);
 //                    write("\n" + server); // display message
                 } // end try
                 catch (ClassNotFoundException classNotFoundException) {
                     write("\nUnknown object received");
                 } // end catch
-            }while (!messageFrom.equals("TERMINATE"));
+            }while (!messageFrom.equals("SERVER>> TERMINATE"));
         } // end try
         catch (EOFException eofException) {
             System.exit('0');
@@ -104,7 +104,7 @@ public class FileRetrieverClient extends JFrame {
     private void send(String string){
         try // send object to server
         {
-            write("\nCLIENT>>"+string);
+            write("\nCLIENT>> "+string);
             output.writeObject(string);
             output.flush(); // flush data to output
         } catch (IOException ioException) {
