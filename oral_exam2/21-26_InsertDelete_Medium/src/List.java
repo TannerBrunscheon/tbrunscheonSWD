@@ -104,7 +104,51 @@ public class List<T> {
         return removedItem; // return removed node data
     }
     public T removeFromPosition(int position){
-        
+        if (isEmpty())
+            throw new EmptyListException(name);
+
+        ListNode<T> current = firstNode;
+        if (position == 0){
+            return removeFromFront();
+        }
+        else {
+
+            for (int i = 0; i < position - 1; i++) {
+                current = current.nextNode;
+            }
+            if (current == lastNode) {
+                return removeFromBack();
+            }
+            else {
+                T data = current.nextNode.getData();
+                current.nextNode = current.nextNode.nextNode;
+                return data;
+            }
+        }
+
+    }
+    public void addToPosition(int position,T data){
+        if (isEmpty())
+            throw new EmptyListException(name);
+
+
+        ListNode<T> current = firstNode;
+        if (position ==0){
+            insertAtFront(data);
+        }
+        else {
+            position =position-1;
+            for (int i = 0; i < position; i++) {
+                current = current.nextNode;
+            }
+            if (current == lastNode) {
+                insertAtBack(data);
+            } else {
+                ListNode<T> temp = current.nextNode;
+                current.nextNode = new ListNode<T>(data, temp);
+            }
+        }
+
     }
 
     // determine whether list is empty
