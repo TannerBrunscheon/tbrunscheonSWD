@@ -10,11 +10,11 @@ public class Conversion{
     static {
         types.put("liter",1.05669);
         types.put("quart",0.946353);
-        types.put("foot",0.3048);
-        types.put("feet",0.3048);
-        types.put("inch",0.0254);
-        types.put("yard",0.9144);
-        types.put("meter",3.28084);
+        types.put("foot",3.280841666667);
+        types.put("feet",3.280841666667);
+        types.put("inch",39.3701);
+        types.put("yard",1.0936138888889999077);
+        types.put("meter",0.30480016459203096435);
         types.put("pound",453.592);
         types.put("gram",0.00220462);
 
@@ -22,7 +22,7 @@ public class Conversion{
     public static HashSet<String> liquids = new HashSet<>();
     static {
         liquids.add("liter");
-        liquids.add("quarts");
+        liquids.add("quart");
     }
     public static HashSet<String> length= new HashSet<>();
     static {

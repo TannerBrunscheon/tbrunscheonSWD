@@ -22,13 +22,19 @@ public class ConverterUI {
                 prefix = Conversion.prefixes.keySet().toArray()[i].toString();
             }
         }
-        for (int i=0;i<6;i++){
-            if(message.contains(Conversion.types.keySet().toArray()[i].toString())){
+        for (int i=0;i<9;i++){
+            if(message.contains(Conversion.types.keySet().toArray()[i].toString())||message.contains(Conversion.types.keySet().toArray()[i].toString()+"s")||message.contains(Conversion.types.keySet().toArray()[i].toString()+"es")){
 
                 type[k] = Conversion.types.keySet().toArray()[i].toString();
                 k++;
             }
         }
+        if (message.toLowerCase().indexOf(type[0])<message.toLowerCase().indexOf(type[1])){
+            String temp = type[0];
+            type[0]=type[1];
+            type[1]=temp;
+        }
+
         String amount = message.replaceAll("[^0-9]+", " ");
         Double finalAmount = Conversion.Convert(prefix+type[1],type[0], Double.parseDouble(amount));
         System.out.println(finalAmount);
