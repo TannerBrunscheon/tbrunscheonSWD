@@ -51,7 +51,7 @@ public class FileRetrieverServer extends JFrame{
                         } catch (ClassNotFoundException classNotFoundException) {
                             write("\nNot a string");
                         }
-                    }while (fileToFind != "TERMINATE");
+                    }while (!fileToFind.equals("TERMINATE"));
                 } catch (EOFException eofException) {
                 } finally {
                     try {
@@ -59,6 +59,7 @@ public class FileRetrieverServer extends JFrame{
                         output.close(); // close output stream
                         input.close(); // close input stream
                         socket.close(); // close socket
+                        connection.close();
                     } // end try
                     catch (IOException ioException) {
                         ioException.printStackTrace();
@@ -72,10 +73,10 @@ public class FileRetrieverServer extends JFrame{
     private void send(String str){
         try // send object to client
         {
+            System.out.println(str);
             output.writeObject("\n SERVER>>" + str);
             output.flush(); // flush output to client
         } catch (IOException ioException) {
-            displayArea.append("\nError writing object");
         }
     }
     private void write(String string){
