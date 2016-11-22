@@ -20,7 +20,6 @@ public class BucketSorting {
         }
 
         for (int i = 0; i < 10; i++) {
-
             for (int j = 0; j < array.length - 1; j++) {
                 if (bucket[i][j] !=0){
                     array[k] = (bucket[i][j]);
