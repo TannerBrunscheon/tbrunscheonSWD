@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>Animal</OriginalElement>
+  <nodes>
+    <node x="850.5" y="0.0">FoodTypes</node>
+    <node x="847.5" y="1490.0">GUIDriver</node>
+    <node x="302.0" y="838.0">Snake</node>
+    <node x="604.0" y="838.0">Dolphin</node>
+    <node x="734.5" y="1058.0">AnimalGUI</node>
+    <node x="685.0" y="368.0">Animal</node>
+    <node x="0.0" y="838.0">Elephant</node>
+    <node x="1025.0" y="838.0">Lion</node>
+    <node x="1327.0" y="838.0">Beaver</node>
+    <node x="1629.0" y="838.0">Bear</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="AnimalGUI" target="Beaver">
+      <point x="138.125" y="-191.0" />
+      <point x="1093.625" y="1028.0" />
+      <point x="1468.0" y="1028.0" />
+      <point x="0.0" y="80.0" />
+    </edge>
+    <edge source="AnimalGUI" target="Elephant">
+      <point x="-193.375" y="-191.0" />
+      <point x="762.125" y="1038.0" />
+      <point x="141.0" y="1038.0" />
+      <point x="0.0" y="80.0" />
+    </edge>
+    <edge source="AnimalGUI" target="Animal">
+      <point x="-27.625" y="-191.0" />
+      <point x="927.875" y="1038.0" />
+      <point x="950.0" y="1038.0" />
+      <point x="950.0" y="818.0" />
+      <point x="921.6875" y="818.0" />
+      <point x="-33.8125" y="210.0" />
+    </edge>
+    <edge source="GUIDriver" target="AnimalGUI">
+      <point x="0.0" y="-42.0" />
+      <point x="0.0" y="191.0" />
+    </edge>
+    <edge source="Dolphin" target="Animal">
+      <point x="70.5" y="-80.0" />
+      <point x="815.5" y="818.0" />
+      <point x="854.0625" y="818.0" />
+      <point x="-101.4375" y="210.0" />
+    </edge>
+    <edge source="Lion" target="Animal">
+      <point x="-70.5" y="-80.0" />
+      <point x="1095.5" y="818.0" />
+      <point x="1056.9375" y="818.0" />
+      <point x="101.4375" y="210.0" />
+    </edge>
+    <edge source="Dolphin" target="FoodTypes">
+      <point x="-70.5" y="-80.0" />
+      <point x="674.5" y="348.0" />
+      <point x="925.5" y="348.0" />
+      <point x="-30.0" y="154.0" />
+    </edge>
+    <edge source="AnimalGUI" target="Snake">
+      <point x="-138.125" y="-191.0" />
+      <point x="817.375" y="1028.0" />
+      <point x="443.0" y="1028.0" />
+      <point x="0.0" y="80.0" />
+    </edge>
+    <edge source="AnimalGUI" target="Lion">
+      <point x="82.875" y="-191.0" />
+      <point x="1038.375" y="1018.0" />
+      <point x="1166.0" y="1018.0" />
+      <point x="0.0" y="80.0" />
+    </edge>
+    <edge source="Animal" target="FoodTypes">
+      <point x="0.0" y="-210.0" />
+      <point x="0.0" y="154.0" />
+    </edge>
+    <edge source="Bear" target="Animal">
+      <point x="-70.5" y="-80.0" />
+      <point x="1699.5" y="808.0" />
+      <point x="1192.1875" y="808.0" />
+      <point x="236.6875" y="210.0" />
+    </edge>
+    <edge source="Snake" target="Animal">
+      <point x="70.5" y="-80.0" />
+      <point x="513.5" y="818.0" />
+      <point x="786.4375" y="818.0" />
+      <point x="-169.0625" y="210.0" />
+    </edge>
+    <edge source="Lion" target="FoodTypes">
+      <point x="70.5" y="-80.0" />
+      <point x="1236.5" y="348.0" />
+      <point x="985.5" y="348.0" />
+      <point x="30.0" y="154.0" />
+    </edge>
+    <edge source="Beaver" target="Animal">
+      <point x="-70.5" y="-80.0" />
+      <point x="1397.5" y="818.0" />
+      <point x="1124.5625" y="818.0" />
+      <point x="169.0625" y="210.0" />
+    </edge>
+    <edge source="Beaver" target="FoodTypes">
+      <point x="70.5" y="-80.0" />
+      <point x="1538.5" y="338.0" />
+      <point x="1015.5" y="338.0" />
+      <point x="60.0" y="154.0" />
+    </edge>
+    <edge source="AnimalGUI" target="Bear">
+      <point x="193.375" y="-191.0" />
+      <point x="1148.875" y="1038.0" />
+      <point x="1770.0" y="1038.0" />
+      <point x="0.0" y="80.0" />
+    </edge>
+    <edge source="Snake" target="FoodTypes">
+      <point x="-70.5" y="-80.0" />
+      <point x="372.5" y="338.0" />
+      <point x="895.5" y="338.0" />
+      <point x="-60.0" y="154.0" />
+    </edge>
+    <edge source="Elephant" target="Animal">
+      <point x="70.5" y="-80.0" />
+      <point x="211.5" y="808.0" />
+      <point x="718.8125" y="808.0" />
+      <point x="-236.6875" y="210.0" />
+    </edge>
+    <edge source="Bear" target="FoodTypes">
+      <point x="70.5" y="-80.0" />
+      <point x="1840.5" y="328.0" />
+      <point x="1045.5" y="328.0" />
+      <point x="90.0" y="154.0" />
+    </edge>
+    <edge source="AnimalGUI" target="Dolphin">
+      <point x="-82.875" y="-191.0" />
+      <point x="872.625" y="1018.0" />
+      <point x="745.0" y="1018.0" />
+      <point x="0.0" y="80.0" />
+    </edge>
+    <edge source="Elephant" target="FoodTypes">
+      <point x="-70.5" y="-80.0" />
+      <point x="70.5" y="328.0" />
+      <point x="865.5" y="328.0" />
+      <point x="-90.0" y="154.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.30489335006273527" x="955.5" y="787.0" />
+  <SelectedNodes>
+    <node>Animal</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Inner Classes</Category>
+    <Category>Properties</Category>
+    <Category>Methods</Category>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

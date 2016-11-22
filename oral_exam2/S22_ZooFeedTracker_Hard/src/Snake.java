@@ -17,5 +17,4 @@ public class Snake extends Animal {
         }
         return arrayList;
     }
-
 }

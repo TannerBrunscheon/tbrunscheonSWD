@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>ClientTest</OriginalElement>
+  <nodes>
+    <node x="0.0" y="0.0">FileRetrieverServer</node>
+    <node x="116.0" y="543.0">ServerTest</node>
+    <node x="493.0" y="0.0">FileRetrieverClient</node>
+    <node x="594.0" y="543.0">ClientTest</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="ClientTest" target="FileRetrieverClient">
+      <point x="0.0" y="-42.0" />
+      <point x="0.0" y="246.5" />
+    </edge>
+    <edge source="ServerTest" target="FileRetrieverServer">
+      <point x="0.0" y="-42.0" />
+      <point x="0.0" y="246.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.7511591962905718" x="455.5" y="313.5" />
+  <SelectedNodes>
+    <node>ClientTest</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

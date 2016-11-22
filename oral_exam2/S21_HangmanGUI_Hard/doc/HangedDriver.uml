@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>HangedDriver</OriginalElement>
+  <nodes>
+    <node x="0.0" y="209.0">HangmanFrame</node>
+    <node x="196.0" y="974.0">HangedDriver</node>
+    <node x="214.0" y="0.0">HangedMan</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="HangmanFrame" target="HangedMan">
+      <point x="-152.0" y="-357.5" />
+      <point x="152.0" y="184.0" />
+      <point x="259.0" y="184.0" />
+      <point x="-45.0" y="79.5" />
+    </edge>
+    <edge source="HangedDriver" target="HangmanFrame">
+      <point x="0.0" y="-42.0" />
+      <point x="0.0" y="357.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.45083487940630795" x="304.0" y="529.0" />
+  <SelectedNodes>
+    <node>HangedDriver</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Properties</Category>
+    <Category>Methods</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
