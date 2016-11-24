@@ -1,14 +1,29 @@
 import java.util.*;
 
 /**
- * Created by Tanner on 10/22/2016.
+ * Main class for the gui.
  */
 public class AnimalGUI {
+    /**
+     * List of animals created.
+     */
     private final ArrayList<Animal> animals = new ArrayList<Animal>();
+    /**
+     * Input
+     */
     private Scanner input = new Scanner(System.in);
+
+    /**
+     * Constructor that starts the GUI.
+     */
     public AnimalGUI() {
+        UserInterface();
     }
 
+    /**
+     * This is the user interface itself. It allows a user to choose what it wants from a menu and then calls the
+     * approriate method.
+     */
     public void UserInterface(){
 
         int userChoice = 0;
@@ -38,6 +53,10 @@ public class AnimalGUI {
         }while (userChoice != 0);
     }
 
+    /**
+     * This method recieves an input from the user and makes that input into a animal class of thee appropriate type.
+     *
+     */
     private void addAnimal(){
         boolean isDone = false;
         String animalName;
@@ -108,6 +127,11 @@ public class AnimalGUI {
             }
         }
     }
+
+    /**
+     * This method gets a user input for which animal the user wants to add feeding for, iterates through the possible
+     * food choices and adds the selected food type and amount to the class
+     */
     private void addFeeding(){
         int animalChoice;
         int foodChoice;
@@ -155,6 +179,10 @@ public class AnimalGUI {
                 break;
         }
     }
+
+    /**
+     * This method grabs the food from an individual animal specified from the user and prints it to the screen.
+     */
     private void indiGrocery(){
         int animalChoice;
         System.out.println("Choose your animal: ");
@@ -170,6 +198,11 @@ public class AnimalGUI {
             System.out.println(foodTypesIntegerHashMap.get(key[i]));
         }
     }
+
+    /**
+     * This method iterates through all of the animals keeping a running count of food eaten by animals. Then prints the
+     * count to the screen.
+     */
     private void fullGrocery(){
         int[] amounts = new int[5];
 
@@ -191,6 +224,10 @@ public class AnimalGUI {
             }
         }
     }
+
+    /**
+     * Print to the screen what the animal can eat.
+     */
     private void checkFeeding(){
         int animalChoice;
         System.out.println("Choose your animal: ");
