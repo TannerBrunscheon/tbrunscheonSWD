@@ -1,5 +1,5 @@
 /**
- * Created by tbrunscheon on 11/11/16.
+ * Main Driver for the ConveterUI class
  */
 public class ConverterDriver {
     public static void main(String[] args) {
