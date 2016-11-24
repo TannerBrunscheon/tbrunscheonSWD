@@ -1,12 +1,16 @@
+import java.lang.ref.SoftReference;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by tbrunscheon on 11/11/16.
+ * Main converting class
  */
 public class Conversion{
-    public static HashMap<String,Double> types = new HashMap<String,Double>();
+    /**
+     * Hashmap of possible types and their conversions
+     */
+    public final static HashMap<String,Double> types = new HashMap<String,Double>();
     static {
         types.put("liter",1.05669);
         types.put("quart",0.946353);
@@ -19,12 +23,20 @@ public class Conversion{
         types.put("gram",0.00220462);
 
     }
-    public static HashSet<String> liquids = new HashSet<>();
+
+    /**
+     * Set of liquid measurements
+     */
+    public final static HashSet<String> liquids = new HashSet<>();
     static {
         liquids.add("liter");
         liquids.add("quart");
     }
-    public static HashSet<String> length= new HashSet<>();
+
+    /**
+     * Set of length mesurements
+     */
+    public final static HashSet<String> length= new HashSet<>();
     static {
         length.add("feet");
         length.add("inch");
@@ -32,12 +44,20 @@ public class Conversion{
         length.add("yard");
         length.add("meter");
     }
+
+    /**
+     * Set of weight measurements
+     */
     public static HashSet<String> weight= new HashSet<>();
     static {
         weight.add("pound");
         weight.add("gram");
     }
-    public static HashMap<String,Double> prefixes = new HashMap<String,Double>();
+
+    /**
+     * Set of prefixes and their values
+     */
+    public final static HashMap<String,Double> prefixes = new HashMap<String,Double>();
     static {
         prefixes.put("milli",.001);
         prefixes.put("centi",.01);
@@ -47,7 +67,16 @@ public class Conversion{
         prefixes.put("kilo",1000.);
     }
 
-    public static double Convert(String type1, String type2, double amount) {
+    /**
+     * The main method for conversion. When giver the 2 types listed , an amount and a prefix, it will convert from
+     * the first into the standard amount of the other kind.
+     * @param type1 First type given by user
+     * @param type2 Second type to check for matching types
+     * @param amount Number to convert given by user
+     * @param prefix Prefix on the first type
+     * @return The converted amount
+     */
+    public static double Convert(String type1, String type2, double amount, String prefix) {
         double fullAmount;
         double prefixAmount = 1;
         if (type1.endsWith("es")) {
@@ -61,7 +90,7 @@ public class Conversion{
             type1 = type1.substring(0, type1.length() - 1);
         }
         if((liquids.contains(type1)&& liquids.contains(type2))|| (length.contains(type1)&& length.contains(type2))||(weight.contains(type1)&& weight.contains(type2))) {
-
+            type1 =type1+prefix;
             for (int i = 0; i < 6; i++) {
                 if (type1.contains(prefixes.keySet().toArray()[i].toString())) {
                     prefixAmount = prefixes.get(prefixes.keySet().toArray()[i]);

@@ -3,13 +3,23 @@ import com.sun.org.apache.bcel.internal.generic.ConversionInstruction;
 import java.util.Scanner;
 
 /**
- * Created by tbrunscheon on 11/11/16.
+ * Gui for the conversion class. It parse for 2 strings and an integer and feeds that and its prefix into the program
  */
 public class ConverterUI {
+    /**
+     * User input.
+     */
     private Scanner scanner = new Scanner(System.in);
+
+    /**
+     * Constructor that starts the UI
+     */
     public ConverterUI() {
         runUI();
     }
+    /**
+     * Allows the user to enter a sentence for consideration and converts that sentence.
+     */
     public void runUI(){
         System.out.println("Please enter your inquiry:");
         String message = scanner.nextLine();
@@ -36,7 +46,7 @@ public class ConverterUI {
         }
 
         String amount = message.replaceAll("[^0-9]+", " ");
-        Double finalAmount = Conversion.Convert(prefix+type[1],type[0], Double.parseDouble(amount));
+        Double finalAmount = Conversion.Convert(type[1],type[0], Double.parseDouble(amount),prefix);
         System.out.println(finalAmount);
 
     }
