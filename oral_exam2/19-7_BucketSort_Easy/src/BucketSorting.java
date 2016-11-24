@@ -1,11 +1,14 @@
-import java.util.ArrayList;
-import java.util.LinkedList;
 
 /**
- * Created by Tanner on 11/13/2016.
+ * Main sorting class
  */
 public class BucketSorting {
-
+    /**
+     * Given an  array of ints, sorts them using a bucket sort algorithm by sorting them based on number
+     * in their 1 10s and 100s spots.
+     * @param array Array to be sorted
+     * @return Sorted array
+     */
     public static int[] sort(int[] array) {
         int[][] bucket = new int[10][array.length - 1];
         int[][] bucket2 = new int[10][array.length - 1];

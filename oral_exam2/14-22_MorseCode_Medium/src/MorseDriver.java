@@ -1,5 +1,5 @@
 /**
- * Created by Tanner on 11/14/2016.
+ * Main class used to test the morse code conversion algorithms.
  */
 public class MorseDriver {
 

@@ -1,7 +1,7 @@
 import javax.swing.*;
 
 /**
- * Created by Tanner on 11/3/2016.
+ * This driver creates a client
  */
 public class ClientTest {
     public static void main(String[] args) {

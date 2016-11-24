@@ -12,13 +12,38 @@ import java.util.Scanner;
  * Created by Tanner on 11/3/2016.
  */
 public class FileRetrieverServer extends JFrame{
+    /**
+     * Server socket to connect to many clients
+     */
     private ServerSocket socket;
+    /**
+     * Regular socket to send stuff to clients
+     */
     private Socket connection;
+    /**
+     * Display for client requests
+     */
     private final JTextArea displayArea = new JTextArea();
+    /**
+     * Output stream
+     */
     private ObjectOutputStream output;
+    /**
+     * Input stream
+     */
     private ObjectInputStream input;
+    /**
+     * File request
+     */
     private String fileToFind;
+    /**
+     * Scanner tp read file
+     */
     private Scanner in;
+
+    /**
+     * Constructor to create the server gui
+     */
 
     public FileRetrieverServer() {
         super("Server");
@@ -30,10 +55,14 @@ public class FileRetrieverServer extends JFrame{
         runServer();
     }
 
+    /**
+     * Runs the server by waiting for data from the client and sending appopriate responses back depending on the
+     * message
+     */
     private void runServer(){
-        try // set up server to receive connections; process connections
+        try
         {
-            socket = new ServerSocket(23555, 100); // create ServerSocket
+            socket = new ServerSocket(23555, 100);
             while (true) {
                 try {
                     connection = socket.accept();
@@ -70,6 +99,10 @@ public class FileRetrieverServer extends JFrame{
             ioException.printStackTrace();
         }
     }
+    /**
+     * Sends a given string over the network
+     * @param str String to send
+     */
     private void send(String str){
         try // send object to client
         {
@@ -79,6 +112,10 @@ public class FileRetrieverServer extends JFrame{
         } catch (IOException ioException) {
         }
     }
+    /**
+     * Write a given string to the screen.
+     * @param string Thing to write
+     */
     private void write(String string){
         SwingUtilities.invokeLater(
                 new Runnable() {
@@ -89,6 +126,11 @@ public class FileRetrieverServer extends JFrame{
                 }
         );
     }
+
+    /**
+     * Looks for the file given in the 28-13_FilerRetrieve_Easy and sends its content to the client
+     * @param fileToFind File that needs to be found.
+     */
     private void findFile(String fileToFind){
         StringBuilder contents = new StringBuilder("");
        try{

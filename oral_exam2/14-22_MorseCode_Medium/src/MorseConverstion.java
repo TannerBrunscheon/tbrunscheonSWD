@@ -2,10 +2,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Created by Tanner on 11/14/2016.
+ * Main class for converting English to Morse code or back.
  */
 public class MorseConverstion {
+    /**
+     * Hash map made to go from english to morse code with english being the key
+     */
     private static HashMap<Character,String> engtoMorMap = new HashMap<>();
+
+    /**
+     * Map the keys and values
+     */
     static {
         engtoMorMap.put('A',".-");
         engtoMorMap.put('B',"-..");
@@ -44,12 +51,26 @@ public class MorseConverstion {
         engtoMorMap.put('8',"---..");
         engtoMorMap.put('9',"----.");
     }
+
+    /**
+     * Hashmap for converting morse code to english. Morse code as the key.
+     */
     private static HashMap<String,Character> mortoEngMap = new HashMap<>();
+
+    /**
+     * Map values to keys and keys to values for converting the other direction.
+     */
     static {
         for(Character keys : engtoMorMap.keySet()){
             mortoEngMap.put(engtoMorMap.get(keys),keys);
         }
     }
+
+    /**
+     * Static function that gives the morse code equivalent to the english phrase
+     * @param english English to be converted
+     * @return Converted to morse code
+     */
     public static String engtoMorse(String english){
         english = english.toUpperCase();
         StringBuilder morse = new StringBuilder();
@@ -67,6 +88,11 @@ public class MorseConverstion {
         }
         return morse.toString();
     }
+    /**
+     * Static function that gives the English equivalent to the morse code phrase
+     * @param morse Morse code to be converted
+     * @return Converted to English
+     */
     public static String morsetoEng(String morse){
         String[] splitSet =  morse.split("   ");
         String[] inProgressSplit;

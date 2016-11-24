@@ -1,7 +1,7 @@
 import javax.swing.*;
 
 /**
- * Created by Tanner on 11/5/2016.
+ * This driver creates a server.
  */
 public class ServerTest {
     public static void main(String[] args) {

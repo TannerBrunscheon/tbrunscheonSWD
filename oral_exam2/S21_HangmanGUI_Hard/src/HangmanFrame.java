@@ -8,13 +8,37 @@ import java.util.Arrays;
  * Created by Tanner on 10/22/2016.
  */
 public class HangmanFrame extends JFrame{
+    /**
+     * The man himself
+     */
     private final HangedMan hangedMan = new HangedMan();
+    /**
+     * The message guessed so far.
+     */
     private final JTextField messageBox = new JTextField();
+    /**
+     * The input from te user
+     */
     private final JTextField input = new JTextField();
+    /**
+     * Box to display wrong guesses
+     */
     private final JTextField wrong = new JTextField();
+    /**
+     * Layout that the gui is based on
+     */
     private final GridBagLayout gridBagLayout = new GridBagLayout();
+    /**
+     * Constraints for the layout to set things up for the layout
+     */
     private final GridBagConstraints constraints = new GridBagConstraints();
+    /**
+     * Label for guesses
+     */
     private final JLabel wrongLabel = new JLabel("Wrong Guesses");
+    /**
+     *
+     */
     private final JLabel guessLabel = new JLabel("Please enter your guess:");
     private final JLabel wordKnown = new JLabel("Word known up until now.");
     private String message;
@@ -24,7 +48,9 @@ public class HangmanFrame extends JFrame{
     private int guessesCount =0;
     private boolean correct = false;
 
-
+    /**
+     * Gets the word from the user and builds the gui for the screen.
+     */
     public HangmanFrame() {
         super("Hangman Game");
         setLayout(gridBagLayout);
@@ -103,6 +129,15 @@ public class HangmanFrame extends JFrame{
         add(wrong,1,1,1,1);
 
     }
+    /**
+     * Using polymorphism, this method takes in any component to add to the frame and adds it to the
+     * layout at the row column specified with the width and height specified.
+     * @param component Component to be added to the frame
+     * @param row Row the component to be added at
+     * @param column Column the component to be added at
+     * @param width Width the of the component
+     * @param height Height of the component
+     */
     private void add(Component component, int row, int column, int width, int height){
         //Set the value of the x and y coords for where the component should be
         constraints.gridx=column;

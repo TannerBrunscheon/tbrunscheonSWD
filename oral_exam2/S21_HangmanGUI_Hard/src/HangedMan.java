@@ -2,11 +2,18 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Created by Tanner on 10/24/2016.
+ * Panel that paints the hanged man to the screen based on how many times the addPart method has been called.
  */
 public class HangedMan extends JPanel {
+    /**
+     * Running count of how many body parts have been added to the man.
+     */
     private int count = 0;
 
+    /**
+     * Edited paint component method that draws the man based on the part count and his hanging tree.
+     * @param g Graphics created by the system
+     */
     @Override
     protected void paintComponent(Graphics g){
        super.paintComponent(g);
@@ -32,6 +39,10 @@ public class HangedMan extends JPanel {
                 break;
         }
    }
+
+    /**
+     * Adds a number to the count counter and repaints the figure.
+     */
    protected void addPart(){
        count++;
        repaint();

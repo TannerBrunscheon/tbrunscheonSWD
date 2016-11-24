@@ -15,18 +15,43 @@ import java.util.logging.SocketHandler;
  * Created by Tanner on 11/3/2016.
  */
 public class FileRetrieverClient extends JFrame {
+    /**
+     * User input feild.
+     */
     private final JTextField userIn; // enters information from user
+    /**
+     * Display area
+     */
     private final JTextArea displayArea; // display information to user
+    /**
+     * Input stream
+     */
     private ObjectInputStream input;
+    /**
+     * Output stream
+     */
     private ObjectOutputStream output;
+    /**
+     * Server address
+     */
     private final String server;
+    /**
+     * Message from the server
+     */
     private String messageFrom;
+    /**
+     * Socket to connect to server peer to peer
+     */
     private Socket socket;
 
-    public FileRetrieverClient(String host) throws HeadlessException {
+    /**
+     * Constructor to create the client
+     * @param ip Ip address of the server.
+     */
+    public FileRetrieverClient(String ip) {
         super("Client");
 
-        server = host; // set server to which this client connects
+        server = ip; // set server to which this client connects
 
         userIn = new JTextField(); // create enterField
         userIn.setEditable(true);
@@ -51,6 +76,10 @@ public class FileRetrieverClient extends JFrame {
 
     }
 
+    /**
+     * Runs the client by waiting for user input and sending and receiving the data from the server
+     */
+
     public void runClient() {
         try // connect to server, get streams, process connection
         {
@@ -60,7 +89,7 @@ public class FileRetrieverClient extends JFrame {
             input = new ObjectInputStream(socket.getInputStream());
             do // process messages sent from server
             {
-                setTextFieldEditable(true);
+                setTextFieldEditable();
                 try // read message and display it
                 {
                     messageFrom = (String) input.readObject(); // read new message
@@ -91,6 +120,11 @@ public class FileRetrieverClient extends JFrame {
             } // close connection
         } // end finally
     }
+
+    /**
+     * Write a given string to the screen.
+     * @param string Thing to write
+     */
     private void write(String string){
         SwingUtilities.invokeLater(
                 new Runnable() {
@@ -101,8 +135,13 @@ public class FileRetrieverClient extends JFrame {
                 }
         );
     }
+
+    /**
+     * Sends a given string over the network
+     * @param string String to send
+     */
     private void send(String string){
-        try // send object to server
+        try
         {
             write("\nCLIENT>> "+string);
             output.writeObject(string);
@@ -112,12 +151,15 @@ public class FileRetrieverClient extends JFrame {
         }
     }
 
-    private void setTextFieldEditable(final boolean editable) {
+    /**
+     * Sets the text field editable
+     */
+    private void setTextFieldEditable() {
         SwingUtilities.invokeLater(
                 new Runnable() {
                     public void run() // sets enterField's editability
                     {
-                        userIn.setEditable(editable);
+                        userIn.setEditable(true);
                     }
                 }
         );

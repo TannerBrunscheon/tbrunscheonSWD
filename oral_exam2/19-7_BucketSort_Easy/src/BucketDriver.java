@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 /**
- * Created by Tanner on 11/14/2016.
+ * Driver for BucketSort that just generates a random array of numbers
  */
 public class BucketDriver {
     public static void main(String[] args) {

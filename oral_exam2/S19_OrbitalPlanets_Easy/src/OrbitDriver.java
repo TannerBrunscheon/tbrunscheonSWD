@@ -1,7 +1,7 @@
 import javax.swing.*;
 
 /**
- * Created by Tanner on 10/26/2016.
+ * Driver file that sets up the GUI
  */
 public class OrbitDriver {
     public static void main(String[] args) {
