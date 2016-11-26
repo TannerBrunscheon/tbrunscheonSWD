@@ -24,15 +24,19 @@ public class Planet extends SwingWorker<Void,Double[]> {
     public Void doInBackground() {
         while (true) {
             for (double time = 0; time <= 2 * Math.PI; time = time + .01) {
+                //Set up the array for the coords.One for X value one for Y
                 Double[] coords = new Double[2];
+                //Do the math on the X and Y values
                 coords[0] = 112.5 + (100 * Math.cos(time));
                 coords[1] = 112.5 + (100 * Math.sin(time));
+                //Sleep the thread this slows the orbit
                 try {
                     Thread.sleep(15);
 
                 } catch (InterruptedException exception) {
                     Thread.currentThread().interrupt();
                 }
+                //Send out calculated coords
                 publish(coords);
             }
         }
@@ -44,6 +48,7 @@ public class Planet extends SwingWorker<Void,Double[]> {
      */
     @Override
     protected void process(List<Double[]> publishedCoords){
+        //Change the X and Y values and redraw the planet.
         fullPanel.setPlanetX(publishedCoords.get(0)[0].intValue());
         fullPanel.setPlanetY(publishedCoords.get(0)[1].intValue());
         fullPanel.repaint();

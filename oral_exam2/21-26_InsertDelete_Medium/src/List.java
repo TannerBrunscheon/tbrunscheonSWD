@@ -192,8 +192,8 @@ public class List<T> {
                     current.nextNode = new ListNode<T>(data, temp);
                 }
             }
-            catch (NullPointerException){
-                new EmptyListException();
+            catch (NullPointerException e){
+                throw new EmptyListException(name);
             }
         }
 

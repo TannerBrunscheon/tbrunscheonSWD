@@ -26,8 +26,11 @@ public class StarPanel extends JPanel {
     @Override
     protected void paintComponent(Graphics g){
         super.paintComponent(g);
+        //Draw the sun
         g.setColor(Color.yellow);
         g.fillOval(100,100,50,50);
+
+        //Draw the planet
         g.setColor(Color.green);
         g.fillOval(planetX,planetY,25,25);
 

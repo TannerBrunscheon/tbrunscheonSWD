@@ -14,6 +14,7 @@ public class OrbitFrame extends JFrame{
      */
     public OrbitFrame(){
         super("Orbiting");
+        //Add the panel.
         add(starPanel);
     }
 
