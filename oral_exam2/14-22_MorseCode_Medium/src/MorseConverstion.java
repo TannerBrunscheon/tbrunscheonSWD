@@ -73,17 +73,17 @@ public class MorseConverstion {
      */
     public static String engtoMorse(String english){
         english = english.toUpperCase();
-        StringBuilder morse = new StringBuilder();
+        StringBuilder morse = new StringBuilder();//The final string.
         for (int i = 0;i<english.length();i++){
             if (english.charAt(i) == ' '){
-                morse.append("   ");
+                morse.append("   ");//If there is a space add a morse space
             }
             else if (!engtoMorMap.containsKey(english.charAt(i))){
-                throw new IllegalArgumentException("Character not found");
+                throw new IllegalArgumentException("Character not found");//Throw error if key doesn't exist
             }
             else
             {
-                morse.append(engtoMorMap.get(english.charAt(i))+" ");
+                morse.append(engtoMorMap.get(english.charAt(i))+" ");//Add character in morse
             }
         }
         return morse.toString();
@@ -94,26 +94,23 @@ public class MorseConverstion {
      * @return Converted to English
      */
     public static String morsetoEng(String morse){
-        String[] splitSet =  morse.split("   ");
-        String[] inProgressSplit;
-        ArrayList<String> splittierSet = new ArrayList<>();
-        StringBuilder finalString = new StringBuilder();
+        String[] splitSet =  morse.split("   ");//First split on 3 space which breaks to words
+        String[] inProgressSplit;// To grab the word when the word is split to letters
+        ArrayList<String> splittierSet = new ArrayList<>();//Setup the second split
+        StringBuilder finalString = new StringBuilder();// Final English string
         for(int i =0; i<splitSet.length;i++){
-            inProgressSplit = splitSet[i].split(" ");
+            inProgressSplit = splitSet[i].split(" ");//Grab the split word
             for(int j = 0; j<inProgressSplit.length;j++){
-                splittierSet.add(inProgressSplit[j]);
+                splittierSet.add(inProgressSplit[j]);//Add each converted letter to the final word
             }
         }
         for(int i = 0; i < splittierSet.size();i++){
             if (mortoEngMap.get(splittierSet.get(i)) == null){
-                finalString.append(" ");
+                finalString.append(" ");// Add a space if there is a null in the character. Made by split 1
             }
             else {
-                finalString.append(mortoEngMap.get(splittierSet.get(i)));
+                finalString.append(mortoEngMap.get(splittierSet.get(i)));//Add the character to the final word
             }
-
-        }
-        for(int i = 0; i < finalString.length(); i++){
         }
         return finalString.toString();
     }

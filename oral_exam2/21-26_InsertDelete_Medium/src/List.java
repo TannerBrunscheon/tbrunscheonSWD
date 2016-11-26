@@ -164,24 +164,36 @@ public class List<T> {
      * @param data Data to be added
      */
     public void addToPosition(int position,T data){
+        //Check if array is empty
         if (isEmpty())
             throw new EmptyListException(name);
 
 
         ListNode<T> current = firstNode;
+        //If the node we want is added at front call insert at front
         if (position ==0){
             insertAtFront(data);
         }
         else {
+
             position =position-1;
-            for (int i = 0; i < position; i++) {
-                current = current.nextNode;
+            //Cycle to the node we want to add
+            try {
+                for (int i = 0; i < position; i++) {
+                    current = current.nextNode;
+                }
+                //If its the last node call insert at back
+                if (current == lastNode) {
+                    insertAtBack(data);
+                } else {
+                    //Make a new node with the data and set the current node next node to the new node. Set the old next
+                    //node to the new nodes next node
+                    ListNode<T> temp = current.nextNode;
+                    current.nextNode = new ListNode<T>(data, temp);
+                }
             }
-            if (current == lastNode) {
-                insertAtBack(data);
-            } else {
-                ListNode<T> temp = current.nextNode;
-                current.nextNode = new ListNode<T>(data, temp);
+            catch (NullPointerException){
+                new EmptyListException();
             }
         }
 

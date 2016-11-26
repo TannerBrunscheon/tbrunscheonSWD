@@ -77,8 +77,9 @@ public class Conversion{
      * @return The converted amount
      */
     public static double Convert(String type1, String type2, double amount, String prefix) {
-        double fullAmount;
-        double prefixAmount = 1;
+        double fullAmount;//Full amount after conversion
+        double prefixAmount = 1;//Default prefix amount
+        //Remove s and es
         if (type1.endsWith("es")) {
             type1 = type1.substring(0, type1.length() - 2);
         } else if (type1.endsWith("s")) {
@@ -89,19 +90,21 @@ public class Conversion{
         } else if (type2.endsWith("s")) {
             type1 = type1.substring(0, type1.length() - 1);
         }
+        //If the 2 types match
         if((liquids.contains(type1)&& liquids.contains(type2))|| (length.contains(type1)&& length.contains(type2))||(weight.contains(type1)&& weight.contains(type2))) {
+           //Make word whole for conversion
             type1 =type1+prefix;
             for (int i = 0; i < 6; i++) {
-                if (type1.contains(prefixes.keySet().toArray()[i].toString())) {
+                if (type1.contains(prefixes.keySet().toArray()[i].toString())) {//If the word contains the prefix
                     prefixAmount = prefixes.get(prefixes.keySet().toArray()[i]);
                 }
             }
-            for (int i = 0; i < 6; i++) {
+            for (int i = 0; i < 9; i++) {
                 if (type1.contains(Conversion.types.keySet().toArray()[i].toString())) {
-                    type1 = Conversion.types.keySet().toArray()[i].toString();
+                    type1 = Conversion.types.keySet().toArray()[i].toString();//Find which units we are working with
                 }
             }
-            fullAmount = types.get(type1) * prefixAmount * amount;
+            fullAmount = types.get(type1) * prefixAmount * amount;//Calculate amount
             return fullAmount;
         }
         throw new IllegalArgumentException("Types dont match");

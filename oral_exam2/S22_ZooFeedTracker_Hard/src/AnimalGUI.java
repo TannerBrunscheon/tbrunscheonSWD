@@ -54,8 +54,8 @@ public class AnimalGUI {
     }
 
     /**
-     * This method recieves an input from the user and makes that input into a animal class of thee appropriate type.
-     *
+     * This method receives an input from the user and makes that input into a animal class of thee appropriate type.
+     * It has a default value that loops until a valid animal
      */
     private void addAnimal(){
         boolean isDone = false;
