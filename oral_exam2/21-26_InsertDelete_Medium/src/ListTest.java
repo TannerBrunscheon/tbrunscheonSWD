@@ -1,6 +1,9 @@
 // Fig. 21.5: ListTest.java
 // ListTest class to demonstrate List capabilities.
 
+/**
+ * List tester from Figure 21.5 in the book.I added a couple of lines to test add to position and remove from position
+ */
 public class ListTest {
     public static void main(String[] args) {
         List<Integer> list = new List<>();

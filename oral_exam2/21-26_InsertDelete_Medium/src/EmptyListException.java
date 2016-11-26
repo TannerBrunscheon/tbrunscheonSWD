@@ -1,13 +1,23 @@
 // Fig. 21.4: EmptyListException.java
 // Class EmptyListException declaration.
 
+/**
+ * This class creates a new exception the Empty list exception. Can be found as Figure 21.4 in the text book.
+ */
 public class EmptyListException extends RuntimeException {
     // constructor
+
+    /**
+     * Constructor with no arguments
+     */
     public EmptyListException() {
         this("List"); // call other EmptyListException constructor
     }
 
-    // constructor
+    /**
+     * Constructor
+     * @param name Name of the list
+     */
     public EmptyListException(String name) {
         super(name + " is empty"); // call superclass constructor
     }

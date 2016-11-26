@@ -1,7 +1,10 @@
 // Fig. 21.3: List.java
 // ListNode and List class declarations.
 
-// class to represent one node in a list
+/**
+ * Class to represent one node in a list. Figure 21.3 in the book.
+  */
+
 class ListNode<T> {
     // package access members; List can access these directly
     T data; // data for this node
@@ -30,24 +33,34 @@ class ListNode<T> {
     }
 } // end class ListNode<T>
 
-// class List definition
+/**
+ * Class List Defintion
+ */
 public class List<T> {
     private ListNode<T> firstNode;
     private ListNode<T> lastNode;
     private String name; // string like "list" used in printing
 
-    // constructor creates empty List with "list" as the name
+    /**
+     * Constuctor creates empty list with list as its name  Figure 21.3 in the book.
+     */
     public List() {
         this("list");
     }
 
-    // constructor creates an empty List with a name
+    /**
+     * Constructor creates empty list with name
+     * @param listName Name of the list
+     */
     public List(String listName) {
         name = listName;
         firstNode = lastNode = null;
     }
 
-    // insert item at front of List
+    /**
+     * Inset item at front  Figure 21.3 in the book.
+     * @param insertItem Data to insert
+     */
     public void insertAtFront(T insertItem) {
         if (isEmpty()) // firstNode and lastNode refer to same object
             firstNode = lastNode = new ListNode<T>(insertItem);
@@ -55,7 +68,10 @@ public class List<T> {
             firstNode = new ListNode<T>(insertItem, firstNode);
     }
 
-    // insert item at end of List
+    /**
+     * Insert item at back  Figure 21.3 in the book.
+     * @param insertItem Data to insert
+     */
     public void insertAtBack(T insertItem) {
         if (isEmpty()) // firstNode and lastNode refer to same object
             firstNode = lastNode = new ListNode<T>(insertItem);
@@ -63,7 +79,11 @@ public class List<T> {
             lastNode = lastNode.nextNode = new ListNode<T>(insertItem);
     }
 
-    // remove first node from List
+    /**
+     * Remove first node from list  Figure 21.3 in the book.
+     * @return Data from node
+     * @throws EmptyListException If list is empty
+     */
     public T removeFromFront() throws EmptyListException {
         if (isEmpty()) // throw exception if List is empty
             throw new EmptyListException(name);
@@ -79,7 +99,11 @@ public class List<T> {
         return removedItem; // return removed node data
     } // end method removeFromFront
 
-    // remove last node from List
+    /**
+     * Remove last node from list  Figure 21.3 in the book.
+     * @return Data from list
+     * @throws EmptyListException If list is empty
+     */
     public T removeFromBack() throws EmptyListException {
         if (isEmpty()) // throw exception if List is empty
             throw new EmptyListException(name);
@@ -103,6 +127,12 @@ public class List<T> {
 
         return removedItem; // return removed node data
     }
+
+    /**
+     * Remove node from position given
+     * @param position Position of the node starting at 0 that is to be removed
+     * @return Data of the node
+     */
     public T removeFromPosition(int position){
         if (isEmpty())
             throw new EmptyListException(name);
@@ -127,6 +157,12 @@ public class List<T> {
         }
 
     }
+
+    /**
+     * Add a node at a specific position.
+     * @param position Position of the node to be added to start at 0
+     * @param data Data to be added
+     */
     public void addToPosition(int position,T data){
         if (isEmpty())
             throw new EmptyListException(name);
@@ -151,12 +187,17 @@ public class List<T> {
 
     }
 
-    // determine whether list is empty
+    /**
+     * Determine if list is empty  Figure 21.3 in the book.
+     * @return True if empty or False if not
+     */
     public boolean isEmpty() {
         return firstNode == null; // return true if list is empty
     }
 
-    // output list contents
+    /**
+     * Output list contents  Figure 21.3 in the book.
+     */
     public void print() {
         if (isEmpty()) {
             System.out.printf("Empty %s%n", name);
