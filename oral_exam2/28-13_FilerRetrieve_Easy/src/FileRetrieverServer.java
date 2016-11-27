@@ -65,9 +65,10 @@ public class FileRetrieverServer extends JFrame{
             socket = new ServerSocket(23555, 100);
             while (true) {
                 try {
+                    //Connect to client
                     connection = socket.accept();
                     output = new ObjectOutputStream(connection.getOutputStream());
-                    output.flush();
+                    output.flush();//Send anything in buffer
                     input = new ObjectInputStream(connection.getInputStream());
                     write("Connection Sucessful");
                     send("Connection Sucessful");
@@ -88,8 +89,7 @@ public class FileRetrieverServer extends JFrame{
                         output.close(); // close output stream
                         input.close(); // close input stream
                         socket.close(); // close socket
-                        connection.close();
-                    } // end try
+                    }
                     catch (IOException ioException) {
                         ioException.printStackTrace();
                     }
@@ -104,10 +104,10 @@ public class FileRetrieverServer extends JFrame{
      * @param str String to send
      */
     private void send(String str){
-        try // send object to client
+        try
         {
             System.out.println(str);
-            output.writeObject("\n SERVER>>" + str);
+            output.writeObject("\n SERVER>>" + str);//Write object for flushing
             output.flush(); // flush output to client
         } catch (IOException ioException) {
         }
@@ -119,7 +119,7 @@ public class FileRetrieverServer extends JFrame{
     private void write(String string){
         SwingUtilities.invokeLater(
                 new Runnable() {
-                    public void run() // updates displayArea
+                    public void run()
                     {
                         displayArea.append(string);
                     }

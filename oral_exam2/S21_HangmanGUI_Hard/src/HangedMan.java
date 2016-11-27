@@ -19,22 +19,23 @@ public class HangedMan extends JPanel {
        super.paintComponent(g);
         setBackground(Color.white);
         g.setColor(Color.black);
+        //Gallows
         g.drawLine(185,50,185,10);
         g.drawLine(185,10,125,10);
         g.drawLine(125,10,125,250);
         g.drawLine(100,250,150,250);
         switch (count){
-            case 6:
+            case 6://Leg
                 g.drawLine(185,170,160,195);
-            case 5:
+            case 5://Leg
                 g.drawLine(185,170,210,195);
-            case 4:
+            case 4://Arm
                 g.drawLine(185,125,160,150);
-            case 3:
+            case 3://Arm
                 g.drawLine(185,125,210,150);
-            case 2:
+            case 2://Body
                 g.drawLine(185,100,185,170);
-            case 1:
+            case 1://Head
                 g.drawOval(160,50,50,50);
                 break;
         }
@@ -44,7 +45,7 @@ public class HangedMan extends JPanel {
      * Adds a number to the count counter and repaints the figure.
      */
    protected void addPart(){
-       count++;
+       count++;//Add to count overall
        repaint();
    }
 }

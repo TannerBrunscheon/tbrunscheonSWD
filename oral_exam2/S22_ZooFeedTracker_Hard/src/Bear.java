@@ -21,7 +21,6 @@ public class Bear extends Animal {
      * Returns a list in ArrayList format that is filled with the types of food the animal eats
      * @return list of possible food types
      */
-
     @Override
     public ArrayList<String> getFoodTypes(){
         ArrayList<String> arrayList = new ArrayList<>();

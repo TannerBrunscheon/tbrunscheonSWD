@@ -26,26 +26,29 @@ public class AnimalGUI {
      */
     public void UserInterface(){
 
-        int userChoice = 0;
+        int userChoice;
         do{
-            System.out.printf("Please Pick from the following list.%n1.Add new animal.%n2.Add feeding to an animal.%n3.See food eaten by animals.%n4.Generate grocery list for an individual.%n5.Generate whole grocery list.%n0.Exit Program%n");
+            //Get user choice from menu
+            System.out.printf("Please Pick from the following list.%n1.Add new animal.%n2.Add feeding to an animal.%n" +
+                    "3.See food eaten by animals.%n4.Generate grocery list for an individual.%n" +
+                    "5.Generate whole grocery list.%n0.Exit Program%n");
             userChoice= input.nextInt();
             switch (userChoice){
-                case 0:
+                case 0://Exit
                     break;
-                case 1:
+                case 1://Add animal
                     this.addAnimal();
                     break;
-                case 2:
+                case 2://Add feeding
                     this.addFeeding();
                     break;
-                case 3:
+                case 3://What can the animal eat
                     this.checkFeeding();
                     break;
-                case 4:
+                case 4://Individual grocery list
                     this.indiGrocery();
                     break;
-                case 5:
+                case 5://Full grocery list
                     this.fullGrocery();
                     break;
 
@@ -59,12 +62,14 @@ public class AnimalGUI {
      */
     private void addAnimal(){
         boolean isDone = false;
-        String animalName;
-        String animalLocation;
-        String animalType;
+        String animalName; //Name
+        String animalLocation; //Location
+        String animalType; //Type
+        //Get user type input
         System.out.println("Please enter your animals type: ");
         animalType = input.next();
         while (isDone == false) {
+            //Get animal type and take in its name and location and add it to the list of animals
             switch (animalType) {
                 case "Bear": {
                     System.out.println("Please enter your animals name: ");
@@ -122,6 +127,7 @@ public class AnimalGUI {
                 }
                 default:
                 {
+                    //Not a real animal retry
                     System.out.println("Not a valid animal!");
                 }
             }
@@ -136,14 +142,14 @@ public class AnimalGUI {
         int animalChoice;
         int foodChoice;
         int amount;
-
+        //Print list of animals and get user choice
         System.out.println("Choose your animal: ");
         for (int i =0; i<animals.size();i++)
         {
             System.out.println((i+1)+". "+animals.get(i).toString());
         }
         animalChoice = input.nextInt()-1;
-
+        //Print list of fppd and get user choice
         System.out.println("Choose your food: ");
         ArrayList<String> foodTypes = animals.get(animalChoice).getFoodTypes();
         for (int i =0; i<foodTypes.size();i++){
@@ -152,6 +158,7 @@ public class AnimalGUI {
         foodChoice = input.nextInt()-1;
 
         switch (foodTypes.get(foodChoice)){
+            //Based on the food choice get the amount of food and make them eat it
             case "Bass":
                 System.out.println("Enter amount in " + FoodTypes.BASS.getUnits());
                 amount = input.nextInt();
@@ -186,13 +193,17 @@ public class AnimalGUI {
     private void indiGrocery(){
         int animalChoice;
         System.out.println("Choose your animal: ");
+        //Print list of animals and get user choice
         for (int i =0; i<animals.size();i++)
         {
             System.out.println((i+1)+". "+animals.get(i).toString());
         }
         animalChoice = input.nextInt()-1;
+        //Get the feeding amounts for the animal
         HashMap<FoodTypes,Integer> foodTypesIntegerHashMap = animals.get(animalChoice).getFeedingTotals();
+        //Grab all the keys from the hashmap
         Object[] key = foodTypesIntegerHashMap.keySet().toArray();
+        //Print out the hashmap
         for(int i = 0; i< key.length;i++){
             System.out.print(key[i]+":  ");
             System.out.println(foodTypesIntegerHashMap.get(key[i]));
@@ -204,13 +215,18 @@ public class AnimalGUI {
      * count to the screen.
      */
     private void fullGrocery(){
+        //Amounts of feeding per type
         int[] amounts = new int[5];
-
+        //Foods
         Object[] foods = {FoodTypes.BASS,FoodTypes.ZEBRAMEAT,FoodTypes.HAY,FoodTypes.PEANUTS,FoodTypes.SHRIMP};
+        //Get all the animals feedings
         for (int i =0; i<animals.size();i++)
         {
+            //Get the ith animals feedings
             HashMap<FoodTypes,Integer> foodTypesIntegerHashMap = animals.get(i).getFeedingTotals();
+            //Get the keys from the animals
             Object[] key = foodTypesIntegerHashMap.keySet().toArray();
+            //Look for the type in the animals feeding and add it to the overall amount
             for (int k =0;k<key.length;k++){
                 Object keything = key[k];
                 for(int l =0; l<foods.length;l++) {
@@ -219,6 +235,7 @@ public class AnimalGUI {
                     }
                 }
             }
+            //Print out the feeding amounts
             for(int j = 0; j< foods.length;j++){
                 System.out.printf(foods[j]+": "+amounts[j] + "%n");
             }
@@ -231,12 +248,15 @@ public class AnimalGUI {
     private void checkFeeding(){
         int animalChoice;
         System.out.println("Choose your animal: ");
+        //Print list of animals and get user choice
         for (int i =0; i<animals.size();i++)
         {
             System.out.println((i+1)+". "+animals.get(i).toString());
         }
         animalChoice = input.nextInt()-1;
+        //Get the foods that the animal can eat
         ArrayList<String> foodTypes = animals.get(animalChoice).getFoodTypes();
+        //Print foods that that animal can eat
         for (int i =0; i<foodTypes.size();i++){
             System.out.println((i+1)+". "+foodTypes.get(i));
         }

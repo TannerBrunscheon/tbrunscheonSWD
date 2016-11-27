@@ -37,15 +37,36 @@ public class HangmanFrame extends JFrame{
      */
     private final JLabel wrongLabel = new JLabel("Wrong Guesses");
     /**
-     *
+     * Label for user input
      */
     private final JLabel guessLabel = new JLabel("Please enter your guess:");
+    /**
+     * Label for word known
+     */
     private final JLabel wordKnown = new JLabel("Word known up until now.");
+    /**
+     * Message inputed
+     */
     private String message;
+    /**
+     * Guess so far
+     */
     private String guessStr;
+    /**
+     * Wrong guesses array
+     */
     private char[] wrongChar = new char[6];
+    /**
+     * Message and guessed so far character string
+     */
     private char[] messageChar,guessChar;
+    /**
+     * Amount of guesses 6 max
+     */
     private int guessesCount =0;
+    /**
+     * Is the user correct?
+     */
     private boolean correct = false;
 
     /**
@@ -53,9 +74,11 @@ public class HangmanFrame extends JFrame{
      */
     public HangmanFrame() {
         super("Hangman Game");
-        setLayout(gridBagLayout);
+        setLayout(gridBagLayout);//Layout
+        //Get user word for the game
         message = JOptionPane.showInputDialog("Enter your game word!");
         messageChar = message.toUpperCase().toCharArray();
+        //Make a guess array that is the length of the message and fill it with undercores
         guessChar = new char[messageChar.length];
         for(int i =0;i<messageChar.length;i++){
             if(messageChar[i]==' ')
@@ -67,21 +90,26 @@ public class HangmanFrame extends JFrame{
             }
         }
         guessStr = "";
+        //Make the guess string with the characters in the guess character array
         for (int j =0;j<guessChar.length;j++)
         {
             guessStr = guessStr+guessChar[j]+' ';
         }
+        //Fill the message box with guessed so fat
         messageBox.setText(guessStr);
         messageBox.setEditable(false);
+        //Set the wrong box with the array of wrong guesses
         wrong.setText(Arrays.toString(wrongChar));
         wrong.setEditable(false);
-
+        //Listen for enter for input
         input.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //Check if character entered at the first positiong is in the message
                 char inString= input.getText().toUpperCase().charAt(0);
                 boolean inMessage = false;
                 for (int i =0;i < messageChar.length;i++){
+                    //If the character is in the string add it to the guess string at all the spots its in the message
                     if (inString == messageChar[i]){
                         guessChar[i] = inString;
                         guessStr = "";
@@ -93,6 +121,7 @@ public class HangmanFrame extends JFrame{
                         inMessage = true;
                     }
                 }
+                //If not add a part to the man and add the character to the wrong array
                 if (inMessage == false){
                     wrongChar[guessesCount] = inString;
                     guessesCount++;
@@ -100,6 +129,7 @@ public class HangmanFrame extends JFrame{
                     wrong.setText(Arrays.toString(wrongChar));
                 }
                 correct = false;
+                //Check if guess char is full of characters meaning word is complete and if it is display to the user
                 for(int i =0;i<messageChar.length;i++){
                     if (guessChar[i] == '_'){
                         correct = true;
@@ -109,6 +139,7 @@ public class HangmanFrame extends JFrame{
                     JOptionPane.showMessageDialog(null,"Correct! Guesses win!");
                     return;
                 }
+                //If user is out of guesses desplay that they lost
                 if(guessesCount == 6){
                     JOptionPane.showMessageDialog(null,"Guessers lose!");
                     messageBox.setText(Arrays.toString(messageChar));
@@ -119,7 +150,8 @@ public class HangmanFrame extends JFrame{
         });
 
 
-        constraints.fill = GridBagConstraints.BOTH;
+        constraints.fill = GridBagConstraints.BOTH; //Set up constraints
+        //Add everything in its proper spots
         add(hangedMan,0,0,1,2);
         add(guessLabel,0,2,1,1);
         add(input,1,2,1,1);
