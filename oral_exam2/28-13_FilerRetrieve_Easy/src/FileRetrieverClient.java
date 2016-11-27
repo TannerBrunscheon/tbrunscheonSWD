@@ -53,7 +53,7 @@ public class FileRetrieverClient extends JFrame {
 
         server = ip; // set server to which this client connects
 
-        userIn = new JTextField(); // create enterField
+        userIn = new JTextField(); // create userInputfield
         userIn.setEditable(true);
         userIn.addActionListener(
                 new ActionListener() {
@@ -61,15 +61,15 @@ public class FileRetrieverClient extends JFrame {
                     public void actionPerformed(ActionEvent event) {
                         send(userIn.getText());
                         userIn.setText("");
-                    } // end method actionPerformed
-                } // end anonymous inner class
-        ); // end call to addActionListener
+                    }
+                }
+        );
 
         add(userIn,BorderLayout.NORTH);
 
         displayArea = new JTextArea(); // create displayArea
         displayArea.setEditable(false);
-        add(new JScrollPane(displayArea),BorderLayout.CENTER);
+        add(new JScrollPane(displayArea),BorderLayout.CENTER);//Add the components
 
         setSize(300, 150); // set size of window
         setVisible(true); // show window
@@ -81,44 +81,43 @@ public class FileRetrieverClient extends JFrame {
      */
 
     public void runClient() {
-        try // connect to server, get streams, process connection
+        try
         {
+            //Connect to server
             socket = new Socket(InetAddress.getByName(server), 23555);
             output = new ObjectOutputStream(socket.getOutputStream());
             output.flush();
             input = new ObjectInputStream(socket.getInputStream());
-            do // process messages sent from server
+            do
             {
-                setTextFieldEditable();
-                try // read message and display it
+                setTextFieldEditable(); //Set text editable using mulithreading
+                try // read message from server and write it
                 {
                     messageFrom = (String) input.readObject(); // read new message
                     write(messageFrom);
-//                    write("\n" + server); // display message
-                } // end try
+
+                }
                 catch (ClassNotFoundException classNotFoundException) {
-                    write("\nUnknown object received");
-                } // end catch
-            }while (!messageFrom.equals("SERVER>> TERMINATE"));
+                    write("\nError from server");
+                }
+            }while (!messageFrom.equals("SERVER>> TERMINATE"));//Check for termination
         } // end try
-        catch (EOFException eofException) {
-            System.exit('0');
-        } // end catch
         catch (IOException ioException) {
+            //If connection not found quit.
             ioException.printStackTrace();
             write("\nConnection not found. Quitting.....");
             System.exit(-1);
-        } // end catch
+        }
         finally {
             try {
                 output.close(); // close output stream
                 input.close(); // close input stream
                 socket.close(); // close socket
-            } // end try
+            }
             catch (IOException ioException) {
                 ioException.printStackTrace();
-            } // close connection
-        } // end finally
+            }
+        }
     }
 
     /**
@@ -126,9 +125,9 @@ public class FileRetrieverClient extends JFrame {
      * @param string Thing to write
      */
     private void write(String string){
-        SwingUtilities.invokeLater(
+        SwingUtilities.invokeLater(//Write to display
                 new Runnable() {
-                    public void run() // updates displayArea
+                    public void run()
                     {
                         displayArea.append(string);
                     }
@@ -144,7 +143,7 @@ public class FileRetrieverClient extends JFrame {
         try
         {
             write("\nCLIENT>> "+string);
-            output.writeObject(string);
+            output.writeObject(string);//Write data for flushing
             output.flush(); // flush data to output
         } catch (IOException ioException) {
             write("\nError writing object");
@@ -155,9 +154,9 @@ public class FileRetrieverClient extends JFrame {
      * Sets the text field editable
      */
     private void setTextFieldEditable() {
-        SwingUtilities.invokeLater(
+        SwingUtilities.invokeLater(//Multithreading
                 new Runnable() {
-                    public void run() // sets enterField's editability
+                    public void run()
                     {
                         userIn.setEditable(true);
                     }
