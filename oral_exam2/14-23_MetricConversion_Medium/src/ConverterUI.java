@@ -52,7 +52,7 @@ public class ConverterUI {
         String amount = message.replaceAll("[^0-9]+", " ");
         Double finalAmount = Conversion.Convert(type[1],type[0], Double.parseDouble(amount),prefix);
         //Print out amount
-        System.out.println(finalAmount+ " " +type[0]);
+        System.out.println(finalAmount+ " " +type[1]);
 
     }
 }
