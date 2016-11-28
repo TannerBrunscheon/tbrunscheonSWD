@@ -110,6 +110,7 @@ public class FileRetrieverServer extends JFrame{
             output.writeObject("\n SERVER>>" + str);//Write object for flushing
             output.flush(); // flush output to client
         } catch (IOException ioException) {
+            write("Sending failure");
         }
     }
     /**
