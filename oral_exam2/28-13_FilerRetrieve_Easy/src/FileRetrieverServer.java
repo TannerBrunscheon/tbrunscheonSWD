@@ -88,7 +88,7 @@ public class FileRetrieverServer extends JFrame{
                         send("TERMINATE");
                         output.close(); // close output stream
                         input.close(); // close input stream
-                        socket.close(); // close socket
+                        connection.close(); // close socket
                     }
                     catch (IOException ioException) {
                         ioException.printStackTrace();

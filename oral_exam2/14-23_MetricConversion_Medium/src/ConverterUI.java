@@ -41,7 +41,7 @@ public class ConverterUI {
                 k++;
             }
         }
-        //Grab the second units
+        //If the first unit comes before the second then switch the order
         if (message.toLowerCase().indexOf(type[0])<message.toLowerCase().indexOf(type[1])){
             String temp = type[0];
             type[0]=type[1];
