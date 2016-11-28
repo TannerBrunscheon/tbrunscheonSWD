@@ -26,6 +26,10 @@ public class ListTest {
             System.out.printf("%n%d removed%n", removedItem);
             list.print();
 
+            removedItem = list.removeFromPosition(3);
+            System.out.printf("%n%d removed%n", removedItem);
+            list.print();
+
             removedItem = list.removeFromFront();
             System.out.printf("%n%d removed%n", removedItem);
             list.print();

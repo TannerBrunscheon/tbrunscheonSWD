@@ -231,14 +231,15 @@ public class AnimalGUI {
                 Object keything = key[k];
                 for(int l =0; l<foods.length;l++) {
                     if (keything == foods[l]) {
-                        amounts[l] = amounts[l] + foodTypesIntegerHashMap.get(key[l]);
+                        amounts[l] = amounts[l] + foodTypesIntegerHashMap.get(keything);
                     }
                 }
             }
-            //Print out the feeding amounts
-            for(int j = 0; j< foods.length;j++){
-                System.out.printf(foods[j]+": "+amounts[j] + "%n");
-            }
+
+        }
+        //Print out the feeding amounts
+        for(int j = 0; j< foods.length;j++){
+            System.out.printf(foods[j]+": "+amounts[j] + "%n");
         }
     }
 

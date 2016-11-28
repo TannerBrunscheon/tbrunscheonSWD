@@ -146,7 +146,7 @@ public class List<T> {
             for (int i = 0; i < position - 1; i++) {
                 current = current.nextNode;
             }
-            if (current == lastNode) {
+            if (current.nextNode == lastNode) {
                 return removeFromBack();
             }
             else {
