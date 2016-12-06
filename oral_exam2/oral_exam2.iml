@@ -5,8 +5,8 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/S21_HangmanGUI_Hard/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/S19_OrbitalPlanets_Easy/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/28-13_FilerRetrieve_Easy/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/S19_OrbitingPlanets_Easy/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/28-13_FileRetrieve_Easy/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/19-7_BucketSort_Easy/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/14-22_MorseCode_Medium/src" isTestSource="false" />
     </content>
