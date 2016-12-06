@@ -88,7 +88,7 @@ public class FileRetrieverServer extends JFrame{
                         send("TERMINATE");
                         output.close(); // close output stream
                         input.close(); // close input stream
-                        socket.close(); // close socket
+                        connection.close(); // close socket
                     }
                     catch (IOException ioException) {
                         ioException.printStackTrace();
@@ -110,6 +110,7 @@ public class FileRetrieverServer extends JFrame{
             output.writeObject("\n SERVER>>" + str);//Write object for flushing
             output.flush(); // flush output to client
         } catch (IOException ioException) {
+            write("Sending failure");
         }
     }
     /**

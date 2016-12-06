@@ -90,12 +90,12 @@ public class Conversion{
         } else if (type2.endsWith("s")) {
             type1 = type1.substring(0, type1.length() - 1);
         }
-        //If the 2 types match
+        // Check if the 2 types match
         if((liquids.contains(type1)&& liquids.contains(type2))|| (length.contains(type1)&& length.contains(type2))||(weight.contains(type1)&& weight.contains(type2))) {
            //Make word whole for conversion
             type1 =type1+prefix;
             for (int i = 0; i < 6; i++) {
-                if (type1.contains(prefixes.keySet().toArray()[i].toString())) {//If the word contains the prefix
+                if (type1.contains(prefixes.keySet().toArray()[i].toString())) {//Grab the prefix value if the word contains a prefix
                     prefixAmount = prefixes.get(prefixes.keySet().toArray()[i]);
                 }
             }
@@ -104,7 +104,7 @@ public class Conversion{
                     type1 = Conversion.types.keySet().toArray()[i].toString();//Find which units we are working with
                 }
             }
-            fullAmount = types.get(type1) * prefixAmount * amount;//Calculate amount
+            fullAmount = types.get(type1) * prefixAmount * amount; //Calculate amount
             return fullAmount;
         }
         throw new IllegalArgumentException("Types dont match");

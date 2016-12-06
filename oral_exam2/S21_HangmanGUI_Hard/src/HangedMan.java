@@ -17,6 +17,7 @@ public class HangedMan extends JPanel {
     @Override
     protected void paintComponent(Graphics g){
        super.paintComponent(g);
+        //Background
         setBackground(Color.white);
         g.setColor(Color.black);
         //Gallows

@@ -41,7 +41,7 @@ public class ConverterUI {
                 k++;
             }
         }
-        //Grab the second units
+        //If the first unit comes before the second then switch the order
         if (message.toLowerCase().indexOf(type[0])<message.toLowerCase().indexOf(type[1])){
             String temp = type[0];
             type[0]=type[1];
@@ -52,7 +52,7 @@ public class ConverterUI {
         String amount = message.replaceAll("[^0-9]+", " ");
         Double finalAmount = Conversion.Convert(type[1],type[0], Double.parseDouble(amount),prefix);
         //Print out amount
-        System.out.println(finalAmount+ " " +type[0]);
+        System.out.println(finalAmount+ " " +type[1]);
 
     }
 }
